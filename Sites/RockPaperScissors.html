@@ -64,7 +64,6 @@ style="position:absolute;font-size:15px; right:0.2%;top:0.5%;padding:5px 10px">X
       userChoice = document.querySelectorAll('.pick-one')[id].innerText
       document.getElementById('choice').classList.add('hidePart')
       document.getElementById('winner').classList.remove('hidePart')
-      console.log("user choice: "+userChoice)
       findWinner()
       setImages()
     }
@@ -82,7 +81,6 @@ style="position:absolute;font-size:15px; right:0.2%;top:0.5%;padding:5px 10px">X
     const choices = ["rock","paper","scissors"]
     let random = Math.floor(Math.random()* (3))
     compChoice = choices[random]
-    console.log("computer Choice: " + compChoice)
     }
 
     function findWinner(){
@@ -98,7 +96,6 @@ style="position:absolute;font-size:15px; right:0.2%;top:0.5%;padding:5px 10px">X
         outcome="lose"
         lose()
       }
-      console.log(outcome)
     }
 
     function tie(){
