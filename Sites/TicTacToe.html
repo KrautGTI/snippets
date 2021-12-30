@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/snippets/Sites/Tools/favicon.png">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <button id="close" onclick="location.href='/snippets/index.html';"
+    style="position:absolute;right:0.2%;top:0.5%;">X</span></button>
+    <div class="container">
+    <h1 id="winnerText">Let's play!</h1>
+    <div id="buttonContainer">
+        <button id="restartBtn">Play Again</button>
+        <button id="playModeBtn">2 Player</button>
+    </div>
+    <div id="board">
+        <div class="box" id='0' refno="b0">0</div>
+        <div class="box" id='1' refno="b1">1</div>
+        <div class="box" id='2' refno="b2">2</div>
+        <div class="box" id='3' refno="b3">3</div>
+        <div class="box" id='4' refno="b4">4</div>
+        <div class="box" id='5' refno="b5">5</div>
+        <div class="box" id='6' refno="b6">6</div>
+        <div class="box" id='7' refno="b7">7</div>
+        <div class="box" id='8' refno="b8">8</div>
+    </div>
+</div>
+<script></script>    
+</body>
+<style>
+    body{
+        background-image: url("Tools/BackgroundDarkMountain.png");
+        margin: 0;
+        padding:0;
+        color:#3e0249;
+        font-family: sans-serif;
+    }
+
+    *{
+        box-sizing: border-box;
+    }
+
+    h1{
+        color:whitesmoke;
+        font-size: 34px;
+        text-transform: uppercase;
+    }
+
+    button:not(#close){
+        width:130px;
+        background: #3e0249;
+        color: white;
+        padding: 10px 20px;
+        border-radius:10px;
+        border:none;
+        font-size: 18px;
+        transition: 200ms transform;
+        cursor:pointer;
+        outline: #3e0249;
+    }
+
+    button:hover:not(#close){
+        transform: translateY(1px);
+        border:none;
+
+    }
+
+    button:active:not(#close){
+        border:none;
+        outline: #3e0249;
+        border:none;
+        transform: translateY(3px);
+    }
+
+    .container{
+        height:100vh;
+        padding:40px;
+        align-items: center;        
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #board{
+        padding-top:20px;
+        width:375px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .box{
+        height:125px;
+        width:125px;
+        display: flex;
+        align-items: center;        
+        justify-content: center;
+        color: whitesmoke;
+        font-size: 100px;
+    }
+
+    [refno=b3],[refno=b4],[refno=b5]{
+        border-top:solid 5px #3e0249;
+        border-bottom:solid 5px #3e0249;
+    }
+
+    [refno=b1],[refno=b4],[refno=b7]{
+        border-right:solid 5px #3e0249;
+        border-left:solid 5px #3e0249;
+    }
+</style>
+</html>
