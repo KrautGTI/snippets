@@ -22,7 +22,7 @@
             <option value="Dumb">Dumb</option>
             <option value="Easy">Easy</option>
             <option value="Normal" selected>Normal</option>
-            <option value="Hard">Hard - WIP</option>
+            <option value="Hard">Hard</option>
         </select>
         <div id="board">
             <div class="box" id='0' refno="b0"></div>
@@ -127,7 +127,32 @@
 
             else if (difficulty.value == "Easy") {
 
-                if (boxes[4].innerText == X_char && boxes[1].innerText == X_char && boxes[7].innerText == '') { randBox = 7 }
+//Offensive Top Left Common
+                if (boxes[0].innerText == X_char && boxes[1].innerText == X_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[0].innerText == X_char && boxes[2].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
+                else if (boxes[0].innerText == X_char && boxes[3].innerText == X_char && boxes[6].innerText == '') { randBox = 6 }
+                else if (boxes[0].innerText == X_char && boxes[6].innerText == X_char && boxes[3].innerText == '') { randBox = 3 }
+                else if (boxes[0].innerText == X_char && boxes[4].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[0].innerText == X_char && boxes[8].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                //Offensive Top Centre Common
+                else if (boxes[1].innerText == X_char && boxes[0].innerText == X_char && boxes[2].innerText == '') { randBox = 2}
+                else if (boxes[1].innerText == X_char && boxes[2].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
+                else if (boxes[1].innerText == X_char && boxes[4].innerText == X_char && boxes[7].innerText == '') { randBox = 7 }
+                else if (boxes[1].innerText == X_char && boxes[7].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                //Offensive Top Right Common
+                else if (boxes[2].innerText == X_char && boxes[1].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
+                else if (boxes[2].innerText == X_char && boxes[0].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
+                else if (boxes[2].innerText == X_char && boxes[5].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[2].innerText == X_char && boxes[8].innerText == X_char && boxes[5].innerText == '') { randBox = 5 }
+                else if (boxes[2].innerText == X_char && boxes[4].innerText == X_char && boxes[6].innerText == '') { randBox = 6 }
+                else if (boxes[2].innerText == X_char && boxes[6].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                //Offensive Middle Left Common
+                else if (boxes[3].innerText == X_char && boxes[0].innerText == X_char && boxes[6].innerText == '') { randBox = 6}
+                else if (boxes[3].innerText == X_char && boxes[6].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
+                else if (boxes[3].innerText == X_char && boxes[4].innerText == X_char && boxes[5].innerText == '') { randBox = 5 }
+                else if (boxes[3].innerText == X_char && boxes[5].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                //Offensive Middle Centre Common    
+                else if (boxes[4].innerText == X_char && boxes[1].innerText == X_char && boxes[7].innerText == '') { randBox = 7 }
                 else if (boxes[4].innerText == X_char && boxes[7].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
                 else if (boxes[4].innerText == X_char && boxes[3].innerText == X_char && boxes[5].innerText == '') { randBox = 5 }
                 else if (boxes[4].innerText == X_char && boxes[5].innerText == X_char && boxes[3].innerText == '') { randBox = 3 }
@@ -135,31 +160,30 @@
                 else if (boxes[4].innerText == X_char && boxes[2].innerText == X_char && boxes[6].innerText == '') { randBox = 6 }
                 else if (boxes[4].innerText == X_char && boxes[0].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
                 else if (boxes[4].innerText == X_char && boxes[8].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
-                //Offensive Top Left Common
-                else if (boxes[0].innerText == X_char && boxes[1].innerText == X_char && boxes[2].innerText == '') { randBox = 2 }
-                else if (boxes[0].innerText == X_char && boxes[2].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
-                else if (boxes[0].innerText == X_char && boxes[3].innerText == X_char && boxes[6].innerText == '') { randBox = 6 }
-                else if (boxes[0].innerText == X_char && boxes[6].innerText == X_char && boxes[3].innerText == '') { randBox = 3 }
-                //Offensive Top Right Common
-                else if (boxes[2].innerText == X_char && boxes[1].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
-                else if (boxes[2].innerText == X_char && boxes[0].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
-                else if (boxes[2].innerText == X_char && boxes[5].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
-                else if (boxes[2].innerText == X_char && boxes[8].innerText == X_char && boxes[5].innerText == '') { randBox = 5 }
+                //Offensive Middle Right Common
+                else if (boxes[5].innerText == X_char && boxes[2].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[5].innerText == X_char && boxes[8].innerText == X_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[5].innerText == X_char && boxes[3].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                else if (boxes[5].innerText == X_char && boxes[4].innerText == X_char && boxes[3].innerText == '') { randBox = 3 }
                 //Offensive Bottom left Common
                 else if (boxes[6].innerText == X_char && boxes[3].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
                 else if (boxes[6].innerText == X_char && boxes[0].innerText == X_char && boxes[3].innerText == '') { randBox = 3 }
                 else if (boxes[6].innerText == X_char && boxes[7].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
                 else if (boxes[6].innerText == X_char && boxes[8].innerText == X_char && boxes[7].innerText == '') { randBox = 7 }
+                else if (boxes[6].innerText == X_char && boxes[4].innerText == X_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[6].innerText == X_char && boxes[2].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                //Offensive Bottom Centre Common
+                else if (boxes[7].innerText == X_char && boxes[1].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                else if (boxes[7].innerText == X_char && boxes[4].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
+                else if (boxes[7].innerText == X_char && boxes[6].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[7].innerText == X_char && boxes[8].innerText == X_char && boxes[7].innerText == '') { randBox = 7 }
                 //Offensive Bottom Right Common
                 else if (boxes[8].innerText == X_char && boxes[5].innerText == X_char && boxes[2].innerText == '') { randBox = 2 }
                 else if (boxes[8].innerText == X_char && boxes[2].innerText == X_char && boxes[5].innerText == '') { randBox = 5 }
                 else if (boxes[8].innerText == X_char && boxes[7].innerText == X_char && boxes[6].innerText == '') { randBox = 6 }
                 else if (boxes[8].innerText == X_char && boxes[6].innerText == X_char && boxes[7].innerText == '') { randBox = 7 }
-                //Defensive Top Right Common
-                else if (boxes[2].innerText == O_char && boxes[1].innerText == O_char && boxes[0].innerText == '') { randBox = 0 }
-                else if (boxes[2].innerText == O_char && boxes[0].innerText == O_char && boxes[1].innerText == '') { randBox = 1 }
-                else if (boxes[2].innerText == O_char && boxes[5].innerText == O_char && boxes[8].innerText == '') { randBox = 8 }
-                else if (boxes[2].innerText == O_char && boxes[8].innerText == O_char && boxes[5].innerText == '') { randBox = 5 }
+                else if (boxes[8].innerText == X_char && boxes[0].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                else if (boxes[8].innerText == X_char && boxes[4].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
 
                 else {
                     empty = getAllIndexes(spaces, null)
@@ -170,8 +194,16 @@
             }
 
             else if (difficulty.value == "Normal") {
-                //Starting
-                if ((boxes[0].innerText != '' || boxes[2].innerText != '' || boxes[6].innerText != '' || boxes[8].innerText != '') && boxes[4].innerText == '') { randBox = 4 }
+                //Offensive Top Left Common
+                if (boxes[0].innerText == X_char && boxes[1].innerText == X_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[0].innerText == X_char && boxes[2].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
+                else if (boxes[0].innerText == X_char && boxes[3].innerText == X_char && boxes[6].innerText == '') { randBox = 6 }
+                else if (boxes[0].innerText == X_char && boxes[6].innerText == X_char && boxes[3].innerText == '') { randBox = 3 }
+                //Offensive Top Right Common
+                else if (boxes[2].innerText == X_char && boxes[1].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
+                else if (boxes[2].innerText == X_char && boxes[0].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
+                else if (boxes[2].innerText == X_char && boxes[5].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[2].innerText == X_char && boxes[8].innerText == X_char && boxes[5].innerText == '') { randBox = 5 }
                 //Offensive Middle Common    
                 else if (boxes[4].innerText == X_char && boxes[1].innerText == X_char && boxes[7].innerText == '') { randBox = 7 }
                 else if (boxes[4].innerText == X_char && boxes[7].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
@@ -181,17 +213,7 @@
                 else if (boxes[4].innerText == X_char && boxes[2].innerText == X_char && boxes[6].innerText == '') { randBox = 6 }
                 else if (boxes[4].innerText == X_char && boxes[0].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
                 else if (boxes[4].innerText == X_char && boxes[8].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
-                //Offensive Top Left Common
-                else if (boxes[0].innerText == X_char && boxes[1].innerText == X_char && boxes[2].innerText == '') { randBox = 2 }
-                else if (boxes[0].innerText == X_char && boxes[2].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
-                else if (boxes[0].innerText == X_char && boxes[3].innerText == X_char && boxes[6].innerText == '') { randBox = 6 }
-                else if (boxes[0].innerText == X_char && boxes[6].innerText == X_char && boxes[3].innerText == '') { randBox = 3 }
 
-                //Offensive Top Right Common
-                else if (boxes[2].innerText == X_char && boxes[1].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
-                else if (boxes[2].innerText == X_char && boxes[0].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
-                else if (boxes[2].innerText == X_char && boxes[5].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
-                else if (boxes[2].innerText == X_char && boxes[8].innerText == X_char && boxes[5].innerText == '') { randBox = 5 }
                 //Offensive Bottom left Common
                 else if (boxes[6].innerText == X_char && boxes[3].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
                 else if (boxes[6].innerText == X_char && boxes[0].innerText == X_char && boxes[3].innerText == '') { randBox = 3 }
@@ -203,15 +225,6 @@
                 else if (boxes[8].innerText == X_char && boxes[7].innerText == X_char && boxes[6].innerText == '') { randBox = 6 }
                 else if (boxes[8].innerText == X_char && boxes[6].innerText == X_char && boxes[7].innerText == '') { randBox = 7 }
 
-                //Defensive Middle One Common
-                else if (boxes[4].innerText == O_char && boxes[1].innerText == O_char && boxes[7].innerText == '') { randBox = 7 }
-                else if (boxes[4].innerText == O_char && boxes[7].innerText == O_char && boxes[1].innerText == '') { randBox = 1 }
-                else if (boxes[4].innerText == O_char && boxes[3].innerText == O_char && boxes[5].innerText == '') { randBox = 5 }
-                else if (boxes[4].innerText == O_char && boxes[5].innerText == O_char && boxes[3].innerText == '') { randBox = 3 }
-                else if (boxes[4].innerText == O_char && boxes[6].innerText == O_char && boxes[2].innerText == '') { randBox = 2 }
-                else if (boxes[4].innerText == O_char && boxes[2].innerText == O_char && boxes[6].innerText == '') { randBox = 6 }
-                else if (boxes[4].innerText == O_char && boxes[0].innerText == O_char && boxes[8].innerText == '') { randBox = 8 }
-                else if (boxes[4].innerText == O_char && boxes[8].innerText == O_char && boxes[0].innerText == '') { randBox = 0 }
                 //Defensive Top Left Common
                 else if (boxes[0].innerText == O_char && boxes[1].innerText == O_char && boxes[2].innerText == '') { randBox = 2 }
                 else if (boxes[0].innerText == O_char && boxes[2].innerText == O_char && boxes[1].innerText == '') { randBox = 1 }
@@ -222,6 +235,15 @@
                 else if (boxes[2].innerText == O_char && boxes[0].innerText == O_char && boxes[1].innerText == '') { randBox = 1 }
                 else if (boxes[2].innerText == O_char && boxes[5].innerText == O_char && boxes[8].innerText == '') { randBox = 8 }
                 else if (boxes[2].innerText == O_char && boxes[8].innerText == O_char && boxes[5].innerText == '') { randBox = 5 }
+                //Defensive Middle One Common
+                else if (boxes[4].innerText == O_char && boxes[1].innerText == O_char && boxes[7].innerText == '') { randBox = 7 }
+                else if (boxes[4].innerText == O_char && boxes[7].innerText == O_char && boxes[1].innerText == '') { randBox = 1 }
+                else if (boxes[4].innerText == O_char && boxes[3].innerText == O_char && boxes[5].innerText == '') { randBox = 5 }
+                else if (boxes[4].innerText == O_char && boxes[5].innerText == O_char && boxes[3].innerText == '') { randBox = 3 }
+                else if (boxes[4].innerText == O_char && boxes[6].innerText == O_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[4].innerText == O_char && boxes[2].innerText == O_char && boxes[6].innerText == '') { randBox = 6 }
+                else if (boxes[4].innerText == O_char && boxes[0].innerText == O_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[4].innerText == O_char && boxes[8].innerText == O_char && boxes[0].innerText == '') { randBox = 0 }
                 //Defensive Bottom left Common
                 else if (boxes[6].innerText == O_char && boxes[3].innerText == O_char && boxes[0].innerText == '') { randBox = 0 }
                 else if (boxes[6].innerText == O_char && boxes[0].innerText == O_char && boxes[3].innerText == '') { randBox = 3 }
@@ -241,7 +263,129 @@
                 }
             }
             else if (difficulty.value == "Hard") {
+                //Offensive Top Left Common
+                if (boxes[0].innerText == X_char && boxes[1].innerText == X_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[0].innerText == X_char && boxes[2].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
+                else if (boxes[0].innerText == X_char && boxes[3].innerText == X_char && boxes[6].innerText == '') { randBox = 6 }
+                else if (boxes[0].innerText == X_char && boxes[6].innerText == X_char && boxes[3].innerText == '') { randBox = 3 }
+                else if (boxes[0].innerText == X_char && boxes[4].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[0].innerText == X_char && boxes[8].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                //Offensive Top Centre Common
+                else if (boxes[1].innerText == X_char && boxes[0].innerText == X_char && boxes[2].innerText == '') { randBox = 2}
+                else if (boxes[1].innerText == X_char && boxes[2].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
+                else if (boxes[1].innerText == X_char && boxes[4].innerText == X_char && boxes[7].innerText == '') { randBox = 7 }
+                else if (boxes[1].innerText == X_char && boxes[7].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                //Offensive Top Right Common
+                else if (boxes[2].innerText == X_char && boxes[1].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
+                else if (boxes[2].innerText == X_char && boxes[0].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
+                else if (boxes[2].innerText == X_char && boxes[5].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[2].innerText == X_char && boxes[8].innerText == X_char && boxes[5].innerText == '') { randBox = 5 }
+                else if (boxes[2].innerText == X_char && boxes[4].innerText == X_char && boxes[6].innerText == '') { randBox = 6 }
+                else if (boxes[2].innerText == X_char && boxes[6].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                //Offensive Middle Left Common
+                else if (boxes[3].innerText == X_char && boxes[0].innerText == X_char && boxes[6].innerText == '') { randBox = 6}
+                else if (boxes[3].innerText == X_char && boxes[6].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
+                else if (boxes[3].innerText == X_char && boxes[4].innerText == X_char && boxes[5].innerText == '') { randBox = 5 }
+                else if (boxes[3].innerText == X_char && boxes[5].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                //Offensive Middle Centre Common    
+                else if (boxes[4].innerText == X_char && boxes[1].innerText == X_char && boxes[7].innerText == '') { randBox = 7 }
+                else if (boxes[4].innerText == X_char && boxes[7].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
+                else if (boxes[4].innerText == X_char && boxes[3].innerText == X_char && boxes[5].innerText == '') { randBox = 5 }
+                else if (boxes[4].innerText == X_char && boxes[5].innerText == X_char && boxes[3].innerText == '') { randBox = 3 }
+                else if (boxes[4].innerText == X_char && boxes[6].innerText == X_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[4].innerText == X_char && boxes[2].innerText == X_char && boxes[6].innerText == '') { randBox = 6 }
+                else if (boxes[4].innerText == X_char && boxes[0].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[4].innerText == X_char && boxes[8].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
+                //Offensive Middle Right Common
+                else if (boxes[5].innerText == X_char && boxes[2].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[5].innerText == X_char && boxes[8].innerText == X_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[5].innerText == X_char && boxes[3].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                else if (boxes[5].innerText == X_char && boxes[4].innerText == X_char && boxes[3].innerText == '') { randBox = 3 }
+                //Offensive Bottom left Common
+                else if (boxes[6].innerText == X_char && boxes[3].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
+                else if (boxes[6].innerText == X_char && boxes[0].innerText == X_char && boxes[3].innerText == '') { randBox = 3 }
+                else if (boxes[6].innerText == X_char && boxes[7].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[6].innerText == X_char && boxes[8].innerText == X_char && boxes[7].innerText == '') { randBox = 7 }
+                else if (boxes[6].innerText == X_char && boxes[4].innerText == X_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[6].innerText == X_char && boxes[2].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                //Offensive Bottom Centre Common
+                else if (boxes[7].innerText == X_char && boxes[1].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                else if (boxes[7].innerText == X_char && boxes[4].innerText == X_char && boxes[1].innerText == '') { randBox = 1 }
+                else if (boxes[7].innerText == X_char && boxes[6].innerText == X_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[7].innerText == X_char && boxes[8].innerText == X_char && boxes[7].innerText == '') { randBox = 7 }
+                //Offensive Bottom Right Common
+                else if (boxes[8].innerText == X_char && boxes[5].innerText == X_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[8].innerText == X_char && boxes[2].innerText == X_char && boxes[5].innerText == '') { randBox = 5 }
+                else if (boxes[8].innerText == X_char && boxes[7].innerText == X_char && boxes[6].innerText == '') { randBox = 6 }
+                else if (boxes[8].innerText == X_char && boxes[6].innerText == X_char && boxes[7].innerText == '') { randBox = 7 }
+                else if (boxes[8].innerText == X_char && boxes[0].innerText == X_char && boxes[4].innerText == '') { randBox = 4 }
+                else if (boxes[8].innerText == X_char && boxes[4].innerText == X_char && boxes[0].innerText == '') { randBox = 0 }
 
+                //Defensive Top Left Common
+                else if (boxes[0].innerText == O_char && boxes[1].innerText == O_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[0].innerText == O_char && boxes[2].innerText == O_char && boxes[1].innerText == '') { randBox = 1 }
+                else if (boxes[0].innerText == O_char && boxes[3].innerText == O_char && boxes[6].innerText == '') { randBox = 6 }
+                else if (boxes[0].innerText == O_char && boxes[6].innerText == O_char && boxes[3].innerText == '') { randBox = 3 }
+                else if (boxes[0].innerText == O_char && boxes[4].innerText == O_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[0].innerText == O_char && boxes[8].innerText == O_char && boxes[4].innerText == '') { randBox = 4 }
+                //Defensive Top Centre Common
+                else if (boxes[1].innerText == O_char && boxes[0].innerText == O_char && boxes[2].innerText == '') { randBox = 2}
+                else if (boxes[1].innerText == O_char && boxes[2].innerText == O_char && boxes[0].innerText == '') { randBox = 0 }
+                else if (boxes[1].innerText == O_char && boxes[4].innerText == O_char && boxes[7].innerText == '') { randBox = 7 }
+                else if (boxes[1].innerText == O_char && boxes[7].innerText == O_char && boxes[4].innerText == '') { randBox = 4 }
+                //Defensive Top Right Common
+                else if (boxes[2].innerText == O_char && boxes[1].innerText == O_char && boxes[0].innerText == '') { randBox = 0 }
+                else if (boxes[2].innerText == O_char && boxes[0].innerText == O_char && boxes[1].innerText == '') { randBox = 1 }
+                else if (boxes[2].innerText == O_char && boxes[5].innerText == O_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[2].innerText == O_char && boxes[8].innerText == O_char && boxes[5].innerText == '') { randBox = 5 }
+                else if (boxes[2].innerText == O_char && boxes[4].innerText == O_char && boxes[6].innerText == '') { randBox = 6 }
+                else if (boxes[2].innerText == O_char && boxes[6].innerText == O_char && boxes[4].innerText == '') { randBox = 4 }
+                //Defensive Middle Left Common
+                else if (boxes[3].innerText == O_char && boxes[0].innerText == O_char && boxes[6].innerText == '') { randBox = 6}
+                else if (boxes[3].innerText == O_char && boxes[6].innerText == O_char && boxes[0].innerText == '') { randBox = 0 }
+                else if (boxes[3].innerText == O_char && boxes[4].innerText == O_char && boxes[5].innerText == '') { randBox = 5 }
+                else if (boxes[3].innerText == O_char && boxes[5].innerText == O_char && boxes[4].innerText == '') { randBox = 4 }
+                //Defensive Middle Centre Common
+                else if (boxes[4].innerText == O_char && boxes[1].innerText == O_char && boxes[7].innerText == '') { randBox = 7 }
+                else if (boxes[4].innerText == O_char && boxes[7].innerText == O_char && boxes[1].innerText == '') { randBox = 1 }
+                else if (boxes[4].innerText == O_char && boxes[3].innerText == O_char && boxes[5].innerText == '') { randBox = 5 }
+                else if (boxes[4].innerText == O_char && boxes[5].innerText == O_char && boxes[3].innerText == '') { randBox = 3 }
+                else if (boxes[4].innerText == O_char && boxes[6].innerText == O_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[4].innerText == O_char && boxes[2].innerText == O_char && boxes[6].innerText == '') { randBox = 6 }
+                else if (boxes[4].innerText == O_char && boxes[0].innerText == O_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[4].innerText == O_char && boxes[8].innerText == O_char && boxes[0].innerText == '') { randBox = 0 }
+                //Defensive Middle Right Common
+                else if (boxes[5].innerText == O_char && boxes[2].innerText == O_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[5].innerText == O_char && boxes[8].innerText == O_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[5].innerText == O_char && boxes[3].innerText == O_char && boxes[4].innerText == '') { randBox = 4 }
+                else if (boxes[5].innerText == O_char && boxes[4].innerText == O_char && boxes[3].innerText == '') { randBox = 3 }
+                //Defensive Bottom left Common
+                else if (boxes[6].innerText == O_char && boxes[3].innerText == O_char && boxes[0].innerText == '') { randBox = 0 }
+                else if (boxes[6].innerText == O_char && boxes[0].innerText == O_char && boxes[3].innerText == '') { randBox = 3 }
+                else if (boxes[6].innerText == O_char && boxes[7].innerText == O_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[6].innerText == O_char && boxes[8].innerText == O_char && boxes[7].innerText == '') { randBox = 7 }
+                else if (boxes[6].innerText == O_char && boxes[4].innerText == O_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[6].innerText == O_char && boxes[2].innerText == O_char && boxes[4].innerText == '') { randBox = 4 }
+                //Defensive Bottom Centre Common
+                else if (boxes[7].innerText == O_char && boxes[1].innerText == O_char && boxes[4].innerText == '') { randBox = 4 }
+                else if (boxes[7].innerText == O_char && boxes[4].innerText == O_char && boxes[1].innerText == '') { randBox = 1 }
+                else if (boxes[7].innerText == O_char && boxes[6].innerText == O_char && boxes[8].innerText == '') { randBox = 8 }
+                else if (boxes[7].innerText == O_char && boxes[8].innerText == O_char && boxes[7].innerText == '') { randBox = 7 }
+                //Defensive Bottom Right Common
+                else if (boxes[8].innerText == O_char && boxes[5].innerText == O_char && boxes[2].innerText == '') { randBox = 2 }
+                else if (boxes[8].innerText == O_char && boxes[2].innerText == O_char && boxes[5].innerText == '') { randBox = 5 }
+                else if (boxes[8].innerText == O_char && boxes[7].innerText == O_char && boxes[6].innerText == '') { randBox = 6 }
+                else if (boxes[8].innerText == O_char && boxes[6].innerText == O_char && boxes[7].innerText == '') { randBox = 7 }
+                else if (boxes[8].innerText == O_char && boxes[0].innerText == O_char && boxes[4].innerText == '') { randBox = 4 }
+                else if (boxes[8].innerText == O_char && boxes[4].innerText == O_char && boxes[0].innerText == '') { randBox = 0 }
+
+                else {
+                    empty = getAllIndexes(spaces, null)
+                    console.log("ignored rules")
+                    rand = Math.floor(Math.random() * empty.length)
+                    randBox = empty[rand]
+                }
+            
             }
         }
 
