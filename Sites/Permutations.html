@@ -97,7 +97,7 @@
         });
 
         function Result() {
-            arrayPre = [words[0].value, words[1].value, words[2].value, words[3].value, words[4].value, words[5].value, words[6].value, words[7].value];
+            arrayPre = [(words[0].value).trim(), (words[1].value).trim(), (words[2].value).trim(), (words[3].value).trim(), (words[4].value).trim(), (words[5].value).trim(), (words[6].value).trim(), (words[7].value).trim()];
             result = []
             array = arrayPre.slice(0, amount.value)
             let emptyCheck = array.indexOf("")
@@ -158,7 +158,7 @@
         }
 
         #permutations {
-            width: 90px;
+            width: 65px;
             color: rgb(185, 133, 37)
         }
 
