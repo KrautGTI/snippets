@@ -29,16 +29,16 @@
         </div>
         <p><b>Enter Words</b></p>
         <div id="part1">
-            <input id="word1" class="words" placeholder="Word 1" size=4></input>
-            <input id="word2" class="words" placeholder="Word 2" size=4></input>
-            <input id="word3" class="words" placeholder="Word 3" size=4></input>
-            <input id="word4" class="words" placeholder="Word 4" size=4></input>
+            <input id="word1" class="words" placeholder="Word 1"></input>
+            <input id="word2" class="words" placeholder="Word 2"></input>
+            <input id="word3" class="words" placeholder="Word 3"></input>
+            <input id="word4" class="words" placeholder="Word 4"></input>
         </div>
         <div id="part2">
-            <input id="word5" class="words" placeholder="Word 5" size=4></input>
-            <input id="word6" class="words" placeholder="Word 6" size=4></input>
-            <input id="word7" class="words" placeholder="Word 7" size=4></input>
-            <input id="word8" class="words" placeholder="Word 8" size=4></input>
+            <input id="word5" class="words" placeholder="Word 5"></input>
+            <input id="word6" class="words" placeholder="Word 6"></input>
+            <input id="word7" class="words" placeholder="Word 7"></input>
+            <input id="word8" class="words" placeholder="Word 8"></input>
         </div>
         <div id="clickButtons">
             <button id="Generate" onclick="Result()">Generate</button>
@@ -116,8 +116,8 @@
         function Reset() {
             document.location.reload()
         }
-
         disabler()
+
     </script>
     <style>
         body {
@@ -144,7 +144,7 @@
         }
 
         textarea {
-            width: 300px;
+            width: 485px;
             height: 150px;
             overflow: auto;
             resize: none;
@@ -198,6 +198,10 @@
             outline: 1.5px solid orange;
         }
 
+        .words{
+            width:120px
+        }
+
         #topFields {
             display: grid;
             transform: translateX(-40%);
@@ -230,9 +234,12 @@
         }
 
         @media only screen and (max-width: 600px) {
-            body {
-                background-color: lightblue;
-            }
+            textarea {
+            width: 300px;
+        }
+        .words{
+            width:75px
+        }
         }
     </style>
 </body>
