@@ -51,6 +51,7 @@
         let permutations = document.getElementById("permutations")
         let answer = document.getElementById("answer")
         let result = [], array = []
+        answer.disabled=true 
 
         const words = Array.from(document.getElementsByClassName('words'))
 
@@ -186,6 +187,9 @@
             margin-bottom: 10px;
             outline: none;
             padding-left: 10px;
+        }
+        #answer:disabled{
+            background:white;
         }
 
         input::placeholder,
