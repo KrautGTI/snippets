@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="/snippets/Sites/tools/favicon.png">
+  <link rel="icon" type="image/x-icon" href="/snippets/sites/tools/favicon.png">
   <title id="title">Pomodoro Timer</title>
 </head>
 
@@ -32,10 +32,10 @@
       <button id="startBtn" onclick="Start()" class="start">start</button>
         <div id="options">
         <button onclick="Edit()" class="settings">
-          <img src="Tools/gear.svg" alt="Settings" />
+          <img src="tools/gear.svg" alt="Settings" />
         </button>
         <button id="reset" onclick="Reset()" class="settings">
-          <img src="Tools/reset.png" height="23" alt="reset" />
+          <img src="tools/reset.png" height="23" alt="reset" />
         </button>
       </div>
     </div>
@@ -45,7 +45,7 @@
     let seconds = document.getElementById("seconds")
     let circle = document.getElementById("circle")
     let startStop = document.getElementById("startBtn")
-    let audio = new Audio("Tools/Bell.mp3");
+    let audio = new Audio("tools/bell.mp3");
     let title = document.getElementById("title")
     let heading = " - Pomodoro Timer"
 
@@ -125,8 +125,8 @@
 
     @font-face {
       font-family: "bebas";
-      src: url('Tools/bebasneue-book-webfont.woff') format('woff'),
-        url('Tools/bebasneue-book-webfont.woff2') format('woff2')
+      src: url('tools/bebasneue-book-webfont.woff') format('woff'),
+        url('tools/bebasneue-book-webfont.woff2') format('woff2')
     }
     #reset{
       transform: translateY(-8px); 

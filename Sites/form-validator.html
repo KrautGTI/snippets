@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="/snippets/Sites/tools/favicon.png">
+  <link rel="icon" type="image/x-icon" href="/snippets/sites/tools/favicon.png">
   <title>Form Validation</title>
 </head>
 
@@ -18,21 +18,21 @@
       <input type="text" name="name" oninput="validateName()" id="name" placeholder=" " required/>
       <label for="name">Name</label>
       <div class="error hidden">
-        <img src="Tools/error.svg" alt="Error" />
+        <img src="tools/error.svg" alt="Error" />
         Enter a valid Full Name</div>
       <div class="success hidden">
-        <img src="Tools/success.svg" alt="Success" />
+        <img src="tools/success.svg" alt="Success" />
       </div>
     </div>
     <div class="field">
       <input type="email" name="email" oninput="validateEmail()" id="email" placeholder=" " required/>
       <label for="email">Email</label>
       <div class="error hidden">
-        <img src="Tools/error.svg" alt="Error" />
+        <img src="tools/error.svg" alt="Error" />
         Enter a valid email
       </div>
       <div class="success hidden">
-        <img src="Tools/success.svg" alt="Success" />
+        <img src="tools/success.svg" alt="Success" />
       </div>
     </div>
     <div class="field">
@@ -40,11 +40,11 @@
       <label for="password">Password</label>
       <button tabindex = "-1" type="button" onclick="HideorShow(0)" class="show-hide toUnvis"></button>
       <div class="error hidden">
-        <img src="Tools/error.svg" alt="Error" />
+        <img src="tools/error.svg" alt="Error" />
         Should contain an UpperCase, lowercase, number, symbol and at least 8 characters
       </div>
       <div class="success hidden">
-        <img src="Tools/success.svg" alt="Success" />
+        <img src="tools/success.svg" alt="Success" />
       </div>
     </div>
     <div class="field show">
@@ -52,11 +52,11 @@
       <label for="confirm-password">Confirm Password</label>
       <button tabindex = "-1" type="button" onclick="HideorShow(1)" class="show-hide toUnvis"></button>
       <div class="error hidden">
-        <img src="Tools/error.svg" alt="Error" />
+        <img src="tools/error.svg" alt="Error" />
         Passwords do not match
       </div>
       <div class="success hidden">
-        <img src="Tools/success.svg" alt="Success" />
+        <img src="tools/success.svg" alt="Success" />
       </div>
     </div>
     <div class="field">
@@ -142,7 +142,7 @@ function validateConfirmPassword() {
 function Submit(){
     let validSub = document.getElementsByClassName("success hidden")
     if(validSub.length == 0){
-      location.href='/snippets/Sites/Slider.html'
+      location.href='/snippets/sites/Slider.html'
       window.localStorage.setItem('Name', valName);
       let firstName = valName.substring(valName.indexOf(" "),0)
       console.log(firstName)
@@ -264,12 +264,12 @@ input[type=password]:focus + label {
 }
 
 .toUnvis {
-    background: url('Tools/show.svg') left top no-repeat;
+    background: url('tools/show.svg') left top no-repeat;
     background-size: 32px 32px;
 }
 
 .toVis{
-    background: url('Tools/hide.svg') left top no-repeat;
+    background: url('tools/hide.svg') left top no-repeat;
     background-size: 32px 32px;
 }
 
