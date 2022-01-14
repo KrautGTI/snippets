@@ -14,7 +14,7 @@
     <img id="loading-image" src="tools/loading-image.gif" alt="Loading..." />
   </div>
   <button id="close" onclick="location.href='/snippets/index.html';"
-    style="position:absolute;right:0.2%;top:0.5%;">X</span></button>
+    style="position:fixed;right:0.2%;top:0.5%;">X</span></button>
   <div class="wrapper">
     <!-- day - cloudy -->
     <div class="day">
@@ -4448,7 +4448,6 @@
       'partly-cloudy': { width: 230, height: 209 },
       'rainy': { width: 160, height: 222 },
     }
-    document.body.style.zoom = "68%"
 
     let response, thisDate
 
@@ -4544,6 +4543,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Oswald&display=swap');
 
   body {
+    zoom: 68%;
     background: #E9F5FA;
     padding: 0;
     margin: 0;
@@ -4736,7 +4736,22 @@
     left: 240px;
     z-index: 100;
   }
+  @media only screen and (max-width: 400px) {
+  body{
+    width:fit-content;
+    margin-top: 250px;
+    margin-left: 20px;
+    zoom: 30%;
+  }
+
+  }
+  @media only screen and (max-width: 800px) {
+  body{
+    width:fit-content;
+    margin-top: 250px;
+    margin-left: 20px;
+    zoom: 60%;
+  }
+  }
 </style>
-
-
 </html>
