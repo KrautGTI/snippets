@@ -16,11 +16,12 @@
     <button id="close" onclick="location.href='/snippets/index.html';"
         style="position:absolute;right:0.2%;top:0.5%;"><span class="glyphicon glyphicon-remove"></span></button>
     <h1>Counter</h1>
-    <button onclick="addition()">Add</button>
-    <button onclick="subtraction()">Subtract</button>
-    <button onclick="reset()">Reset</button>
-    <br>
-    <span id="value" style="font-size: 1500%">0</span>
+    <div id="btns">
+        <button onclick="addition()">Add</button>
+        <button onclick="subtraction()">Subtract</button>
+    </div>  
+    <button id="rstBtn"onclick="reset()">Reset</button>
+    <span id="value">0</span>
 
     <script>
         let path = document.getElementById("value")
@@ -53,15 +54,61 @@
                 colour = "red"
             }
             else {
-                colour = "black"
+                colour = "blanchedalmond"
             }
             path.style.color = colour
         }
     </script>
     <style>
         body {
-            margin-left: 10px;
-            margin-top: 10px;
+            background-image: url("tools/background-dark-mountain.png");
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+        #value{
+            color:blanchedalmond;
+            font-size: 1500%;
+        }
+        button:not(#close,#rstBtn){
+            background-image: linear-gradient(to right, #d1643d 0%, #f56e3d  100%);
+            border-radius: 20px;
+            width:100px;
+            font-size: large;
+            padding:7px 12px;
+            margin-bottom:10px;
+            color:black;
+            outline:none;
+            border:none;
+            margin-left: 5px;
+        }
+        button:active:not(#close){
+            transform:translateY(1px)
+        }
+        #rstBtn{     
+            border-radius: 20px;
+            outline:none;
+            border:none;
+            padding:2px,5px;
+            font-size:15px;
+            background-color:gray;
+        }
+
+        h1{
+            text-transform: uppercase;
+            margin-top:50px;
+            margin-bottom:20px;
+            color:burlywood;
+            font-size: 60px;
+        }
+
+        @media only screen and (min-width: 1000px) {
+            body{
+                zoom:120%;
+            }
+            button:hover:not(#close){
+                outline:1px solid orange;            }
         }
     </style>
 </body>
