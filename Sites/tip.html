@@ -27,14 +27,14 @@
         <div class="input-fields">
             <div class="bill-amount">
                 <div class="field">
-                    <input type="text" id="bill-amount" name="bill-amount" placeholder="?" />
+                    <input type="number" id="bill-amount" name="bill-amount" placeholder="?" />
                 </div>
                 <p id="billError" class="error"></p>
                 <div class="label">Bill Amount</div>
             </div>
             <div class="number-of-people">
                 <div class="field">
-                    <input type="text" id="number-of-people" name="number-of-people" placeholder=? />
+                    <input type="number" id="number-of-people" name="number-of-people" placeholder=? />
                 </div>
                 <p id="peopleError" class="error"></p>
                 <div class="label">Number of People</div>
@@ -73,9 +73,8 @@
         </div>
     </div>
     <script>
-        document.body.style.zoom="77%"
 
-            document.getElementById("reset").style.backgroundColor="#B3B3B3"
+        document.getElementById("reset").style.backgroundColor="#B3B3B3"
 
         function Calculate(){
             let billAmount = document.getElementById("bill-amount").value
@@ -139,6 +138,9 @@
             align-items: center;
             font-family: 'Roboto Mono', monospace;
             color: #333;
+            background-image: url("tools/background-dark-mountain.png");
+            zoom:72%;
+            margin-top: 30px;
       }
       
         .wrapper {
@@ -218,7 +220,7 @@
             align-items: flex-end;
         }
 
-        input[type="text"] {
+        input[type="text"],input[type="number"] {
             text-align: center;
             font-size: 3.875rem;
             font-family: 'Inter', sans-serif;
@@ -315,9 +317,6 @@
             padding: 20px 129px;
         }
 
-        button:hover:not(#close) {
-            background: #254441;
-        }
         #close{
             font-size: larger;
             padding:7px 15px;
@@ -327,6 +326,18 @@
             color: #ff3860;
             font-size: 11px;
         }
+        @media only screen and (max-width: 700px) {
+            body{
+                margin-top: 200px;
+                zoom:48%;
+            }
+        }
+        @media only screen and (min-width: 701px) {
+            button:hover:not(#close) {
+            background: #254441;
+        }
+        }
+
     </style>
 </body>
 
