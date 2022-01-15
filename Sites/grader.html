@@ -15,7 +15,7 @@
 <body>
     <button id="close" onclick="location.href='/snippets/index.html';"
         style="position:absolute;right:0.2%;top:0.5%;"><span class="glyphicon glyphicon-remove"></span></button>
-    <h1>Grading System</h1><br>
+    <h1>Grading System</h1>
     <input id="grader" maxlength="3" placeholder="Enter grade" type="text" size="8">
     <button onclick="conversion()" id="calculate">Calculate</button>
     <h3 id="result"></h3>
@@ -71,12 +71,31 @@
 
 <style>
     body {
-            background-image: url("sites/tools/background-dark-mountain.png") !important;
+            background-image: url("tools/background-dark-mountain.png");
             margin-left: 10px;
             margin-top: 10px;
         }
         h1{
-            color: whitesmoke;
+            margin-top: 30px;
+            color: goldenrod;
+            font-weight: bold;
+        }
+        button:not(#close){
+            border-radius: 10px;
+            outline: none;
+            border:none;
+            background:goldenrod;
+        }
+        button:active:not(#close){
+            background:gold;
+        }
+        input{
+            border-radius: 10px;
+            padding-left:5px;
+            outline: none;
+            border:none;
+            margin-bottom: 30px;
+            margin-top:20px;
         }
     </style>
 </body>
