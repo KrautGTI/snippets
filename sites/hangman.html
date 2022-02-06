@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/snippets/sites/tools/favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Hangman</title>
+</head>
+
+<body>
+    <button id="close" onclick="location.href='/snippets/index.html';"
+        style="position:absolute;right:0.2%;top:0.5%;"><span class="glyphicon glyphicon-remove"></span></button>
+    <div class="wrapper">
+        <h1>Hangman</h1><br>
+        <p data-i18n-key="app-SecondTitle"id="SecondTitle">Guess the word below. You have 10 lives </p>
+    </div>
+    <div class="wrapper">
+        <div id="buttons">
+        </div>
+        <p id="catagoryName"></p>
+        <div id="hold">
+        </div>
+        <p id="lives"></p>
+        <div class="container">
+            <button id="reset">Play again</button>
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+    
+            let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+                'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
+                'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    
+            let categories;         
+            let chosenCategory;
+            let word, word2,guess,lives,counter,space;
+            let guesses = [];      
+    
+            // Get elements
+            let showLives = document.getElementById("lives");
+            let showCatagory = document.getElementById("scatagory");
+    
+            // create alphabet ul
+            let buttons = function () {
+                myButtons = document.getElementById('buttons');
+                letters = document.createElement('ul');
+    
+                for (let i = 0; i < alphabet.length; i++) {
+                    letters.id = 'alphabet';
+                    list = document.createElement('li');
+                    list.id = 'letter';
+                    list.innerHTML = alphabet[i];
+                    check();
+                    myButtons.appendChild(letters);
+                    letters.appendChild(list);
+                }
+            }
+    
+            // Select Catagory
+            var selectCat = function () {
+                if (chosenCategory === categories[0]) {
+                    catagoryName.innerHTML = "The Chosen Category Is Premier League Football Teams";
+                } else if (chosenCategory === categories[1]) {
+                    catagoryName.innerHTML = "The Chosen Category Is Films";
+                } else if (chosenCategory === categories[2]) {
+                    catagoryName.innerHTML = "The Chosen Category Is Cities";
+                }
+            }
+    
+            // Create ul
+            function result() {
+                wordHolder = document.getElementById('hold');
+                correct = document.createElement('ul');
+    
+                for (var i = 0; i < word.length; i++) {
+                    correct.setAttribute('id', 'my-word');
+                    guess = document.createElement('li');
+                    guess.setAttribute('class', 'guess');
+                    if (word[i] === "-") {
+                        guess.innerHTML = " ";
+                        space = 1;
+                    } else {
+                        guess.innerHTML = "_";
+                    }
+    
+                    guesses.push(guess);
+                    wordHolder.appendChild(correct);
+                    correct.appendChild(guess);
+                }
+            }
+    
+            // Show lives
+            function comments() {
+                let livesText
+                if (lives == 1){
+                    livesText = "life"
+                }
+                else{
+                    livesText="lives"
+                }
+                showLives.innerHTML = "You have " + lives + " " +livesText+" remaining.";
+                if (lives < 1) {
+                    showLives.innerHTML = `Game Over. The word was: ${word2.toUpperCase()}`;
+                }
+                for (var i = 0; i < guesses.length; i++) {
+                    if (counter + space === guesses.length) {
+                        showLives.innerHTML = "Congratulations! You Win!";
+                    }
+                }
+            }
+    
+            // OnClick Function
+            function check() {
+                list.onclick = function () {
+                    if(counter + space !== guesses.length && lives!=0){
+                    var guess = (this.innerHTML);
+                    this.setAttribute("class", "active");
+                    this.onclick = null;
+                    for (var i = 0; i < word.length; i++) {
+                        if (word[i] === guess) {
+                            guesses[i].innerHTML = guess;
+                            counter += 1;
+                        }
+                    }
+                    var j = (word.indexOf(guess));
+                    if (j === -1) {
+                        lives -= 1;
+                        comments();
+                    } else {
+                        comments();
+                    }
+                    }
+                }
+            }
+    
+            // Play
+            function play() {
+                categories = [
+                    ["everton", "liverpool", "swansea", "chelsea", "hull", "manchester-city", "newcastle-united"],
+                    ["alien", "dirty-harry", "gladiator", "finding-nemo", "jaws"],
+                    ["manchester", "milan", "madrid", "amsterdam", "prague"]
+                ];
+    
+                chosenCategory = categories[Math.floor(Math.random() * categories.length)];
+                word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)].toUpperCase();
+                word = word.replace(/\s/g, "-");
+                word2 = word.replace(/-/, " ")
+                localStorage.setItem("curWord", word2);
+                buttons();
+    
+                guesses = [];
+                lives = 10;
+                counter = 0;
+                space = 0;
+                result();
+                comments();
+                selectCat();
+            }
+            play()
+
+            // Reset
+            document.getElementById('reset').onclick = function () {
+                correct.parentNode.removeChild(correct);
+                letters.parentNode.removeChild(letters);
+                play();
+            }
+        }
+    </script>
+</body>
+<style>
+    body {
+        background-image: url("tools/background-dark-mountain.png");
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+
+    h1{
+        color: #FF8008;
+    }
+
+    body {
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        color: #fff;
+        height: 100%;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .wrappper {
+        width: 100%;
+        margin: 0 auto; /*Used to put div exactly in the middle. Centered.*/ 
+    }
+
+    .wrappper:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+        text-transform: uppercase;
+        margin: 5px 0;
+    }
+
+    h1 {
+        font-size: 2.6em;
+    }
+
+    p,h2{
+        font-size: 1.6em;
+    }
+
+    h2,p:not(#SecondTitle) {
+        color: #FFC837;
+    }
+
+    #buttons{
+        max-width: 600px;
+        display:block;
+        margin: 0 auto;
+    }
+
+    #alphabet {
+        margin: 15px auto;
+        padding: 0;
+        max-width: 900px;
+    }
+
+    #alphabet:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    #alphabet li {
+        float: left;
+        margin: 0 10px 10px 0;
+        list-style: none;
+        width: 35px;
+        height: 30px;
+        padding-top: 3px;
+        background: #FF8008;
+        color: black;
+        cursor: pointer;
+        border-radius: 5px;
+        border: solid 1px #FFC837;
+    }
+
+    #my-word {
+        margin: 0;
+        display: block;
+        padding: 0;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    #my-word li {
+        position: relative;
+        list-style: none;
+        margin: 0;
+        display: inline-block;
+        padding: 0 10px;
+        font-size: 1.6em;
+    }
+
+    .active {
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        transition: all 0.3s ease-in-out;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    #lives {
+        font-size: 1.6em;
+        text-align: center;
+        display: block;
+    }
+    #close{
+        color:grey;
+    }
+
+    button:not(#close) {
+        background-image: linear-gradient(to right, #FF8008 0%, #FFC837 51%, #FF8008 100%)
+    }
+
+    button:not(#close) {
+        margin: 10px;
+        width: 180px;
+        padding: 18px 10px;
+        text-align: center;
+        text-transform: uppercase;
+        background-size: 200% auto;
+        transition: 0.5s;
+        color: white;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+    }
+
+    button:hover:not(#close) {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    button:active:not(#close) {
+        transition: 0s;
+        transform: translateY(1px);
+    }
+
+    @media (max-width: 767px) {
+        #alphabet {
+            padding: 0 0 0 15px;
+        }
+    }
+    @media (min-width: 767px) {
+        #alphabet li:hover {
+        background: #FFC837;
+        border: solid 1px #FF8008;
+        color: #fff;
+    }
+    }
+    @media (max-width: 480px) {
+        #alphabet {
+            padding: 0 0 0 25px;
+        }
+    }
+</style>
+</html>
