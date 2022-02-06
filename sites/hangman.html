@@ -36,11 +36,13 @@
     </div>
     <script>
         let locale,langSlid
+        let btnDiv = document.getElementById('buttons')
         
         function localeCheck(){
             console.log(locale)
             locale = localStorage.getItem("locale");
             locale =="EN"? LangSlider.checked = false : LangSlider.checked = true;
+            locale =="EN"? btnDiv.style.width="600px": btnDiv.style.width="650px"
         }
 
         function localeReload() {
@@ -112,7 +114,7 @@
             // Select Catagory
             var selectCat = function () {
                 const ENCatgs = ["Animals","Films","Countries"];
-                const MTCatgs = ["Kategorija 1","Kategorija 2","Kategorija 3"];
+                const MTCatgs = ["Frott u Ħaxix","Annimali"];
                 let ENCatText = "Category is:"
                 let MTCatText = "Il-Kategorija hija:"
                 if (chosenCategory === categories[0]) {
@@ -167,22 +169,16 @@
                     }
                     showLives.innerHTML = "You have " + lives + " " + livesText + " remaining.";
                 }
-                if (lives < 1) {
-                    if(locale == "MT"){
-                    showLives.innerHTML = `Ma qtajtx. Il-kelma kienet: ${word.toUpperCase()}`;
-                    }
-                    else{
-                    showLives.innerHTML = `Game Over. The word was: ${word.toUpperCase()}`;
-                    }
+                if (lives < 1) {                    
+                    let MTLostText = `Ma qtajtx. Il-kelma kienet: ${word.toUpperCase()}`;
+                    let ENLostText = `Game Over. The word was: ${word.toUpperCase()}`;
+                    showLives.innerHTML = eval(locale+"LostText")
                 }
                 for (var i = 0; i < guesses.length; i++) {
                     if (counter + space === guesses.length) {
-                        if(locale == "MT"){
-                        showLives.innerHTML = "Proset! Qtajt il-kelma.";
-                        }
-                        else{
-                            showLives.innerHTML = "Congratulations! You Win!";
-                        }
+                        let MTWonText = "Proset! Qtajt il-kelma"
+                        let ENWonText = "Congratulations! You Win!"
+                        showLives.innerHTML = eval(locale+"WonText");         
                     }
                 }
             }
@@ -219,9 +215,8 @@
                     ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antarctica","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Botswana","Bouvet-Island","Brazil","Brunei","Bulgaria","Burkina-Faso","Burundi","Cambodia","Cameroon","Canada","Cape-Verde","Cayman-Islands","Chad","Chile","China","Christmas-Island","Colombia","Comoros","Congo","Costa-Rica","Croatia","Cuba","Cyprus","Czech-Republic","Denmark","Ecuador","Egypt","El-Salvador","Eritrea","Estonia","Ethiopia","Faroe-Islands","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guadeloupe","Guam","Guatemala","Guernsey","Guinea","Guyana","Haiti","Honduras","Hong-Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle-of-Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Latvia","Lebanon","Lesotho","Liberia","Liechtenstein","Lithuania","Luxembourg","Macao","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Martinique","Mauritania","Mauritius","Mayotte","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","New-Caledonia","New-Zealand","Nigeria","Norway","Oman","Pakistan","Palau","Panama","Papua-New-Guinea","Paraguay","Peru","Philippines","Pitcairn","Poland","Portugal","Puerto-Rico","Qatar","Reunion","Romania","Russia","Rwanda","Samoa","San-Marino","Saudi-Arabia","Senegal","Serbia","Seychelles","Singapore","Slovakia","Slovenia","Somalia","South-Africa","Spain","Sri-Lanka","Sudan","Swaziland","Sweden","Switzerland","Taiwan","Tajikistan","Tanzania","Thailand","Togo","Tonga","Trinidad-and-Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United-Arab-Emirates","United-Kingdom","United-States","Uruguay","Uzbekistan","Vanuatu","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"]
                 ];
                 MTCategories = [
-                    ["landa"],
-                    ["vazett"],
-                    ["tiġieġa"]
+                    ["Lewża","Tuffieħa","Berquqa","Tuta","Ċirasa","Qastan","Tamla","Tina","Għenba","Ġellewża","Lumija","Naspla","Ġewża","Larinġa","Ħawħa","Lanġasa","Pistaċċa","Għajnbaqra","Rummiena","Lampuna","Frawla","Mandolina","Dulliegħa","Qaqoċċ","Asparagu","Brunġiel","Avokado","Fulu","Pitravi","Kaboċċa","Zunnarija","Karrotta","Pastarda","Karfus","Indivja","Qamħirrun","Qarabagħli","Ħjara","Tewm","Kurrat","Għazz","Ħassa","Faqqiegħ","Basla","Tursin","Piżelli","Patata","Qaraħmar","Rafanella","Ross","Insalata","Spinaċi","Tadama","Ġidra"],
+                    ["Nemla","Ors","Naħla","Għasfur","Barri","Farfett","Ġemel","Qattus","Baqra","Kukkudrill","Ċerva","Kelb","Delfin","Ħmar","Ħamiema","Papra","Iljufant","Ħuta","Dubbiena","Volpi","Żrinġ","Ġiraffa","Mogħża","Seqer","Qanfud","Tiġieġa","Ippopotamu","Żiemel","Ħaruf","Ljun","Gremxula","Xadin","Nemusa","Ġurdien","Bagħal","Gendus","Pagun","Faġan","Ħanżir","Ħamiem","Fenek","Far","Rinoċeronte","Serduq","Bumerin","Nagħġa","Serp","Brimba","Tigra","Żrinġ","Fekruna","Żunżan","Balena","Lupu","Żebra"]
                 ];
 
                 categories=eval(locale+"Categories");
@@ -305,7 +300,6 @@
     }
 
     #buttons {
-        max-width: 600px;
         display: block;
         margin: 0 auto;
     }
