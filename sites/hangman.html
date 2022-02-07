@@ -35,17 +35,20 @@
         </div>
         <div id="footer">
         <div class="grid-container">
-            <div class="grid-item statisticLabel">Won</div>
-            <div class="grid-item statisticLabel">Lost</div>
+            <div class="grid-item statisticLabel">Wins</div>
+            <div class="grid-item statisticLabel">Losses</div>
             <div class="grid-item statisticLabel">Time</div>  
-            <div class="grid-item statisticValue">0</div>
-            <div class="grid-item statisticValue">0</div>
-            <div class="grid-item statisticValue">00:00</div>  
+            <div id="gamesWon" class="grid-item statisticValue">0</div>
+            <div id="gamesLost" class="grid-item statisticValue">0</div>
+            <div id="gameTime" class="grid-item statisticValue">00:00</div>  
         </div>
     </div>
     <script>
         let locale,langSlid
         let btnDiv = document.getElementById('buttons')
+        let gamesWon = document.getElementById('gamesWon')    
+        let gamesLost = document.getElementById('gamesLost')
+        let gameTime = document.getElementById('gameTime')    
         
         if(localStorage.getItem("locale")==null || localStorage.getItem("locale")=="")
         {
@@ -101,8 +104,9 @@
                 'T', 'U', 'V', 'W', 'X', 'Z','Ż'];
 
             let alphabet = eval(locale+"Alphabet")
-            let categories,chosenCategory, word, guess, lives, counter, space;
+            let categories, chosenCategory, word, guess, lives, counter, space, interval;
             let guesses = [];
+            let initialClick = true
 
             // Get elements
             let showLives = document.getElementById("lives");
@@ -185,12 +189,18 @@
                     let MTLostText = `Ma qtajtx. Il-kelma kienet: ${word.toUpperCase()}`;
                     let ENLostText = `Game Over. The word was: ${word.toUpperCase()}`;
                     showLives.innerHTML = eval(locale+"LostText")
+                    gamesLost.innerHTML = (parseInt(gamesLost.innerHTML) + 1)
+                    clearInterval(interval)
+                }
+                if (counter + space === guesses.length) {
+                    gamesWon.innerHTML = (parseInt(gamesWon.innerHTML) + 1)
+                    clearInterval(interval)
                 }
                 for (var i = 0; i < guesses.length; i++) {
                     if (counter + space === guesses.length) {
                         let MTWonText = "Proset! Qtajt il-kelma"
                         let ENWonText = "Congratulations! You Win!"
-                        showLives.innerHTML = eval(locale+"WonText");         
+                        showLives.innerHTML = eval(locale+"WonText");   
                     }
                 }
             }
@@ -198,6 +208,10 @@
             // OnClick Function
             function check() {
                 list.onclick = function () {
+                    if(initialClick == true){
+                        startTimer()
+                        initialClick = false
+                    }
                     if (counter + space !== guesses.length && lives != 0) {
                         var guess = (this.innerHTML);
                         this.setAttribute("class", "active");
@@ -253,9 +267,24 @@
             document.getElementById('reset').onclick = function () {
                 correct.parentNode.removeChild(correct);
                 letters.parentNode.removeChild(letters);
+                gameTime.innerText = "00:00"
+                clearInterval(interval)
+                initialClick = true
                 play();
             }
-        }
+        
+    function startTimer() {
+    let timer = 1;
+    interval = setInterval(function () {
+        let min = parseInt(timer / 60, 10)
+        let sec = parseInt(timer % 60, 10)
+        min = min < 10 ? "0" + min : min
+        sec = sec < 10 ? "0" + sec : sec
+        timer ++;
+        gameTime.innerText = `${min}:${sec}` 
+      }, 1000);
+    }
+}
     </script>
 </body>
 <style>
