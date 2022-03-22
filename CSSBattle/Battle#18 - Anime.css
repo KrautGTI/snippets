@@ -48,8 +48,6 @@
     </span>
 </span>
 <div id=m1></div>
-<div id=m2></div>
-<div id=m3></div>
 <div id=f></div>
 <div id=e1></div>
 <div id=e2></div>
@@ -58,6 +56,9 @@
   div{
         background:#FFF;
   }
+  div,span{
+		position:absolute;
+  }
   #b1,#b2{
  	    width: 24;
         height:24;
@@ -65,7 +66,6 @@
         border-radius:50%;
   }
   #a2{
-    position:absolute;
 	-webkit-box-reflect: below -2px;
   }
   #b1{
@@ -86,28 +86,20 @@
   }
 
   #a1{
-    position:absolute;
     top:83;
     left:95;
     height:43;
     width:42;
     -webkit-box-reflect: right 126px 
   }
-  #m1,#m2,#m3{
+  #m1{
  	height:20;
     width:14.5px;
     top:219.5px;
-    position:absolute;
-    left:193.2px;
-  }
-  #m1{
-    left:173;
-  }
-  #m3{
-    left:213;
+    left:173px;
+    box-shadow:20px 0 #FFF,40px 0 #FFF;
   }
   #f{
-   position:absolute;
     height:100;
     width:150;
     top:110;
@@ -117,7 +109,6 @@
   #e1,#e2{
     height:40;
     width:50;
-    position:absolute;
     background:#000;
 	transform:rotate(-30deg);
 	border-radius:50%;
@@ -126,8 +117,7 @@
   }
   #e2{
 	transform:rotate(30deg);
-    left:205;
-  }
+    left:205
 </style>
 
 /******************** Target #103 -  ********************/
