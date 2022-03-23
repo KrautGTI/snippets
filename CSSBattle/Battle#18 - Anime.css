@@ -124,6 +124,70 @@
 
 /******************** Target #103 - Saiyan ********************/
 
+<div id=h1></div>
+<div id=h2></div>
+<div id=face></div>
+<div id=mouth></div>
+<div id=h3></div>
+<div id=h4></div>
+<div id="test"></div>
+
+<body bgcolor=#161616>
+<style>
+  div {
+    position:absolute;
+    border-radius:0 0 50px 50px;
+  }
+  #face{
+    width:80;
+    height:70;
+    top:146.2;
+    left:160;
+    background: linear-gradient(90deg, #FFF 50%, #FFDEB9 50%);
+  }
+  #h1,#h2,#h3,#h4{
+    background:#EBAE11;
+    width:60;
+    height:30;
+    top:160;
+  }
+  #test{
+    background:#EBAE11;
+    height: 59;
+    width: 59;
+    transform: rotate(-45deg);
+    border-radius: 100% 0;
+    top:96;
+    left:170.5;
+  }
+
+  #h1{
+    left:137.2;
+    transform:rotate(15deg);
+  }
+  #h2{
+    right:137.5;
+    transform:rotate(-15deg);
+  }
+  #h3{
+    top:134.5;
+    left:142;
+    transform:rotate(60deg);
+  }
+    #h4{
+    top:134.5;
+    right:142;
+    transform:rotate(-60deg);
+  }
+  #mouth{
+    top:196;
+    left:190;
+    background:#161616;
+    width:20;
+    height:10;
+  }
+</style>
+
 /******************** Target #104 - Amekagure ********************/
 
 <div id=headband></div>
