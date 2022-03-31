@@ -239,6 +239,66 @@
 
 /******************** Target #105 - Ryuk ********************/
 
+<div></div>
+<div id=e1></div>
+<div id=e2></div>
+<div id=triangle><div>
+ <div id=c3>
+   <div id=c4></div>
+</div>
+ <div id=c1></div>
+<body bgcolor=#BAC7CE>
+<style>
+  div {
+    position:absolute;
+  }
+  #triangle{
+    top:0;
+    left:108.5;
+    border-left:91px solid #BAC7CE;
+    border-right:91px solid #BAC7CE;
+    border-top:91px solid #475862
+  }
+  #e1,#e2{
+    border-radius:0 50% 0 50%;
+    transform:rotate(-15deg);
+    top:130;
+    left:30;
+    height:120;
+    width:120;
+    background:#000
+  }
+  #e2{
+    transform:rotate(105deg);
+    left:250
+  }
+  #c1,#c3,#c4{
+    border-radius:50%;
+    height:100;
+    width:100;
+  }
+  #c1{
+    background:#4E2B24;
+    border:5px solid #000;
+    top:79;
+    left:90;
+    height:30;
+    width:30;
+    -webkit-box-reflect:left 180px
+  }
+  #c3{
+    overflow:hidden;
+    top:49;
+    left:60;
+    background:#5A6042;
+    -webkit-box-reflect:left 120px
+  }
+  #c4{
+    top:15;
+    background:#868A64
+  }
+</style>
+
 /******************** Target #106 - Ryuk's Apple ********************/
 
 <div id=stick></div>
@@ -282,7 +342,7 @@
     left:102;
     box-shadow:0 40px
   }
-</style>
+</>
 
 
 /******************** Target #107 -  ********************/
