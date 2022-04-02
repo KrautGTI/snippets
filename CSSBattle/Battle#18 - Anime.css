@@ -347,4 +347,69 @@
 
 /******************** Target #107 - Sealing Wand ********************/
 
+<div id=beak></div>
+<div id=neck></div>
+<div id=chin></div>
+<div id=c></div>
+<div id=wing1></div>
+<div id=wing2></div>
+<div id=wing3></div>
+<body bgcolor=161616>
+<style>
+  div {
+	position:absolute;
+    background: #E96A23;
+  }
+  #c{
+    width:20;
+    top:140;
+    left:190;
+    height:20;
+    background:#161616;
+    border-radius:50%;
+    box-shadow:  0 0 0 5px #A22015, 0 0 0 15px #FFF,0 0 0 20px #A22015;
+  }
+  #neck{
+    width:20;
+    height:99;
+    top:202;
+    left:190;
+  }
+  #chin{
+    background:#A22015;
+    width:30;
+    top:163;
+    left:185;
+    border-radius:10px;
+    height:40;
+  }
+  #beak{
+    width:80;
+    height:40;
+    top:129;
+    border-radius:0 90px 9px 0;
+    left:200;
+  }
+  #wing1,#wing2,#wing3{ 
+    background:#FFF;
+	border-radius:0 0 0 20px;
+	height:11;
+    width:55;
+    top:132;
+    left:130;
+    }
+  #wing2{
+ 	width:40;
+    top:142;
+    left:145;
+    height:15;
+  }
+  #wing3{
+ 	width:25;
+    top:153;
+    left:159;
+	height:15;
+  }
+</style>
+
 /******************** Target #108 - Clow Card ********************/
