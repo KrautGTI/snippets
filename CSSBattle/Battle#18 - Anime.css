@@ -413,3 +413,50 @@
 </style>
 
 /******************** Target #108 - Clow Card ********************/
+
+<div id=background></div>
+<div id=box1></div>
+<div id=box2></div>
+<div id=circle></div>
+<div id=oval1></div>
+<div id=oval2></div>
+
+<body bgcolor=0>
+<style>
+  div {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%)
+  }
+  #background{
+	width:300;
+    height:150;
+    background:linear-gradient(105deg,#E96A23 120px,#EBAE11 0 170px, #E96A23 0 184px,#EBAE11 0 209px,#E96A23 0)
+  }
+  #box1,#box2{
+    border-radius:12px;
+	background:#000;
+    width:240;
+    height:120
+  }
+  #box2{
+	width:270;
+    height:90
+  }
+  #circle{
+	color:#EBAE11;
+    border:25px solid;
+    border-radius:50%;
+  }
+  #oval1,#oval2{
+    border:5px solid #EBAE11;
+    height:60;
+    border-radius:50%;
+    width:120;
+  }
+  #oval2{
+    height:80;
+    width:200;
+  }
+</style>
