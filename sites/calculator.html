@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/snippets/sites/tools/favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Calculator</title>
+</head>
+
+<body>
+    <button id="close" onclick=window.history.go(-1) style="position:absolute;right:0.2%;top:0.5%;"><span
+            class="glyphicon glyphicon-remove"></span></button>
+    <div class="container">
+        <h1>Calculator</h1>
+        <div id="header">
+            <div id="tm">Julian</div>
+        </div>
+        <div id="formulas">
+            <div id="minorBar"></div>
+            <div id="majorBar">0</div>
+        </div>
+        <div id="board">
+            <div class="box" id='AC' refno="b0" onclick="AllClear()">AC</div>
+            <div class="box" id='Clear' refno="b1" onclick="Clear()">C</div>
+            <div class="box" id='2' refno="b2" onclick="Sqrt()">√</div>
+            <div class="box" id='3' refno="b3">÷</div>
+            <div class="box dig" id='4' refno="b4">7</div>
+            <div class="box dig" id='5' refno="b5">8</div>
+            <div class="box dig" id='6' refno="b6">9</div>
+            <div class="box" id='7' refno="b7">x</div>
+            <div class="box dig" id='8' refno="b8">4</div>
+            <div class="box dig" id='9' refno="b9">5</div>
+            <div class="box dig" id='10' refno="b10">6</div>
+            <div class="box" id='11' refno="b11">-</div>
+            <div class="box dig" id='12' refno="b12">1</div>
+            <div class="box dig" id='13' refno="b13">2</div>
+            <div class="box dig" id='14' refno="b14">3</div>
+            <div class="box" id='15' refno="b15" onclick="Add()">+</div>
+            <div class="box" id='Invert' refno="b16" onclick="Invert()">+/-</div>
+            <div class="box dig" id='17' refno="b17">0</div>
+            <div class="box" id='18' refno="b18" onclick="Dot()">.</div>
+            <div class="box" id='19' refno="b19" onclick="Equal()">=</div>
+        </div>
+    </div>
+</body>
+<script>
+    let minorBar = document.getElementById('minorBar');
+    let majorBar = document.getElementById('majorBar');
+    let nextDigitClears = false, EqualDigitClears = false, pointy,sign,result;
+
+    const boxes = Array.from(document.getElementsByClassName('box'))
+    const digits = Array.from(document.getElementsByClassName('dig'))
+
+
+    const boardEvents = () => {
+        boxes.forEach(box => {
+            box.addEventListener('click', boxClicked)
+        });
+        digits.forEach(dig => {
+            dig.addEventListener('click', digitAdded)
+        });
+    }
+
+    const boxClicked = (element) => {
+
+    }
+    const digitAdded = (number) => {
+        let numClick = number.target.innerHTML
+            pointy = majorBar.innerHTML == "0."
+            if(EqualDigitClears == true){
+                minorBar.innerHTML = ""    
+            }
+        if ((majorBar.innerHTML).length < 11) {
+            if ((majorBar.innerHTML == "" || majorBar.innerHTML == 0 || nextDigitClears == true || EqualDigitClears == true) && pointy==false) {
+                majorBar.innerHTML = numClick
+                nextDigitClears = false
+                EqualDigitClears = false
+            }
+            else {
+                let tempBar = majorBar.innerHTML
+                majorBar.innerHTML = tempBar + numClick
+            }
+        }
+    }
+
+    function Dot() {
+        if ((majorBar.innerHTML).length < 11) {
+            let numClick = "."
+
+            if((majorBar.innerHTML).includes(".")==false){
+                let tempBar = majorBar.innerHTML
+                majorBar.innerHTML = tempBar + numClick
+            }
+        }
+    }
+
+    function Sqrt(){
+        let val = majorBar.innerHTML
+        minorBar.innerHTML = val + " √"
+        val = Math.sqrt(val)
+        let sqrt = (Math.round(val*1000000)/1000000);
+        majorBar.innerHTML = sqrt;
+        nextDigitClears = true
+    }
+
+    function AllClear() {
+        minorBar.innerHTML = "";
+        majorBar.innerHTML = 0;
+    }
+    function Clear() {
+        let val = majorBar.innerHTML
+        val = val.slice(0, -1);
+        if ((majorBar.innerHTML).length == 1 || ((majorBar.innerHTML).length == 2 && (majorBar.innerHTML).includes("-"))) {
+            majorBar.innerHTML = 0;
+        }
+        else {
+            majorBar.innerHTML = val;
+        }
+        if(nextDigitClears == true || EqualDigitClears==true){
+            minorBar.innerHTML = ""    
+        }
+    }
+
+    function Invert() {
+        let val = parseFloat(majorBar.innerHTML)
+        val = val * (-1);
+        majorBar.innerHTML = val
+      
+        if(nextDigitClears == true){
+            minorBar.innerHTML = ""    
+        }
+    }
+
+    function Add(){
+        //TODO: If already contains plus call Equals function before?? 
+       minorBar.innerHTML = majorBar.innerHTML + " +"
+       nextDigitClears = true
+       EqualDigitClears = false
+    sign = "ADD"
+    }
+
+    function Equal(){
+        if ((minorBar.innerHTML).includes("=")==false){
+            if(minorBar.innerHTML !=""){
+        let val1 = minorBar.innerHTML.slice(0,-2)
+        let val2 = majorBar.innerHTML
+        minorBar.innerHTML = minorBar.innerHTML + " "+ majorBar.innerHTML + " ="
+        if (sign == "ADD"){
+            result = val1- -val2
+            EqualDigitClears = true
+        }
+        majorBar.innerHTML = result
+    }
+}
+    }
+
+    boardEvents()
+    //TODO: Add on hover for buttons
+    //TODO: Add on click for buttons
+    //TODO: Add different colour schemes (3) - Equals, Numbers and Functions
+    
+</script>
+<style>
+    h1 {
+        color: #1CB5E0;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    body {
+        background-image: url("tools/background-dark-mountain.png");
+        font-family: sans-serif;
+    }
+
+    .container {
+        height: 100vh;
+        padding: 40px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    #board {
+        width: 265px;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: grey;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .box {
+        height: 50px;
+        margin-left: 5px;
+        margin-bottom: 5px;
+        width: 60px;
+        font-size: 100px;
+        cursor: pointer;
+        color: #1CB5E0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid;
+        border-radius: 15px;
+        font-size: 30px;
+        box-shadow: 1px 1px;
+    }
+
+    #formulas {
+        background-color: darkgrey;
+        width: 265px;
+        height: 150px;
+    }
+
+    #header {
+        background-color: grey;
+        width: 265px;
+        height: 40px;
+        border-radius: 15px 15px 0 0;
+    }
+
+    #tm {
+        color: black;
+        font-size: 15px;
+        font-weight: bold;
+        margin-left: 10px;
+        padding-top: 5px;
+        font-family: Brush Script MT, Brush Script Std, cursive;
+    }
+
+    [refno="b0"],
+    [refno="b1"],
+    [refno="b2"],
+    [refno="b3"] {
+        margin-top: 5px;
+    }
+
+    #minorBar {
+        margin-top: 10px;
+        height: 30px;
+        color: grey;
+        text-align: right;
+        font-size: 20px;
+        padding-right: 5px;
+    }
+
+    #majorBar {
+        margin-top: 10px;
+        color: black;
+        height: 50px;
+        text-align: right;
+        font-size: 40px;
+        padding-right: 5px;
+    }
+</style>
+
+</html>
