@@ -57,6 +57,8 @@
     </div>
 </body>
 <script>
+    //TODO: Fix issue with decimal. Try out 0.45 + 0.62
+
     let minorBar = document.getElementById('minorBar');
     let majorBar = document.getElementById('majorBar');
     let nextDigitClears = false, EqualDigitClears = false, pointy, sign, result, pressed,numClick, newNum = false
@@ -98,6 +100,11 @@
                 let combined =              
                 majorBar.innerHTML = tempBar+numClick   
             }
+        }
+
+        else if((majorBar.innerHTML).length == 11 && (nextDigitClears == true ||  EqualDigitClears == true)){
+            majorBar.innerHTML = numClick
+            nextDigitClears = false
         }
     }
 
@@ -156,9 +163,7 @@
     }
 
     function Add() {
-        console.log(minorBar.innerHTML)
-        console.log((minorBar.innerHTML).endsWith("-"))
-        if((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷'))
+        if(((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷'))&& nextDigitClears == true)
         {}
         else{
             Equal()
@@ -170,7 +175,7 @@
     }
 
     function Subtract() {
-        if((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷'))
+        if(((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷'))&& nextDigitClears == true)
         {}
         else{
             Equal()
@@ -181,7 +186,7 @@
     }
 
     function Multiply() {
-        if((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷'))
+        if(((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷'))&& nextDigitClears == true)
         {}
         else{
             Equal()
@@ -192,7 +197,7 @@
     }
 
     function Divide() {
-        if((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷'))
+        if(((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷'))&& nextDigitClears == true)
         {}
         else{
             Equal()
@@ -254,7 +259,7 @@
     else if(pressed=="=" || pressed=="Enter"){
         Equal()
     }
-    else if(pressed=="Delete"){
+    else if(pressed=="Delete" ||pressed == "Escape"){
         AllClear()
     }
     else if(pressed=="Backspace"){
