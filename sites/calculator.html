@@ -57,7 +57,6 @@
     </div>
 </body>
 <script>
-    //TODO: Fix issue with decimal. Try out 0.45 + 0.62
 
     let minorBar = document.getElementById('minorBar');
     let majorBar = document.getElementById('majorBar');
@@ -73,6 +72,11 @@
         });
     }
 
+    function Debug(){
+        console.log("NDC: "+nextDigitClears)
+        console.log("EDC: "+EqualDigitClears)
+        console.log("Pointy: "+pointy)
+    }
     const digitAdded = (number) => {
         if (pressed != " ") {
             if (newNum == true) {
@@ -97,6 +101,8 @@
                 }
                 else {
                     let tempBar = majorBar.innerHTML
+                    nextDigitClears = false
+                    EqualDigitClears = false
                     majorBar.innerHTML = tempBar + numClick
                 }
             }
@@ -113,8 +119,19 @@
             let numClick = "."
 
             if ((majorBar.innerHTML).includes(".") == false) {
+                if(nextDigitClears == true || EqualDigitClears == true){
+                    majorBar.innerHTML = 0+"."
+                    minorBar.innerHTML=""
+                }
+                else{
                 let tempBar = majorBar.innerHTML
                 majorBar.innerHTML = tempBar + numClick
+                }
+            }
+            else{
+                if(nextDigitClears == true || EqualDigitClears == true){
+                    majorBar.innerHTML = 0+"."
+                }
             }
         }
     }
@@ -328,7 +345,7 @@
         border: 1px solid;
         border-radius: 15px;
         font-size: 30px;
-        box-shadow: 2px 2px;
+        box-shadow: 1px 1.5px black;
     }
 
     .box:active,
