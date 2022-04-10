@@ -61,9 +61,8 @@
 
     let minorBar = document.getElementById('minorBar');
     let majorBar = document.getElementById('majorBar');
-    let nextDigitClears = false, EqualDigitClears = false, pointy, sign, result, pressed,numClick, newNum = false
+    let nextDigitClears = false, EqualDigitClears = false, pointy, sign, result, pressed, numClick, newNum = false
 
-    const boxes = Array.from(document.getElementsByClassName('box'))
     const digits = Array.from(document.getElementsByClassName('dig'))
 
 
@@ -75,35 +74,37 @@
     }
 
     const digitAdded = (number) => {
-        if(newNum == true){
-            numClick = pressed
-            newNum = false
-        }
-        else{
-            numClick = number.target.innerHTML
-            newNum=false
-        }
-
-        pointy = majorBar.innerHTML == "0."
-        if (EqualDigitClears == true) {
-            minorBar.innerHTML = ""
-        }
-
-        if ((majorBar.innerHTML).length < 11) {
-            if ((majorBar.innerHTML == "" || majorBar.innerHTML == 0 || nextDigitClears == true || EqualDigitClears == true) && pointy == false) {
-                majorBar.innerHTML = numClick
-                nextDigitClears = false
-                EqualDigitClears = false
+        if (pressed != " ") {
+            if (newNum == true) {
+                numClick = pressed
+                newNum = false
             }
             else {
-                let tempBar = majorBar.innerHTML
-                majorBar.innerHTML = tempBar+numClick   
+                numClick = number.target.innerHTML
+                newNum = false
             }
-        }
 
-        else if((majorBar.innerHTML).length == 11 && (nextDigitClears == true ||  EqualDigitClears == true)){
-            majorBar.innerHTML = numClick
-            nextDigitClears = false
+            pointy = majorBar.innerHTML == "0."
+            if (EqualDigitClears == true) {
+                minorBar.innerHTML = ""
+            }
+
+            if ((majorBar.innerHTML).length < 11) {
+                if ((majorBar.innerHTML == "" || majorBar.innerHTML == 0 || nextDigitClears == true || EqualDigitClears == true) && pointy == false) {
+                    majorBar.innerHTML = numClick
+                    nextDigitClears = false
+                    EqualDigitClears = false
+                }
+                else {
+                    let tempBar = majorBar.innerHTML
+                    majorBar.innerHTML = tempBar + numClick
+                }
+            }
+
+            else if ((majorBar.innerHTML).length == 11 && (nextDigitClears == true || EqualDigitClears == true)) {
+                majorBar.innerHTML = numClick
+                nextDigitClears = false
+            }
         }
     }
 
@@ -162,9 +163,8 @@
     }
 
     function Add() {
-        if(((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷'))&& nextDigitClears == true)
-        {}
-        else{
+        if (((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷')) && nextDigitClears == true) { }
+        else {
             Equal()
         }
         minorBar.innerHTML = majorBar.innerHTML + " +"
@@ -174,33 +174,30 @@
     }
 
     function Subtract() {
-        if(((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷'))&& nextDigitClears == true)
-        {}
-        else{
+        if (((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷')) && nextDigitClears == true) { }
+        else {
             Equal()
-        }        minorBar.innerHTML = majorBar.innerHTML + " -"
+        } minorBar.innerHTML = majorBar.innerHTML + " -"
         nextDigitClears = true
         EqualDigitClears = false
         sign = "Subtract"
     }
 
     function Multiply() {
-        if(((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷'))&& nextDigitClears == true)
-        {}
-        else{
+        if (((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷')) && nextDigitClears == true) { }
+        else {
             Equal()
-        }        minorBar.innerHTML = majorBar.innerHTML + " x"
+        } minorBar.innerHTML = majorBar.innerHTML + " x"
         nextDigitClears = true
         EqualDigitClears = false
         sign = "Multiply"
     }
 
     function Divide() {
-        if(((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷'))&& nextDigitClears == true)
-        {}
-        else{
+        if (((minorBar.innerHTML).endsWith('+') || (minorBar.innerHTML).endsWith('-') || (minorBar.innerHTML).endsWith('x') || (minorBar.innerHTML).endsWith('÷')) && nextDigitClears == true) { }
+        else {
             Equal()
-        }        minorBar.innerHTML = majorBar.innerHTML + " ÷"
+        } minorBar.innerHTML = majorBar.innerHTML + " ÷"
         nextDigitClears = true
         EqualDigitClears = false
         sign = "Divide"
@@ -211,7 +208,7 @@
             if (minorBar.innerHTML != "") {
                 let val1 = minorBar.innerHTML.slice(0, -2)
                 let val2 = majorBar.innerHTML
-                minorBar.innerHTML = minorBar.innerHTML +" " + majorBar.innerHTML + " ="
+                minorBar.innerHTML = minorBar.innerHTML + " " + majorBar.innerHTML + " ="
                 if (sign == "ADD") {
                     result = val1 - -val2
                     EqualDigitClears = true
@@ -238,52 +235,49 @@
         document.getElementById(id).classList.add('flashit');
         await delay(100);
         document.getElementById(id).classList.remove('flashit');
-      }
+    }
 
     document.addEventListener("keydown", function onEvent(event) {
         pressed = event.key
 
-    if (pressed >=0 && pressed <=9){
-        newNum = true   
-        digitAdded();
-        ColChange(`k${pressed}`)
-    }
-    else if(pressed=="."){
-        Dot();
-        ColChange('Dot')
-    }
-    else if(pressed=="+"){
-        Add()
-        ColChange('Add')
-    }
-    else if(pressed=="-"){
-        Subtract()
-        ColChange('Subt')
-    }
-    else if(pressed=="/"){
-        Divide()
-        ColChange('Div')
-    }
-    else if(pressed=="*"){
-        Multiply()
-        ColChange('Mult')
-    }
-    else if(pressed=="=" || pressed=="Enter"){
-        Equal()
-        ColChange('Equal')
-    }
-    else if(pressed=="Delete" ||pressed == "Escape"){
-        AllClear()
-        ColChange('AC')
-    }
-    else if(pressed=="Backspace"){
-        Clear()
-        ColChange('Clear')
-    }
-})
-
-//TODO: ignore spacebar
-
+        if (pressed >= 0 && pressed <= 9 && pressed != " ") {
+            newNum = true
+            digitAdded();
+            ColChange(`k${pressed}`)
+        }
+        else if (pressed == ".") {
+            Dot();
+            ColChange('Dot')
+        }
+        else if (pressed == "+") {
+            Add()
+            ColChange('Add')
+        }
+        else if (pressed == "-") {
+            Subtract()
+            ColChange('Subt')
+        }
+        else if (pressed == "/") {
+            Divide()
+            ColChange('Div')
+        }
+        else if (pressed == "*") {
+            Multiply()
+            ColChange('Mult')
+        }
+        else if (pressed == "=" || pressed == "Enter") {
+            Equal()
+            ColChange('Equal')
+        }
+        else if (pressed == "Delete" || pressed == "Escape") {
+            AllClear()
+            ColChange('AC')
+        }
+        else if (pressed == "Backspace") {
+            Clear()
+            ColChange('Clear')
+        }
+    })
     boardEvents()
 </script>
 <style>
@@ -337,7 +331,8 @@
         box-shadow: 2px 2px;
     }
 
-    .box:active,.flashit {
+    .box:active,
+    .flashit {
         filter: brightness(75%);
     }
 
@@ -437,4 +432,5 @@
         }
     }
 </style>
+
 </html>
