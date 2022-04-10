@@ -25,26 +25,26 @@
             <div id="majorBar">0</div>
         </div>
         <div id="board">
-            <div class="box" id='AC' refno="b0" onclick="AllClear()">AC</div>
-            <div class="box" id='Clear' refno="b1" onclick="Clear()">C</div>
-            <div class="box" id='2' refno="b2" onclick="Sqrt()">√</div>
-            <div class="box" id='3' refno="b3">÷</div>
-            <div class="box dig" id='4' refno="b4">7</div>
-            <div class="box dig" id='5' refno="b5">8</div>
-            <div class="box dig" id='6' refno="b6">9</div>
-            <div class="box" id='7' refno="b7">x</div>
-            <div class="box dig" id='8' refno="b8">4</div>
-            <div class="box dig" id='9' refno="b9">5</div>
-            <div class="box dig" id='10' refno="b10">6</div>
-            <div class="box" id='11' refno="b11">-</div>
-            <div class="box dig" id='12' refno="b12">1</div>
-            <div class="box dig" id='13' refno="b13">2</div>
-            <div class="box dig" id='14' refno="b14">3</div>
-            <div class="box" id='15' refno="b15" onclick="Add()">+</div>
-            <div class="box" id='Invert' refno="b16" onclick="Invert()">+/-</div>
-            <div class="box dig" id='17' refno="b17">0</div>
-            <div class="box" id='18' refno="b18" onclick="Dot()">.</div>
-            <div class="box" id='19' refno="b19" onclick="Equal()">=</div>
+            <div class="box signs"  id='AC'     refno="b0" onclick="AllClear()">AC</div>
+            <div class="box signs"  id='Clear'  refno="b1" onclick="Clear()">C</div>
+            <div class="box signs"  id='2'      refno="b2" onclick="Sqrt()">√</div>
+            <div class="box signs"  id='3'      refno="b3">÷</div>
+            <div class="box dig"    id='4'      refno="b4">7</div>
+            <div class="box dig"    id='5'      refno="b5">8</div>
+            <div class="box dig"    id='6'      refno="b6">9</div>
+            <div class="box signs"  id='7'      refno="b7">x</div>
+            <div class="box dig"    id='8'      refno="b8">4</div>
+            <div class="box dig"    id='9'      refno="b9">5</div>
+            <div class="box dig"    id='10'     refno="b10">6</div>
+            <div class="box signs"  id='11'     refno="b11">-</div>
+            <div class="box dig"    id='12'     refno="b12">1</div>
+            <div class="box dig"    id='13'     refno="b13">2</div>
+            <div class="box dig"    id='14'     refno="b14">3</div>
+            <div class="box signs"  id='15'     refno="b15" onclick="Add()">+</div>
+            <div class="box oth"    id='Invert' refno="b16" onclick="Invert()">+/-</div>
+            <div class="box dig"    id='17'     refno="b17">0</div>
+            <div class="box oth"    id='18'     refno="b18" onclick="Dot()">.</div>
+            <div class="box equals" id='19'     refno="b19" onclick="Equal()">=</div>
         </div>
     </div>
 </body>
@@ -75,6 +75,7 @@
             if(EqualDigitClears == true){
                 minorBar.innerHTML = ""    
             }
+
         if ((majorBar.innerHTML).length < 11) {
             if ((majorBar.innerHTML == "" || majorBar.innerHTML == 0 || nextDigitClears == true || EqualDigitClears == true) && pointy==false) {
                 majorBar.innerHTML = numClick
@@ -160,10 +161,6 @@
     }
 
     boardEvents()
-    //TODO: Add on hover for buttons
-    //TODO: Add on click for buttons
-    //TODO: Add different colour schemes (3) - Equals, Numbers and Functions
-    
 </script>
 <style>
     h1 {
@@ -214,6 +211,21 @@
         border-radius: 15px;
         font-size: 30px;
         box-shadow: 1px 1px;
+    }
+    .box:active{
+        filter: brightness(75%);
+    }
+    .equals{
+        background-color: red;
+        color:black;
+    }
+    .signs{
+    background-color:#ff9a31;
+    color:black;
+    }
+    .dig,.oth{
+        background-color: #2f3130;
+        color:grey;
     }
 
     #formulas {
