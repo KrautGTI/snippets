@@ -20,22 +20,23 @@
             class="glyphicon glyphicon-home"></span></button>
     <button id="b_panelA" class="btn" onclick="showPanel('panelA')" href="#A">Tab A</button>
     <button id="b_panelB" class="btn" onclick="showPanel('panelB')" href="#B">Tab B</button>
-    <button id="b_panelC" class="btn" onclick="showPanel('panelC')" href="#C">Tab C</button> <br>
-    <a href="extra"><br></a>
-    <div id="Home" class="panel"><img class="img-rounded"
-            src="https://media.istockphoto.com/photos/question-mark-picture-id1060573244?k=20&m=1060573244&s=612x612&w=0&h=Xk_DdOodJj3VDAZfouo2364s5SFZXUW02v3sOyXlNVE="
+    <button id="b_panelC" class="btn" onclick="showPanel('panelC')" href="#C">Tab C</button>
+    <div id="contentTitle"></div>
+    <div id="Home" class="panel"><img class="img-rounded" src="https://media.istockphoto.com/photos/question-mark-picture-id1060573244?k=20&m=1060573244&s=612x612&w=0&h=Xk_DdOodJj3VDAZfouo2364s5SFZXUW02v3sOyXlNVE="
             alt="Home"></div>
-    <div id="panelA" class="panel hide"><b>Christmas Tree</b> <br> <img class="img-rounded"
-            src="https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTY4OTA4MzI0ODc4NjkwMDAw/christmas-tree-gettyimages-1072744106.jpg"
+    <div id="panelA" class="panel hide"> <img id="panelAI" class="img-rounded"
             alt="Christmas Tree"></div>
-    <div id="panelB" class="panel hide"><b>SURPRISE</b> <br><img class="img-rounded"
-            src="https://pngfreeimg.com/wp-content/uploads/2021/03/Banana-1024x1024.png" alt="Banana"></div>
-    <div id="panelC" class="panel hide"><b>Geralt of Rivia</b> <br> <img class="img-rounded"
-            src="tools/witcher-image.jpg" alt="Geralt of Rivea"></div>
+    <div id="panelB" class="panel hide"><img id="panelBI" class="img-rounded" alt="SURPRISE"></div>
+    <div id="panelC" class="panel hide"><img id="panelCI" class="img-rounded"
+            alt="Geralt of Rivea"></div>
 
 
     <script>
+        let randomNum,prevNum = 13, prevPrev = 14
         function showPanel(panel) {
+            const titles = ["Christmas Tree","SURPRISE","Geralt of Rivia","Fellaini","Sadness and Sorrow","Milan","Easter","Banquet"] 
+            const images = ["https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTY4OTA4MzI0ODc4NjkwMDAw/christmas-tree-gettyimages-1072744106.jpg",
+            "tools/banana.png", "tools/witcher-image.jpg","tools/fellaini.jpg","tools/naruto.jpg","tools/milan.png","tools/easter.jpg","tools/foods.jpg"]
             const allPanels = document.querySelectorAll(".panel")
             const allBtns = document.querySelectorAll(".btn")
 
@@ -46,6 +47,21 @@
             document.getElementById(panel).classList.remove("hide");
             document.getElementById("b_" + panel).classList.add("highlight");
 
+            do {
+                randomNum = Math.floor((Math.random() * titles.length));
+                console.log("prevnum: "+prevNum+",  randomNum: "+randomNum + ", prevPrev:" + prevPrev)
+            } while (prevNum==randomNum||prevNum==prevPrev);
+
+            prevPrev = prevNum
+            prevNum = randomNum
+
+            if (panel !="Home"){
+                document.getElementById("contentTitle").innerHTML=titles[randomNum]
+                document.getElementById(panel+"I").src=images[randomNum]
+            }
+            else{
+                document.getElementById("contentTitle").innerHTML=""
+            }
         }
     </script>
     <style>
@@ -85,6 +101,12 @@
         .panel {
             color: whitesmoke;
             background-color: transparent;
+        }
+
+        #contentTitle{
+            color: whitesmoke;
+            margin-top: 20px;
+            font-weight: bold;
         }
 
         @media only screen and (max-width: 600px) {
