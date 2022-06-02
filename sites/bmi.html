@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/x-icon" href="/snippets/sites/tools/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator
+  </title>
+</head>
+
+<body>
+  <button id="close" onclick="location.href='/snippets/index.html';"style="position:absolute;right:0.2%;top:0.5%;">X</span></button>
+  <h1>BMI CALCULATOR</h1>
+  <div class="header">
+    <div class="measurements">
+      <button onclick="Units(event.target)" id="metric">Metric</button>
+      <button onclick="Units(event.target)" id="imperial">Imperial</button>
+    </div>
+  </div>
+  <div id="wrapper" class="wrapper">
+    <div class="metricModal" id="metricModal">
+      <div>  
+      <label for="height_M">Height</label>
+      <input id="height_M" type="number" maxlength="3" placeholder="cm"><br>
+    </div>
+    <div>
+      <label for="weight_M">Weight</label>
+      <input id="weight_M" type="number" maxlength="3" placeholder="KG">  
+    </div>
+
+    </div>
+    <div class="imperialModal" id="imperialModal">    
+      <div>  
+        <label for="height_I">Height</label>
+        <input id="height_I" type="number" maxlength="2" placeholder="ft">
+        <input id="height_I" type="number" maxlength="2" placeholder="in">
+      </div>
+      <div>
+        <label for="weight_I">Weight</label>  
+        <input id="weight_I" type="number" maxlength="3" placeholder="lb"><br>
+      </div>
+    </div>
+    <br />
+    <button id="calculate">Calculate</button>
+    <div>
+      <input id="result" type="text" disabled>
+    </div>
+  <script>
+//BMI Categories:
+//Underweight = <18.5
+//Normal weight = 18.5–24.9
+//Overweight = 25–29.9
+//Obesity = BMI of 30 or greater
+
+document.getElementById("metric").style.background = "orange";
+document.getElementById("imperialModal").style.display = "none";
+
+    function Units(e){
+      console.log(e.id)
+      if(e.id == "metric"){
+        document.getElementById("wrapper").style.boxShadow = "inset 0 0 5px 3px orange";
+        document.getElementById("metric").style.background = "orange";
+        document.getElementById("imperial").style.background = "#262529";
+        document.getElementById("metricModal").style.display = "block";
+        document.getElementById("imperialModal").style.display = "none";
+      }
+      else if(e.id == "imperial"){
+        document.getElementById("wrapper").style.boxShadow = "inset 0 0 5px 3px purple";
+        document.getElementById("metric").style.background = "#262529";
+        document.getElementById("imperial").style.background = "purple";
+        document.getElementById("metricModal").style.display = "none";
+        document.getElementById("imperialModal").style.display = "block";
+      }
+    }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
+
+    body {
+      background-image: url("tools/background-dark-mountain.png");
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 100vw;
+      min-height: 100vh;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    h1{
+      color:aqua
+    }
+
+    #imperial,#metric{
+      border-radius: 15px 15px 0 0 !important;
+      width:223px
+    }
+    #imperial:hover,#imperial:active{
+    background: purple !important;
+    border-radius: 15px 15px 0 0;
+    }
+    #metric:hover,#metric:active{
+    background: orange !important;
+    border-radius: 15px 15px 0 0;
+    }
+
+    .wrapper {
+      background: #262529;
+      box-shadow: 0px 0px 250px #000000;
+      border-radius: 0 0 15px 15px;
+      padding: 40px 0;
+      text-align: center;
+      width: 450px; 
+      box-shadow: inset 0 0 5px 3px orange;
+    }
+    .header {
+      background: transparent;
+      box-shadow: 0px 0px 250px #000000;
+      border-radius: 15px 15px 0 0;
+      text-align: center;
+      width: 450px; 
+    }
+    #wrapper{
+      font-size: 25px;
+    }
+    #weight_M,#height_M,#weight_I,#height_I{
+      font-size: 30px;
+      border-radius: 10px;
+      width:80px;
+      outline: none;
+      border: none;
+      padding-left: 10px;
+    }
+    #height_M,#height_I{
+      margin-bottom: 10px;
+      margin-left:2px
+    }
+    #weight_I{
+      width:180px
+    }
+
+    button:not(#close),#calculate {
+      font-family: 'Source Sans Pro', sans-serif;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      padding: 20px 40px;
+      background: #333139;
+      border-radius: 100px;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+    #close {
+      border: none;
+      color: white;
+      background: #333139;
+      padding: 10px 15px;
+      border-radius: 20%;
+      cursor: pointer;
+    }
+
+    #calculate:hover {
+      background: rgba(234, 52, 111, .2) !important;
+    }
+    #calculate:active{
+      transform: translateY(4px);
+    }
+    label{
+      color:whitesmoke
+    }
+
+    #result{
+      font-size: 30px;
+      border-radius: 10px;
+      background:transparent;
+      outline: none;
+      border: none;
+      width:175px;
+      margin-top:10px
+    }
+    
+  </style>
+</body>
+
+</html>
