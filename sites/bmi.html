@@ -6,13 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="icon" type="image/x-icon" href="/snippets/sites/tools/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BMI Calculator
-  </title>
+  <title>BMI Calculator</title>
 </head>
 
 <body>
   <button id="close" onclick="location.href='/snippets/index.html';"style="position:absolute;right:0.2%;top:0.5%;">X</span></button>
-  <h1>BMI CALCULATOR</h1>
+  <h1 id="title">BMI CALCULATOR</h1>
   <div class="header">
     <div class="measurements">
       <button onclick="Units(event.target)" id="metric">Metric</button>
@@ -61,6 +60,7 @@ document.getElementById("imperialModal").style.display = "none";
       console.log(e.id)
       if(e.id == "metric"){
         document.getElementById("wrapper").style.boxShadow = "inset 0 0 5px 3px orange";
+        document.getElementById("title").style.color = "orange";
         document.getElementById("metric").style.background = "orange";
         document.getElementById("imperial").style.background = "#262529";
         document.getElementById("metricModal").style.display = "block";
@@ -69,6 +69,7 @@ document.getElementById("imperialModal").style.display = "none";
       else if(e.id == "imperial"){
         document.getElementById("wrapper").style.boxShadow = "inset 0 0 5px 3px purple";
         document.getElementById("metric").style.background = "#262529";
+        document.getElementById("title").style.color = "purple";
         document.getElementById("imperial").style.background = "purple";
         document.getElementById("metricModal").style.display = "none";
         document.getElementById("imperialModal").style.display = "block";
@@ -90,7 +91,7 @@ document.getElementById("imperialModal").style.display = "none";
       font-family: 'Source Sans Pro', sans-serif;
     }
     h1{
-      color:aqua
+      color:orange
     }
 
     #imperial,#metric{
