@@ -10,7 +10,7 @@
 
 <body>
   <label class="switch">
-    <input id=mode type="checkbox" checked>
+    <input id=mode type="checkbox">
     <span class="slider round"></span>
   </label>
   <button id="close" onclick=window.history.go(-1); style="position:absolute;right:0.2%;top:0.5%;">X</span></button>
@@ -29,21 +29,28 @@
       <div id=answer class="answer"></div>
 
       <script>
-        let ballNumber, prevBall, questionAsked = false
+        let ballNumber, prevNum=8, prevPrev=9, questionAsked = false
         let mode = document.getElementById('mode');
         let answer = document.getElementById('answer')
         const normalAns = ["It is<br>certain", "It is<br>decidedly<br>so", "<br><br>Without<br>a<br>doubt", "Yes<br>definitely", "You<br>may<br>rely on it", "As I<br>see it,<br>yes", "Most<br>likely", "<br><br>Outlook<br>looks<br>good", "Yes", "Signs<br>point to<br>yes", "<br>Reply<br>hazy<br>try again", "Ask<br>again<br>later", "<br>Better<br>not tell<br>you now", "<br>Cannot<br>predict<br>now", "Think<br>and<br>ask again", "Don't<br>count<br>on it", "My<br>reply<br>is no", "My<br>sources<br>say no", "<br>Outlook<br>not so<br>good", "Very<br>doubtful"]
         const angryAns = ["I don't<br>fuckin'<br>know<br><br>","Għamel<br>liż-żobb<br>trid","Whyyy ?<br><br>","Try<br>again<br>Later","Yes.","Yes<br>Bitch","Fuck<br>You","Fuck<br>Nahh !!","Fuck<br>Yeah !!","Thank<br>You,<br>Next","Be<br>our<br>Guest","!! NEVER !!<br>⚠️<br><br>","Really ??!<br><br><br>","Who<br>Cares<br>","Bye<br>Bitch<br>Bye","Figure it out<br>yourself<br>bitch<br><br>","Google<br>it<br>Zibel !","Error<br>404<br>😵","Think<br>Twice","Fuck<br>it<br>","Maybe<br>"]
-        const ballCols = ["numbers", "one", "two", "three", "four", "five", "six", "seven", "eight"]
+        const ballCols = ["one", "two", "three", "four", "five", "six", "seven", "eight","eight","eight"]
+        const ballNums = [1,2,3,4,5,6,7,8,8,8]
         random()
 
         function random() {
-          ballNumber = (Math.floor((Math.random() * 8)) - -1);
+          do {
+            ballNumber = Math.floor((Math.random() * 10));
+            } while (prevNum == ballNumber || prevNum == prevPrev);
+
+            prevPrev = prevNum
+            prevNum = ballNumber
+            console.log(ballNumber,prevPrev, prevNum)
           document.getElementById('ball').className=''
-          document.title = `Magic ${ballNumber} Ball`
-          document.getElementById('title').innerHTML = `Magic ${ballNumber} Ball`
-          document.getElementById('subTitle').innerHTML = `Ask a Yes or No question and click Magic ${ballNumber} Ball`
-          document.getElementById('spanBall').innerHTML = ballNumber
+          document.title = `Magic ${ballNums[ballNumber]} Ball`
+          document.getElementById('title').innerHTML = `Magic ${ballNums[ballNumber]} Ball`
+          document.getElementById('subTitle').innerHTML = `Ask a Yes or No question and click Magic ${ballNums[ballNumber]} Ball`
+          document.getElementById('spanBall').innerHTML = ballNums[ballNumber]
           document.getElementById('ball').classList.add(`${ballCols[ballNumber]}Ball`)
         }
 
@@ -58,8 +65,8 @@
             document.getElementById("number").style.display = "none"
             answer.style.display = "flex"
             if (mode.checked == true) {
-              answer.classList.add("down")
               answer.classList.remove("up")
+              answer.classList.add("down")
               answer.innerHTML = angryAns[Math.floor(Math.random() * angryAns.length)]
             } else {
               answer.classList.remove("down")
