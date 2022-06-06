@@ -6,55 +6,76 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="icon" type="image/x-icon" href="/snippets/sites/tools/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Magic 8 Ball</title>
 </head>
 
 <body>
+  <label class="switch">
+    <input id=mode type="checkbox" checked>
+    <span class="slider round"></span>
+  </label>
   <button id="close" onclick=window.history.go(-1); style="position:absolute;right:0.2%;top:0.5%;">X</span></button>
-  <h1 id="title">MAGIC 8 BALL</h1>
-  <p> Ask a question and click Magic 8 Ball</p>
+  <h1 id="title"></h1>
+  <p id="subTitle"></p>
 
 
   <div id="wrapper" class="wrapper">
-    <div class="ball" onclick="question()">
-      <div class="window" ></div>
-      <div id=eight class="eight" disabled>
-        <span>8</span>
+    <div id="ball" onclick="question()">
+      <div class="window"></div>
+      <div id=number class="number" disabled>
+        <span id="spanBall"></span>
       </div>
     </div>
     <div class="s">
       <div id=answer class="answer"></div>
 
       <script>
-        let questionAsked = false
+        let ballNumber, prevBall, questionAsked = false
+        let mode = document.getElementById('mode');
         let answer = document.getElementById('answer')
-        const normalAns = ["It is<br>certain", "It is<br>decidedly<br>so", "<br>Without<br>a<br>doubt", "Yes<br>definitely", "You<br>may<br>rely on it", "As I<br>see it,<br>yes", "Most<br>likely", "<br>Outlook<br>looks<br>good", "Yes", "Signs<br>point to<br>yes", "Reply<br>hazy<br>try again", "Ask<br>again<br>later", "Better<br>not tell<br>you now", "Cannot<br>predict<br>now", "Think<br>and<br>ask again", "Don't<br>count<br>on it", "My<br>reply<br>is no", "My<br>sources<br>say no", "<br>Outlook<br>not so<br>good", "Very<br>doubtful"]
-        const angryAns = []
+        const normalAns = ["It is<br>certain", "It is<br>decidedly<br>so", "<br><br>Without<br>a<br>doubt", "Yes<br>definitely", "You<br>may<br>rely on it", "As I<br>see it,<br>yes", "Most<br>likely", "<br><br>Outlook<br>looks<br>good", "Yes", "Signs<br>point to<br>yes", "<br>Reply<br>hazy<br>try again", "Ask<br>again<br>later", "<br>Better<br>not tell<br>you now", "<br>Cannot<br>predict<br>now", "Think<br>and<br>ask again", "Don't<br>count<br>on it", "My<br>reply<br>is no", "My<br>sources<br>say no", "<br>Outlook<br>not so<br>good", "Very<br>doubtful"]
+        const angryAns = ["I don't<br>fuckin'<br>know<br><br>","Għamel<br>liż-żobb<br>trid","Whyyy ?<br><br>","Try<br>again<br>Later","Yes.","Yes<br>Bitch","Fuck<br>You","Fuck<br>Nahh !!","Fuck<br>Yeah !!","Thank<br>You,<br>Next","Be<br>our<br>Guest","!! NEVER !!<br>⚠️<br><br>","Really ??!<br><br><br>","Who<br>Cares<br>","Bye<br>Bitch<br>Bye","Figure it out<br>yourself<br>bitch<br><br>","Google<br>it<br>Zibel !","Error<br>404<br>😵","Think<br>Twice","Fuck<br>it<br>","Maybe<br>"]
+        const ballCols = ["numbers", "one", "two", "three", "four", "five", "six", "seven", "eight"]
+        random()
+
+        function random() {
+          ballNumber = (Math.floor((Math.random() * 8)) - -1);
+          document.getElementById('ball').className=''
+          document.title = `Magic ${ballNumber} Ball`
+          document.getElementById('title').innerHTML = `Magic ${ballNumber} Ball`
+          document.getElementById('subTitle').innerHTML = `Ask a Yes or No question and click Magic ${ballNumber} Ball`
+          document.getElementById('spanBall').innerHTML = ballNumber
+          document.getElementById('ball').classList.add(`${ballCols[ballNumber]}Ball`)
+        }
+
         function question() {
-          if(questionAsked){
-          console.log("resetting")
-          document.getElementById("eight").style.display = "block"
-          answer.style.display = "none"
-          questionAsked = false
+          if (questionAsked) {
+            document.getElementById("number").style.display = "block"
+            answer.style.display = "none"
+            questionAsked = false
+            random()
           }
-          else{
-          console.log("question asked")
-          document.getElementById("eight").style.display = "none"
-          answer.style.display = "flex"
-          if (true) {
-            answer.classList.add("down")
-            answer.classList.remove("up")
-            answer.innerHTML = angryAns[Math.floor(Math.random() * angryAns.length)]
-
-          } else {
-            answer.classList.remove("down")
-            answer.classList.add("up")
-            answer.innerHTML = normalAns[Math.floor(Math.random() * normalAns.length)]
-
-          }
-          questionAsked = true
+          else {
+            document.getElementById("number").style.display = "none"
+            answer.style.display = "flex"
+            if (mode.checked == true) {
+              answer.classList.add("down")
+              answer.classList.remove("up")
+              answer.innerHTML = angryAns[Math.floor(Math.random() * angryAns.length)]
+            } else {
+              answer.classList.remove("down")
+              answer.classList.add("up")
+              answer.innerHTML = normalAns[Math.floor(Math.random() * normalAns.length)]
+              console.log(Math.floor(Math.random() * normalAns.length))
+            }
+            questionAsked = true
           }
         }
+        document.getElementById("mode").addEventListener("click", function (event) {
+          document.getElementById("number").style.display = "block"
+          answer.style.display = "none"
+          questionAsked = false
+        })
+
       </script>
 
       <style>
@@ -79,12 +100,43 @@
           cursor: pointer;
         }
 
-        .ball {
+        #ball {
           position: relative;
           border-radius: 50%;
           width: 90vmin;
           height: 90vmin;
           overflow: hidden;
+        }
+
+        .oneBall {
+          background: radial-gradient(circle at 30vmin 30vmin, #ffe458, #fcc301);
+        }
+
+        .twoBall {
+          background: radial-gradient(circle at 30vmin 30vmin, #05558e, #1e3453);
+        }
+
+        .threeBall {
+          background: radial-gradient(circle at 30vmin 30vmin, #f50733, #ba0018);
+        }
+
+        .fourBall {
+          background: radial-gradient(circle at 30vmin 30vmin, #7d5f9d, #3a2349);
+        }
+
+        .fiveBall {
+          background: radial-gradient(circle at 30vmin 30vmin, #fe9459, #f76031);
+        }
+
+        .sixBall {
+          background: radial-gradient(circle at 30vmin 30vmin, #294d35, #1e472e);
+        }
+
+        .sevenBall {
+          background: radial-gradient(circle at 30vmin 30vmin, #673e49, #542d2f);
+        }
+
+        .eightBall {
           background: radial-gradient(circle at 30vmin 30vmin, #444, #000);
         }
 
@@ -140,7 +192,7 @@
           border-radius: 50%;
           width: 32vmin;
           height: 32vmin;
-          background: linear-gradient(to left, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+          /*background: linear-gradient(to left, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));*/
           animation: rotating 6s infinite linear;
         }
 
@@ -156,7 +208,7 @@
         }
 
         /* Number 8 */
-        #eight {
+        #number {
           position: absolute;
           left: 22.5vmin;
           top: 22.5vmin;
@@ -199,20 +251,84 @@
 
         h1 {
           color: red;
-          margin-top:40px;
+          margin-top: 40px;
         }
 
-        *::selection { 
-          background: transparent; 
+        *::selection {
+          background: transparent;
         }
 
         p {
           margin-top: -10px;
           color: whitesmoke
         }
+
+        /* The switch - the box around the slider */
+        .switch {
+          position: absolute;
+          top: 10px;
+          left: 5px;
+          display: inline-block;
+          width: 30px;
+          height: 17px;
+
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+          display: none;
+        }
+
+        /* The slider */
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: blue;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 13px;
+          width: 13px;
+          left: 2px;
+          bottom: 2px;
+          background-color: white;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+
+        input:checked+.slider {
+          background-color: red;
+        }
+
+        input:focus+.slider {
+          box-shadow: 0 0 1px red;
+        }
+
+        input:checked+.slider:before {
+          transform: translateX(13px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+          border-radius: 68px;
+        }
+
+        .slider.round:before {
+          border-radius: 50%;
+        }
+
         @media only screen and (min-width: 800px) {
-        .wrapper{
-          zoom:75%}
+          .wrapper {
+            zoom: 75%
+          }
         }
       </style>
 </body>
