@@ -30,8 +30,8 @@
   </div>
 
       <script>
-        let ballNumber=7, override = true, prevNum=7, prevPrev=8, questionAsked = false
-        let mode = document.getElementById('mode');
+        let ballNumber=7, override = true, prevNum=7, prevPrev=8, normalPrev=0, angryPrev = 1, normalPrevPrev=2, angryPrevPrev =3, questionAsked = false
+        let randomNormal, randomAngry, mode = document.getElementById('mode');
         let answer = document.getElementById('answer')
         const normalAns = ["It is<br>certain", "It is<br>decidedly<br>so", "<br><br>Without<br>a<br>doubt", "Yes<br>definitely", "You<br>may<br>rely on it", "As I<br>see it,<br>yes", "Most<br>likely", "<br><br>Outlook<br>looks<br>good", "Yes", "Signs<br>point to<br>yes", "<br>Reply<br>hazy<br>try again", "Ask<br>again<br>later", "<br>Better<br>not tell<br>you now", "<br>Cannot<br>predict<br>now", "Think<br>and<br>ask again", "Don't<br>count<br>on it", "My<br>reply<br>is no", "My<br>sources<br>say no", "<br>Outlook<br>not so<br>good", "Very<br>doubtful"]
         const angryAns = ["I don't<br>fuckin'<br>know<br><br>","Għamel<br>liż-żobb<br>trid","Whyyy ?<br><br>","Try<br>again<br>Later","Yes.","Yes<br>Bitch","Fuck<br>You","Fuck<br>Nahh !!","Fuck<br>Yeah !!","Thank<br>You,<br>Next","Be<br>our<br>Guest","!! NEVER !!<br>⚠️<br><br>","Really ??!<br><br><br>","Who<br>Cares<br>","Bye<br>Bitch<br>Bye","Figure it out<br>yourself<br>bitch<br><br>","Google<br>it<br>Zibel !","Error<br>404<br>😵","Think<br>Twice","Fuck<br>it<br>","Maybe<br>"]
@@ -72,11 +72,27 @@
             if (mode.checked == true) {
               answer.classList.remove("up")
               answer.classList.add("down")
-              answer.innerHTML = angryAns[Math.floor(Math.random() * angryAns.length)]
+
+                  do {
+                    randomAngry = Math.floor(Math.random() * angryAns.length)
+                } while (angryPrev == randomAngry || angryPrev == angryPrevPrev);
+
+                angryPrevPrev = angryPrev
+                angryPrev = randomAngry
+              
+              answer.innerHTML = angryAns[randomAngry]
             } else {
               answer.classList.remove("down")
               answer.classList.add("up")
-              answer.innerHTML = normalAns[Math.floor(Math.random() * normalAns.length)]
+
+              do {
+                    randomNormal = Math.floor(Math.random() * normalAns.length)
+                } while (normalPrev == randomNormal || normalPrev == normalPrevPrev);
+
+                normalPrevPrev = normalPrev
+                normalPrev = randomNormal
+              
+              answer.innerHTML = normalAns[randomNormal]            
             }
             questionAsked = true
           }
@@ -102,7 +118,7 @@
       });
 
         document.getElementById("mode").addEventListener("click", function (event) {
-          document.getElementById("number").style.display = "block"
+          document.getElementById("number").style.visibility = "visible"
           answer.style.display = "none"
           questionAsked = false
         })
