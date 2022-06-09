@@ -17,6 +17,57 @@
 
 /******************** Target #110 - Sunrays ********************/
 
+<div id=a></div>
+<div id=b></div>
+<div id=c></div>
+<div id=d></div>
+<div id=e></div>
+<div id=f></div>
+
+<body bgcolor=D25B70>
+<style>
+  div {
+    color:#F2E09F;
+    position:absolute;
+    width: 100;
+    border-radius: 9px;
+    height: 10;
+    background: #F2E09F;
+    top:195px;
+    left:80px;
+  }
+  #a{
+   box-shadow: 140px 0 0;
+  }
+  #b,#e{
+    top:160;
+    left:90;
+    height:10;
+    transform: rotate(30deg);
+  }
+  #c,#f{
+    top:134;
+    left:115;
+    height:10;
+    transform: rotate(60deg);
+  }
+  #d{
+    top:125;
+    left:150;
+    width:99;
+    height:10.5px;
+    transform: rotate(90deg);
+  }
+  #e{
+    left:210;
+    transform: rotate(-30deg);
+  }
+  #f{
+    left:185;
+    transform: rotate(-60deg);
+  }
+</style>
+
 /******************** Target #111 - ********************
 
 /******************** Target #112 - ********************/
