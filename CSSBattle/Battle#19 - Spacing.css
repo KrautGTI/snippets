@@ -68,9 +68,71 @@
   }
 </style>
 
-/******************** Target #111 - ********************
+/******************** Target #111 - Rain Drops ********************/
 
-/******************** Target #112 - ********************/
+<div d></div>
+<div r>
+<body bgcolor=F3AC3C>
+<style>
+  div{
+	background:#254241;
+    color:#254241;
+    width:80;
+    height:80;
+    position:absolute;
+    left:80;
+    top:110;
+	box-shadow:85q -74q, 85q 74q;
+  }
+  [r]{
+    border-radius:50%
+  }
+  [d]{
+    height:40;
+    width:40;
+    top:130;
+    left:128;
+    transform:rotate(45deg);
+    box-shadow:8px -66px, 66px -8px;
+  }
+
+/******************** Target #112 - Chevron ********************/
+
+<div b></div>
+<div m></div>
+<div t></div>
+
+<body bgcolor=6592CF>
+<style>
+  div{
+    position:absolute;
+        color:transparent;
+      	width:0;
+  	height:0;
+
+  }
+  
+[t],[m],[b] {
+    top:50;
+  	left:74;
+  	border-right:125px solid;
+  	border-left:127px solid;
+    border-top:100px solid #293D7E;   
+}
+  [m]{
+    top:100;
+  }
+    [b]{
+    top:150;
+  }
+  [t]::after,[m]::after,[b]::after{
+    content:"";
+    position:absolute;
+    top:-103;
+  	left:-90;
+  	border-right:90px solid;
+  	border-left:89px solid;
+    border-top:73px solid #6592CF;    }
 
 /******************** Target #113 - ********************
 
