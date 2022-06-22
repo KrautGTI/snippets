@@ -132,12 +132,37 @@
   	left:-90;
   	border-right:90px solid;
   	border-left:89px solid;
-    border-top:73px solid #6592CF;    }
+    border-top:73px solid #6592CF;   
+  }
 
-/******************** Target #113 - ********************
+/******************** Target #113 - Black Light ********************/
 
-/******************** Target #114 - ********************/
+/******************** Target #114 - Negative Box ********************/
 
-/******************** Target #115 - ********************
+<div t></div>
+<div b>
+<body bgcolor=172D2C>
+<style>
+  div {
+    position:absolute;
+  }
+  [t]{
+    top:20;
+    left:200;
+    color:transparent;
+	border-top: 65px solid;
+	border-left: 180px solid #E9AF53;
+	border-bottom: 65px solid;
+  }
+  [b]{
+    background:#E9AF53;
+    width:180;
+    height:130;
+    top:117.5;
+    left:20;
+	transform: skew(0deg, 20deg);
+  }
+
+/******************** Target #115 - ********************/
 
 /******************** Target #116 - ********************/
