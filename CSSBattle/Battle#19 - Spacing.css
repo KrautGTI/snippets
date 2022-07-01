@@ -178,6 +178,39 @@
 	transform: skew(0deg, 20deg);
   }
 
-/******************** Target #115 - ********************/
+/******************** Target #115 - Droplet ********************/
+
+<p b>
+<p r>
+<p c>
+<style>
+  p{
+    position:absolute;
+	top:-16;
+    left:0;
+        height:300;
+        width:470;
+
+  }
+  [c]{
+    top:84;
+    left:150;
+        height: 100;
+    width: 100;
+    background: linear-gradient(#C36271, #C36271 50%, #F2E09F 50%);
+    border-radius:50%;
+  }
+  [b]{
+    background: linear-gradient(#C36271, #C36271 50%, #F2E09F 50%);
+  }
+  [r]
+  {
+    	background:#F2E09F;
+        border-radius:108q;
+    	top:-166;
+      	left:-89.8;
+    box-shadow:116.5q 316q #C36271
+  }
+</style>
 
 /******************** Target #116 - ********************/
