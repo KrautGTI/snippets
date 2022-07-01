@@ -213,4 +213,30 @@
   }
 </style>
 
-/******************** Target #116 - ********************/
+/******************** Target #116 - Headphones ********************/
+
+<p c>
+<p d>
+<body bgcolor=#293D7E>
+<style>
+  p {
+    position:absolute;
+    top:29;
+    left:115;
+  }
+  [c]{
+    width:130;
+    height:100;
+    border: 20px solid #6E91CA;
+    border-bottom:none;
+    border-radius:99q 99q 0 0 
+  }
+  [d]{
+    top:149;
+    background:#6E91CA;
+    width:60;
+    height:80;
+	border-radius:0 65q 99q 99q;
+    -webkit-box-reflect: right 50px;
+  }
+</style>
