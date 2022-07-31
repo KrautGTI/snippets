@@ -1,398 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="icon" type="image/x-icon" href="/snippets/sites/tools/favicon.png" />
+      <title>Credit Card</title>
+   </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="/snippets/sites/tools/favicon.png">
-  <title>Credit Card</title>
-</head>
-
-<body>
-  <button id="close" onclick="location.href='/snippets/index.html';"
-    style="position:absolute;font-size:15px; right:0.2%;top:0.5%;padding:5px 10px">X</span></button>
-  <div oninput="Entry()" class="wrapper">
-    <div id="cardType" class="credit-card__wrapper mastercard">
-      <div class="credit-card__inner ">
-        <div class="credit-card--front">
-          <div class="card-number">
-            <div id="cardNumberShadow" class="card-number__shadow shadow">1234 1234 1234 1234</div>
-            <div id="cardNumber" class="card-number__emboss emboss">1234 1234 1234 1234</div>
-          </div>
-          <div class="card-holder">
-            <div id="cardHolderShadow" class="card-holder__shadow shadow">Cardholder Name</div>
-            <div id="cardHolder" class="card-holder__emboss emboss">Cardholder Name</div>
-          </div>
-          <div class="expiration-date">
-            <div id="expDateShadow" class="expiration-date__shadow shadow">MM/YYYY</div>
-            <div id="expDate" class="expiration-date__emboss emboss">MM/YYYY</div>
-          </div>
-        </div>
-        <div class="credit-card--back">
-          <div id="signature" class="signature"></div>
-          <div id="CVV" class="cvv"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="form">
-      <form action="">
-        <div class="row">
-          <div class="field">
-            <label for="card-number">Card Number</label>
-            <input id="cardNumberVal" type="tel" maxlength="19" name="card-number" required />
-          </div>
-
-          <div class="field">
-            <label for="card-holder">Card Holder</label>
-            <input id="cardHolderVal" type="text" name="card-holder" required />
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="field option__wrapper">
-            <label>Expiration Date</label>
-            <div class="field__option">
-              <select name="expiration-date-month" id="expMonthVal" required>
-                <option>MM</option>
-                <option value="01">01</option>
-                <option value="02">02</option>
-                <option value="03">03</option>
-                <option value="04">04</option>
-                <option value="05">05</option>
-                <option value="06">06</option>
-                <option value="07">07</option>
-                <option value="08">08</option>
-                <option value="09">09</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
-
-              <select name="expiration-date-year" id="expYearVal" required> 
-                <option value="YYYY">YYYY</option>
-              </select>
+   <body>
+      <button id="close" onclick="location.href='/snippets/index.html';" style="position: absolute; font-size: 15px; right: 0.2%; top: 0.5%; padding: 5px 10px">X</button>
+      <div oninput="Entry()" class="wrapper">
+         <div id="cardType" class="credit-card__wrapper mastercard">
+            <div class="credit-card__inner">
+               <div class="credit-card--front">
+                  <div class="card-number">
+                     <div id="cardNumberShadow" class="card-number__shadow shadow">1234 1234 1234 1234</div>
+                     <div id="cardNumber" class="card-number__emboss emboss">1234 1234 1234 1234</div>
+                  </div>
+                  <div class="card-holder">
+                     <div id="cardHolderShadow" class="card-holder__shadow shadow">Cardholder Name</div>
+                     <div id="cardHolder" class="card-holder__emboss emboss">Cardholder Name</div>
+                  </div>
+                  <div class="expiration-date">
+                     <div id="expDateShadow" class="expiration-date__shadow shadow">MM/YYYY</div>
+                     <div id="expDate" class="expiration-date__emboss emboss">MM/YYYY</div>
+                  </div>
+               </div>
+               <div class="credit-card--back">
+                  <div id="signature" class="signature"></div>
+                  <div id="CVV" class="cvv"></div>
+               </div>
             </div>
-          </div>
+         </div>
 
-          <div class="field">
-            <label for="cvv">CVV</label>
-            <input id="cvvVal" type="text" maxlength="3" onfocus="Swap()" onfocusout="SwapBack()"  name="cvv"
-              required />
-          </div>
-        </div>
+         <div class="form">
+            <form action="">
+               <div class="row">
+                  <div class="field">
+                     <label for="card-number">Card Number</label>
+                     <input id="cardNumberVal" type="tel" maxlength="19" name="card-number" required />
+                  </div>
 
-        <div class="row">
-          <button>Submit</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <script>
-    const cardType = document.getElementById('cardType')
-    const cardNumberVal = document.getElementById('cardNumberVal')
-    const cardHolderVal = document.getElementById('cardHolderVal')
-    const expMonthVal = document.getElementById('expMonthVal')
-    const expYearVal = document.getElementById('expYearVal')
-    const cvvVal = document.getElementById('cvvVal')
+                  <div class="field">
+                     <label for="card-holder">Card Holder</label>
+                     <input id="cardHolderVal" type="text" maxlength="35" name="card-holder" required />
+                  </div>
+               </div>
 
-    //Values values from local storage
-    let amount = window.localStorage.getItem('amount')
-    cardHolderVal.value = window.localStorage.getItem('Name')
-    let firstName = window.localStorage.getItem('fName')
+               <div class="row">
+                  <div class="field option__wrapper">
+                     <label>Expiration Date</label>
+                     <div class="field__option">
+                        <select name="expiration-date-month" id="expMonthVal" required>
+                           <option>MM</option>
+                           <option value="01">01</option>
+                           <option value="02">02</option>
+                           <option value="03">03</option>
+                           <option value="04">04</option>
+                           <option value="05">05</option>
+                           <option value="06">06</option>
+                           <option value="07">07</option>
+                           <option value="08">08</option>
+                           <option value="09">09</option>
+                           <option value="10">10</option>
+                           <option value="11">11</option>
+                           <option value="12">12</option>
+                        </select>
 
-    //Remove values from local storage
-    window.localStorage.removeItem('amount')
-    window.localStorage.removeItem('Name')
+                        <select name="expiration-date-year" id="expYearVal" required>
+                           <option value="YYYY">YYYY</option>
+                        </select>
+                     </div>
+                  </div>
 
-    //Dynamic year dropdown list 
-    var select = document.getElementById("expYearVal"); 
-    const curYear = new Date().getFullYear()
-    const curMonth = new Date().getMonth() +1
+                  <div class="field">
+                     <label for="cvv">CVV</label>
+                     <input id="cvvVal" type="text" maxlength="3" onfocus="Swap()" onfocusout="SwapBack()" name="cvv" required />
+                  </div>
+               </div>
 
-    for(let i = 0; i <=7; i++) {
-        let el = document.createElement("option");
-        el.text = curYear + i;
-        el.value = curYear + i;
-        select.add(el);
+               <div class="row">
+                  <button>Submit</button>
+               </div>
+            </form>
+         </div>
+      </div>
+      <script>
+         const cardType = document.getElementById('cardType')
+         const cardNumberVal = document.getElementById('cardNumberVal')
+         const cardHolderVal = document.getElementById('cardHolderVal')
+         const expMonthVal = document.getElementById('expMonthVal')
+         const expYearVal = document.getElementById('expYearVal')
+         const cvvVal = document.getElementById('cvvVal')
+
+         //Values values from local storage
+         let amount = window.localStorage.getItem('amount')
+         cardHolderVal.value = window.localStorage.getItem('Name')
+         let firstName = window.localStorage.getItem('fName')
+
+         //Remove values from local storage
+         window.localStorage.removeItem('amount')
+         window.localStorage.removeItem('Name')
+
+         //Dynamic year dropdown list
+         var select = document.getElementById('expYearVal')
+         const curYear = new Date().getFullYear()
+         const curMonth = new Date().getMonth() + 1
+
+         for (let i = 0; i <= 7; i++) {
+            let el = document.createElement('option')
+            el.text = curYear + i
+            el.value = curYear + i
+            select.add(el)
+         }
+
+         function Entry() {
+            document.getElementById('cardNumberShadow').innerText = cardNumberVal.value
+            document.getElementById('cardNumber').innerText = cardNumberVal.value
+            document.getElementById('cardHolderShadow').innerText = cardHolderVal.value
+            document.getElementById('cardHolder').innerText = cardHolderVal.value
+            document.getElementById('signature').innerText = cardHolderVal.value
+            document.getElementById('expDateShadow').innerText = `${expMonthVal.value}/${expYearVal.value}`
+            document.getElementById('expDate').innerText = `${expMonthVal.value}/${expYearVal.value}`
+            document.getElementById('CVV').innerText = cvvVal.value
+         }
+         ///NUMBER VALIDATION. AMOUNT OF DIGITS. LIMIT.
+         cardNumberVal.addEventListener('input', function (e) {
+            let target = e.target,
+               position = target.selectionEnd,
+               length = target.value.length
+            let cardStarts = target.value.toString().substring(0, 1)
+            if (cardStarts == 4) {
+               cardType.classList.remove('mastercard')
+               cardType.classList.add('visa')
+            } else {
+               cardType.classList.add('mastercard')
+               cardType.classList.remove('visa')
+            }
+            target.value = target.value
+               .replace(/[^\dA-Z]/g, '')
+               .replace(/(.{4})/g, '$1 ')
+               .trim()
+            target.selectionEnd = position += target.value.charAt(position - 1) === ' ' && target.value.charAt(length - 1) === ' ' && length !== target.value.length ? 1 : 0
+
+            if (target.value.length === 19) {
+               cardValidator()
+            } else {
+               document.getElementById('cardNumberVal').classList.remove('valid')
+               document.getElementById('cardNumberVal').classList.remove('invalid')
+            }
+         })
+
+         cvvVal.addEventListener('input', function (e) {
+            let target = e.target,
+               position = target.selectionEnd,
+               length = target.value.length
+            target.value = target.value
+               .replace(/[^\dA-Z]/g, '')
+               .replace(/(.{4})/g, '$1 ')
+               .trim()
+            target.selectionEnd = position += target.value.charAt(position - 1) === ' ' && target.value.charAt(length - 1) === ' ' && length !== target.value.length ? 1 : 0
+         })
+
+         function Swap() {
+            cardType.classList.add('flip')
+         }
+
+         function SwapBack() {
+            cardType.classList.remove('flip')
+         }
+
+         document.querySelector('form').addEventListener(
+            'submit',
+            function (e) {
+               let valid = expMonthVal.value === 'MM' || expYearVal.value === 'YYYY' || (expMonthVal.value < curMonth && expYearVal.value <= curYear) ? false : true
+               if (!valid) {
+                  e.preventDefault()
+                  alert('Expiration date should be in the future')
+               } else {
+                  window.location.href = '/snippets/sites/form-validator.html'
+                  alert(`Thank you ${firstName} for your donation of €${amount}`)
+               }
+            },
+            false
+         )
+
+         document.body.style.zoom = '73%'
+
+         function cardValidator() {
+            let tempJoin = cardNumberVal.value.split(' ').join('')
+            let cardNumbers = tempJoin.split('')
+            let checkSum = parseInt(cardNumbers[15])
+            let sumDoubleCount = 0,
+               singleCount = 0,
+               doubleCount = 0
+
+            for (let i = 0; i < cardNumbers.length; i++) {
+               let isEven = i % 2 == 0
+               let curCardNumber = parseInt(cardNumbers[i])
+               if (isEven && curCardNumber < 5) {
+                  doubleCount += curCardNumber * 2
+               } else if (isEven && curCardNumber >= 5) {
+                  console.log(sumDoubleCount)
+                  let tempNum = curCardNumber * 2
+                  let numA = Math.floor(tempNum / 10).toFixed(0)
+                  let numB = tempNum % 10
+                  sumDoubleCount += numA - -numB
+                  console.log(sumDoubleCount)
+               } else if (!isEven) {
+                  singleCount += curCardNumber
+               }
+            }
+
+            if ((singleCount + sumDoubleCount + doubleCount) % 10 == 0) {
+               document.getElementById('cardNumberVal').classList.remove('invalid')
+               document.getElementById('cardNumberVal').classList.add('valid')
+               console.log('valid')
+            } else {
+               document.getElementById('cardNumberVal').classList.remove('valid')
+               document.getElementById('cardNumberVal').classList.add('invalid')
+               console.log('invalid')
+            }
+         }
+
+         //Official Luhn Check checker for credit card numbers.
+         //Not really being used in my case.
+         var LuhnCheck = (function () {
+            var luhnArr = [0, 2, 4, 6, 8, 1, 3, 5, 7, 9]
+            return function (str) {
+               var counter = 0
+               var incNum
+               var odd = false
+               var temp = String(str).replace(/[^\d]/g, '')
+               if (temp.length == 0) return false
+               for (var i = temp.length - 1; i >= 0; --i) {
+                  incNum = parseInt(temp.charAt(i), 10)
+                  counter += (odd = !odd) ? incNum : luhnArr[incNum]
+               }
+               return counter % 10 == 0
+            }
+         })()
+      </script>
+   </body>
+   <style>
+      @import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&family=Courier+Prime:wght@700&family=Roboto:wght@400;700&display=swap');
+
+      .valid:focus-visible {
+         outline-offset: 0px;
+         outline: 2px solid green;
       }
 
-    function Entry() {
-      document.getElementById("cardNumberShadow").innerText = cardNumberVal.value
-      document.getElementById("cardNumber").innerText = cardNumberVal.value
-      document.getElementById("cardHolderShadow").innerText = cardHolderVal.value
-      document.getElementById("cardHolder").innerText = cardHolderVal.value
-      document.getElementById("signature").innerText = cardHolderVal.value
-      document.getElementById("expDateShadow").innerText = `${expMonthVal.value}/${expYearVal.value}`
-      document.getElementById("expDate").innerText = `${expMonthVal.value}/${expYearVal.value}`
-      document.getElementById("CVV").innerText = cvvVal.value
-    }
-///NUMBER VALIDATION. AMOUNT OF DIGITS. LIMIT. 
-    cardNumberVal.addEventListener('input', function (e) {
-      let target = e.target, position = target.selectionEnd, length = target.value.length;
-      let cardStarts = target.value.toString().substring(0, 1)
-      if (cardStarts == 4) {
-        cardType.classList.remove("mastercard")
-        cardType.classList.add("visa")
+      .invalid:focus-visible {
+         outline-offset: 0px;
+
+         outline: 2px solid red;
       }
-      else {
-        cardType.classList.add("mastercard")
-        cardType.classList.remove("visa")
+
+      body {
+         min-width: 100vw;
+         min-height: 100vh;
+         padding: 0;
+         margin: 0;
+         background: #fbe6db;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         font-family: 'Courier Prime', monospace;
       }
-      target.value = target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
-      target.selectionEnd = position += ((target.value.charAt(position - 1) === ' ' && target.value.charAt(length - 1) === ' ' && length !== target.value.length) ? 1 : 0);
-    });
 
-    cvvVal.addEventListener('input', function (e) {
-      let target = e.target, position = target.selectionEnd, length = target.value.length;
-      target.value = target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
-      target.selectionEnd = position += ((target.value.charAt(position - 1) === ' ' && target.value.charAt(length - 1) === ' ' && length !== target.value.length) ? 1 : 0);
-    });
-
-    function Swap() {
-      cardType.classList.add("flip")
-    }
-
-    function SwapBack() {
-      cardType.classList.remove("flip")
-    }
-
-    document.querySelector("form").addEventListener("submit", function (e) {
-      let valid = ((expMonthVal.value === "MM" || expYearVal.value === "YYYY")||(expMonthVal.value < curMonth && expYearVal.value <= curYear)) ? false : true;
-      if (!valid){
-        e.preventDefault();
-        alert("Expiration date should be in the future");
+      .wrapper {
+         position: relative;
+         margin-top: 175px;
       }
-      else{
-      window.location.href = "/snippets/sites/form-validator.html";
-      alert(`Thank you ${firstName} for your donation of €${amount}`)
-    }}, false);
 
-    document.body.style.zoom="73%"
-  </script>
-</body>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Beth+Ellen&family=Courier+Prime:wght@700&family=Roboto:wght@400;700&display=swap');
+      .credit-card__wrapper {
+         position: relative;
+         top: -200px;
+         left: 50%;
+         transform: translateX(-334px);
+         z-index: 10;
+      }
 
-  body {
-    min-width: 100vw;
-    min-height: 100vh;
-    padding: 0;
-    margin: 0;
-    background: #FBE6DB;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Courier Prime', monospace;
-  }
+      .credit-card__wrapper.flip .credit-card__inner {
+         transform: rotateY(180deg);
+      }
 
-  .wrapper {
-    position: relative;
-    margin-top: 175px;
-  }
+      .credit-card__inner {
+         position: relative;
+         transition: transform 0.8s;
+         transform-style: preserve-3d;
+      }
 
-  .credit-card__wrapper {
-    position: relative;
-    top: -200px;
-    left: 50%;
-    transform: translateX(-334px);
-    z-index: 10;
-  }
+      .credit-card--front,
+      .credit-card--back {
+         background-position: left top;
+         background-repeat: no-repeat;
+         background-size: 668px 413px;
+         width: 668px;
+         height: 413px;
+         margin-bottom: -200px;
+         z-index: 2;
+         position: absolute;
+         top: 0;
+         left: 0;
+         -webkit-backface-visibility: hidden;
+         /* Safari */
+         backface-visibility: hidden;
+      }
 
-  .credit-card__wrapper.flip .credit-card__inner {
-    transform: rotateY(180deg);
-  }
+      .credit-card--back {
+         transform: rotateY(180deg) translateX(-334px);
+      }
 
-  .credit-card__inner {
-    position: relative;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
+      .visa .credit-card--front {
+         background-image: url('tools/cc__visa--front.png');
+      }
 
-  .credit-card--front,
-  .credit-card--back {
-    background-position: left top;
-    background-repeat: no-repeat;
-    background-size: 668px 413px;
-    width: 668px;
-    height: 413px;
-    margin-bottom: -200px;
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    left: 0;
-    -webkit-backface-visibility: hidden;
-    /* Safari */
-    backface-visibility: hidden;
-  }
+      .visa .credit-card--back {
+         background-image: url('tools/cc__visa--back.png');
+      }
 
-  .credit-card--back {
-    transform: rotateY(180deg) translateX(-334px);
-  }
+      .mastercard .credit-card--front {
+         background-image: url('tools/cc__mastercard--front.png');
+      }
 
-  .visa .credit-card--front {
-    background-image: url('tools/cc__visa--front.png');
-  }
+      .mastercard .credit-card--back {
+         background-image: url('tools/cc__mastercard--back.png');
+      }
 
-  .visa .credit-card--back {
-    background-image: url('tools/cc__visa--back.png')
-  }
+      .card-number {
+         position: absolute;
+         font-weight: bold;
+         font-size: 36px;
+         line-height: 47px;
+         width: 575px;
+         top: 184px;
+         left: 118px;
+      }
 
-  .mastercard .credit-card--front {
-    background-image: url('tools/cc__mastercard--front.png');
-  }
+      .card-holder {
+         width: 575px;
+         position: absolute;
+         font-weight: bold;
+         font-size: 20px;
+         line-height: 34px;
+         text-transform: uppercase;
+         left: 118px;
+         top: 280px;
+      }
 
-  .mastercard .credit-card--back {
-    background-image: url('tools/cc__mastercard--back.png');
-  }
+      .expiration-date {
+         width: 575px;
+         position: absolute;
+         font-weight: bold;
+         font-size: 20px;
+         line-height: 34px;
+         text-transform: uppercase;
+         left: 355px;
+         top: 242px;
+      }
 
-  .card-number {
-    position: absolute;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 47px;
-    width: 575px;
-    top: 184px;
-    left: 118px;
-  }
+      .shadow {
+         text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.65);
+         z-index: -1;
+         width: 100%;
+         position: absolute;
+         left: 0;
+         top: 0;
+      }
 
-  .card-holder {
-    width: 575px;
-    position: absolute;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 34px;
-    text-transform: uppercase;
-    left: 118px;
-    top: 280px;
-  }
+      .emboss {
+         z-index: 5;
+         position: absolute;
+         background: linear-gradient(180deg, #ffffff 15.34%, #dbdbdb 21.24%, #ffffff 37.13%, rgba(188, 203, 217, 0.68) 48.94%, rgba(255, 255, 255, 0.830204) 58.93%);
+         -webkit-background-clip: text;
+         background-clip: text;
+         -webkit-text-fill-color: transparent;
+         z-index: 5;
+         width: 100%;
+         height: 50px;
+      }
 
-  .expiration-date {
-    width: 575px;
-    position: absolute;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 34px;
-    text-transform: uppercase;
-    left: 355px;
-    top: 242px;
-  }
+      .signature {
+         font-family: 'Beth Ellen', cursive;
+         font-size: 32px;
+         position: absolute;
+         left: 105px;
+         top: 142px;
+      }
 
-  .shadow {
-    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.65);
-    z-index: -1;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
+      .cvv {
+         position: absolute;
+         right: 110px;
+         top: 170px;
+      }
 
-  .emboss {
-    z-index: 5;
-    position: absolute;
-    background: linear-gradient(180deg, #FFFFFF 15.34%, #DBDBDB 21.24%, #FFFFFF 37.13%, rgba(188, 203, 217, 0.68) 48.94%, rgba(255, 255, 255, 0.830204) 58.93%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    z-index: 5;
-    width: 100%;
-    height: 50px;
-  }
+      .form {
+         background: white;
+         border-radius: 30px;
+         padding: 200px 60px 60px 60px;
+         box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.25), 0px 0px 95px #f5c7bd;
+         position: relative;
+         z-index: 1;
+         width: 890px;
+      }
 
-  .signature {
-    font-family: 'Beth Ellen', cursive;
-    font-size: 32px;
-    position: absolute;
-    left: 105px;
-    top: 142px;
-  }
+      .row {
+         margin-bottom: 30px;
+         display: flex;
+         gap: 35px;
+         width: 100%;
+         justify-content: space-between;
+      }
 
-  .cvv {
-    position: absolute;
-    right: 110px;
-    top: 170px;
-  }
+      .field {
+         flex: 1;
+      }
 
-  .form {
-    background: white;
-    border-radius: 30px;
-    padding: 200px 60px 60px 60px;
-    box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.25), 0px 0px 95px #F5C7BD;
-    position: relative;
-    z-index: 1;
-    width: 890px;
-  }
+      label {
+         font-family: 'Roboto', sans-serif;
+         font-size: 16px;
+         line-height: 19px;
+         font-weight: normal;
+         display: block;
+         margin-bottom: 8px;
+      }
 
-  .row {
-    margin-bottom: 30px;
-    display: flex;
-    gap: 35px;
-    width: 100%;
-    justify-content: space-between;
-  }
+      input[type='text'],
+      input[type='tel'],
+      input[type='password'],
+      input[type='number'],
+      select {
+         font-family: 'Roboto', sans-serif;
+         border: 2px solid #e0e0e0;
+         border-radius: 4px;
+         height: 65px;
+         padding: 0 30px;
+         width: 100%;
+         box-sizing: border-box;
+         font-size: 20px;
+         line-height: 23px;
+      }
 
-  .field {
-    flex: 1;
-  }
+      button:not(#close) {
+         background: #7d193e;
+         color: white;
+         font-family: 'Roboto', sans-serif;
+         font-weight: bold;
+         font-size: 20px;
+         line-height: 23px;
+         padding: 20px 0;
+         box-sizing: border-box;
+         height: 65px;
+         border: none;
+         border-radius: 12px;
+         width: 100%;
+         cursor: pointer;
+      }
+      button:active {
+         transform: translateY(4px);
+      }
 
-  label {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    line-height: 19px;
-    font-weight: normal;
-    display: block;
-    margin-bottom: 8px;
-  }
+      .field__option {
+         display: flex;
+         gap: 20px;
+      }
 
-  input[type=text],
-  input[type=tel],
-  input[type=password],
-  input[type=number],
-  select {
-    font-family: 'Roboto', sans-serif;
-    border: 2px solid #E0E0E0;
-    border-radius: 4px;
-    height: 65px;
-    padding: 0 30px;
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 20px;
-    line-height: 23px;
-  }
+      .option__wrapper {
+         flex: 2;
+      }
 
-  button:not(#close) {
-    background: #7D193E;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 23px;
-    padding: 20px 0;
-    box-sizing: border-box;
-    height: 65px;
-    border: none;
-    border-radius: 12px;
-    width: 100%;
-    cursor: pointer;
-  }
-  button:active{
-      transform: translateY(4px);
-    }
-
-  .field__option {
-    display: flex;
-    gap: 20px;
-  }
-
-  .option__wrapper {
-    flex: 2;
-  }
-
-  select {
-    background: url(' tools/arrow.svg') 95% center no-repeat;
-    appearance: none;
-  }
-</style>
-
+      select {
+         background: url(' tools/arrow.svg') 95% center no-repeat;
+         appearance: none;
+      }
+   </style>
 </html>
