@@ -1,6 +1,35 @@
 /******************** Target #117 - Arineo ********************/
 
-/******************** Target #118 - Donket Kong ********************/
+/******************** Target #118 - Donkey Kong ********************/
+<p w> <p l> <p m>
+<body bgcolor=1>
+<style>
+  p{
+    position:absolute;
+    border-radius:20q;
+    width: 300;
+    height: 20;
+    background: #AF067C;
+    top:74;
+    left:50;
+  }
+  [l]{
+        box-shadow:0 106q #AF067C;
+  }
+  [m]{
+    top:124;
+    transform:skewY(-4deg)
+  }
+  [w]{
+    color:#FFF;
+    width:20;
+    height:70;
+    left:80;
+    background:#FFF;
+	box-shadow:116.5q 53q,233q 53q,233q 0q;
+  }
+</style>
+
 
 /******************** Target #119 -  ********************/
 
