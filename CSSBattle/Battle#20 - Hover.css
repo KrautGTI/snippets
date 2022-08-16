@@ -1,39 +1,106 @@
 /******************** Target #117 - Arineo ********************/
 
+<p l > <p r > <p g > <p v > <p c > <style > p {
+   position: fixed;
+   background: #0088ca;
+   width: 22;
+   height: 22;
+   left: 189;
+   top: 123;
+}
+[l],
+[r] {
+   width: 44;
+   height: 180;
+   background: #2e2926;
+   left: 134;
+   top: 44;
+   transform: skew(-25deg);
+}
+[r] {
+   left: 222;
+   transform: skew(25deg);
+}
+[c] {
+   border-radius: 50%;
+}
+[v],
+[g] {
+   width: 80;
+   height: 28;
+   left: 120;
+   top: 133;
+   transform: skewY(45deg);
+   box-shadow: -32Q 0 0 11Q #fff;
+}
+[g] {
+   width: 120;
+   left: 200;
+   top: 114;
+   transform: skewY(-45deg);
+}
+
 /******************** Target #118 - Donkey Kong ********************/
-<p w> <p l> <p m>
-<body bgcolor=1>
-<style>
-  p{
-    position:absolute;
-    border-radius:20q;
-    width: 300;
-    height: 20;
-    background: #AF067C;
-    top:74;
-    left:50;
-  }
-  [l]{
-        box-shadow:0 106q #AF067C;
-  }
-  [m]{
-    top:124;
-    transform:skewY(-4deg)
-  }
-  [w]{
-    color:#FFF;
-    width:20;
-    height:70;
-    left:80;
-    background:#FFF;
-	box-shadow:116.5q 53q,233q 53q,233q 0q;
-  }
-</style>
+<p w > <p l > <p m > <body bgcolor=1 > <style > p {
+   position: absolute;
+   border-radius: 20Q;
+   width: 300;
+   height: 20;
+   background: #af067c;
+   top: 74;
+   left: 50;
+}
+[l] {
+   box-shadow: 0 106Q #af067c;
+}
+[m] {
+   top: 124;
+   transform: skewY(-4deg);
+}
+[w] {
+   color: #fff;
+   width: 20;
+   height: 70;
+   left: 80;
+   background: #fff;
+   box-shadow: 116.5Q 53Q, 233Q 53Q, 233Q 0Q;
+}
 
+/******************** Target #119 - Pacman ********************/
 
-/******************** Target #119 -  ********************/
+<p r > <p y > <p b > <p w > <body bgcolor=1 > < > p {
+   position: fixed;
+   top: 104;
+   left: 60;
+   width: 60;
+   height: 60;
+}
+[y] {
+   border-radius: 50%;
+   background: #e0e246;
+}
+[b] {
+   left: 100;
+   background: #000;
+   transform: rotate(45deg);
+   box-shadow: 165Q -75Q, 180Q -90Q, 195Q -105Q;
+}
+[w] {
+   border-radius: 50%;
+   width: 10;
+   height: 10;
+   top: 129;
+   left: 145;
+   color: #fff;
+   box-shadow: 21Q 0, 53Q 0, 85Q 0;
+}
+[r] {
+   background: #c74e4e;
+   border-radius: 50% 50% 0 0;
+   left: 280;
+}
 
-/******************** Target #120 -  ********************/
+/******************** Target #120 - Tank ********************/
 
 /******************** Target #121 -  ********************/
 
