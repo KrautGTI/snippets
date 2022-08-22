@@ -1,64 +1,65 @@
 /******************** Target #97 - Snowman ********************/
 
-<p b> <p h> <p e> <p n> <p s> <p t> <p r> <p w> 
-  <body bgcolor=AC474B>
-<style>
-  p {
-  	position:absolute;
-    top:50%;
-    left:50%;
-    background:#AC474B;
-    transform:translate(-50%,-50%)
-  }
-  p[h],[e],[b]{
-    border-radius:50%;
-    background:#FFF;
-	width:99;
-    height:100;
-    top:178
-  }
-  p[e]{
-    background:#0E1F2B;
-    width:10;
-    height:10;
-    top:101;
-    left:190;
-    -webkit-box-reflect:right 10px
-  }
-  p[h]{
-    width:60;
-    height:60;
-    top:108
-  }
-  p[w],p[r],p[t]{
-    background:#0E1F2B;
-    height:10px;
-    width:40;
-    top:58.5px
-  }
-  p[t]{
-    height:40
-  }
-  p[w]{
-    background:#FFF
-  }
-  p[r]{
-    height:5;
-    width:60;
-    top:81
-  }
-  p[s]{
-    width:60;
-    height:10;
-    top:131.5px;
-    border-radius:10px;
-    background:#FFA63F;
-  }
-  p[n]{
-    height:18;
-    width:100;
-    top:131.5;
-  }
+<p b > <p h > <p e > <p n > <p s > <p t > <p r > <p w > <body bgcolor=AC474B > <style > p {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   background: #ac474b;
+   transform: translate(-50%, -50%);
+}
+[h],
+[e],
+[b] {
+   border-radius: 50%;
+   background: #fff;
+   width: 100;
+   height: 100;
+   top: 179;
+}
+[e] {
+   background: #0e1f2b;
+   width: 10;
+   height: 10;
+   top: 101;
+   left: 190;
+   box-shadow: 20px 0 #0e1f2b;
+}
+[h] {
+   width: 60;
+   height: 60;
+   top: 108;
+}
+[w],
+[r],
+[t] {
+   background: #0e1f2b;
+   height: 10;
+   width: 40;
+   top: 59;
+}
+[t] {
+   height: 40;
+}
+[w] {
+   background: #fff;
+}
+[r] {
+   height: 5;
+   width: 60;
+   top: 81;
+}
+[s] {
+   width: 60;
+   height: 10;
+   top: 132;
+   border-radius: 10Q;
+   background: #ffa63f;
+}
+[n] {
+   height: 18;
+   width: 100;
+   top: 132;
+}
 </style>
 
 /******************** Target #98 - Candle  ********************/
@@ -72,67 +73,62 @@
 <body bgcolor=14313E>
 <style>
   div {
-    position:absolute;
-    top:175;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:80;
-    height:105;
-    background:#BA3E46;
-  }
-  .y{
-    background:#F3AC3C;
-    left:215;
-    top:85;
-    width:30;
-    height:50;
-    border-radius:50px 0 50px 0;
-  }
-  .c{
-    border-radius:50%;
-    height:30;
-  }
-  .r{
-    top:225;
-  }
-  .m{
-    background:#F3695A;
-    top:125;
-  }
-  .g{
-    background:#14313E;
-    top:115;
-    width:60;
-  }
+   position: absolute;
+   top: 175;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 80;
+   height: 105;
+   background: #ba3e46;
+}
+.y {
+   background: #f3ac3c;
+   left: 215;
+   top: 85;
+   width: 30;
+   height: 50;
+   border-radius: 50px 0 50px 0;
+}
+.c {
+   border-radius: 50%;
+   height: 30;
+}
+.r {
+   top: 225;
+}
+.m {
+   background: #f3695a;
+   top: 125;
+}
+.g {
+   background: #14313e;
+   top: 115;
+   width: 60;
+}
 
 /******************** Target #99 - Giftbox ********************/
-<div class=t></div>
-<div class=u></div>
-<div class=d></div>
-<body bgcolor=AC474B>
-<style>
-  div {
-    position:absolute;
-    top:110;
-    left:130;
-    background:#FFF;
-    width:60;
-    height:60;
-    -webkit-box-reflect: right 20px;
-  }
-  .u{
-    top:190px;
-  }
-  .t{
-    background:#AC474B;;
-    top:50;
-    left:165;
-    height:20;
-    width:20;
-    border-radius:50px 50px 0 50px;
-    border:10px solid #FFF;
-    -webkit-box-reflect: right -10px;
-  }
+<div class=t > </div > <div class=u > </div > <div class=d > </div > <body bgcolor=AC474B > <style > div {
+   position: absolute;
+   top: 110;
+   left: 130;
+   background: #fff;
+   width: 60;
+   height: 60;
+   -webkit-box-reflect: right 20px;
+}
+.u {
+   top: 190px;
+}
+.t {
+   background: #ac474b;
+   top: 50;
+   left: 165;
+   height: 20;
+   width: 20;
+   border-radius: 50px 50px 0 50px;
+   border: 10px solid #fff;
+   -webkit-box-reflect: right -10px;
+}
 </style>
 
 
@@ -154,82 +150,83 @@
 
 <body bgcolor=#14313E>
   <style>
-    div{
-      position:absolute;
-      top:50%;
-      transform:translate(-50%,-50%);
-	  background:#FFDF00;
-    }
-    .background{
-      background:none;
-      left:197;
-      width:154;
-      height:200;
-      -webkit-box-reflect:right -148px
-    }
-    .border{
-      left:50%;
-      height:150.5px;
-      width:274;
-	  border-radius:20px;
-    }
-    .middle{
-      background:#14313E;
-      left:50%;
-      height:99.5px;
-      width:224;
-	  border-radius:10px;
-    }
-    .strip{
-      width:294;
-      height:41;
-      left:50%;
-      border-radius:5px;
-    }
-    .cover{
-      background:#14313E;
-      width:195;
-      height:200;
-      left:50%;
-      border-radius:5px;
-    }
-    .top{
-      height:20.5px;
-      width:20.5px;
-      top:31px;
-      left:17;
-    }
-    .handle{	  
-      height:20;
-      width:50;
-      top:141;
-      left:-2;
-      border-radius:8px;
-      transform:rotate(-45deg);
-    }
-    .blade{	  
-      height:150;
-      width:30.5;
-      top:9;
-      left:75;
-      transform:rotate(45deg);
-    }
-    .guard{
-	  height:20;
-      width:80;
-      top:124;
-      left:0;
-      transform:rotate(45deg);
-    }
-    .h1,.h2{
-      background:#14313E;
-      height:10;
-      width:50;
-	  transform:rotate(45deg);
-      top:157;
-      left:165;
-    }
-    .h2{
-	  top:126;
-      left:190;
-    }
+    div {
+   position: absolute;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   background: #ffdf00;
+}
+.background {
+   background: none;
+   left: 197;
+   width: 154;
+   height: 200;
+   -webkit-box-reflect: right -148px;
+}
+.border {
+   left: 50%;
+   height: 150.5px;
+   width: 274;
+   border-radius: 20px;
+}
+.middle {
+   background: #14313e;
+   left: 50%;
+   height: 99.5px;
+   width: 224;
+   border-radius: 10px;
+}
+.strip {
+   width: 294;
+   height: 41;
+   left: 50%;
+   border-radius: 5px;
+}
+.cover {
+   background: #14313e;
+   width: 195;
+   height: 200;
+   left: 50%;
+   border-radius: 5px;
+}
+.top {
+   height: 20.5px;
+   width: 20.5px;
+   top: 31px;
+   left: 17;
+}
+.handle {
+   height: 20;
+   width: 50;
+   top: 141;
+   left: -2;
+   border-radius: 8px;
+   transform: rotate(-45deg);
+}
+.blade {
+   height: 150;
+   width: 30.5;
+   top: 9;
+   left: 75;
+   transform: rotate(45deg);
+}
+.guard {
+   height: 20;
+   width: 80;
+   top: 124;
+   left: 0;
+   transform: rotate(45deg);
+}
+.h1,
+.h2 {
+   background: #14313e;
+   height: 10;
+   width: 50;
+   transform: rotate(45deg);
+   top: 157;
+   left: 165;
+}
+.h2 {
+   top: 126;
+   left: 190;
+}
