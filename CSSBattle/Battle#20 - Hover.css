@@ -159,6 +159,33 @@
 
 /******************** Target #121 - Duck Hunt ********************/
 
+<w><l>
+<style>
+  body{
+  background:linear-gradient(#1E92FF 0 191q,#69D10A 0 233q,#6F6100 0);
+  }
+  *>* {
+    position:fixed;
+    width:20;
+    height:90;
+  }
+  w{ 
+    top:90;
+    left:50;
+    background:#441A0A;
+  }
+  l{
+    top:60;
+    left:40;
+    background:#69D10A;
+    color:69D10A;
+    border-radius:50%;
+    width:40;
+    height:40;
+    box-shadow:21q 21q, -21q 21q, 0 21q, 270px 74q, 270px 90px}
+</style>
+
+
 /******************** Target #122 - Tetris ********************/
 
 <p>
