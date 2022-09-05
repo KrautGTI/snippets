@@ -99,10 +99,12 @@
                seconds.setAttribute('disabled', 'true')
                edit.setAttribute('disabled', 'true')
                document.body.style.setProperty('--canEdit', 0.3)
+               edit.style.cursor = 'not-allowed'
             } else {
                startStop.innerText = 'START'
                edit.removeAttribute('disabled')
                document.body.style.setProperty('--canEdit', 1)
+               edit.style.cursor = 'pointer'
             }
          }
 
