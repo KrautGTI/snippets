@@ -14,7 +14,6 @@
    <body>
       <button id="close" onclick="location.href='/snippets/index.html';" style="position: absolute; height: 30px; right: 0.2%; top: 0.5%" class="glyphicon glyphicon-remove"></button>
       <div id="area">
-         <br />
          <h1>Password Generator</h1>
          <br />
          <br />
@@ -94,15 +93,13 @@
             font-size: large;
          }
          h1 {
-            margin-top: 90px;
-            width: 95vw;
+            margin-top: 30px;
             color: #0075ff;
             font-weight: bold;
          }
 
          #area {
             position: absolute;
-            top: -30px;
          }
 
          label,
@@ -134,9 +131,6 @@
             transform: scale(1.5);
             margin-left: 51px !important;
          }
-         .copyDiv {
-            display: flex;
-         }
 
          #generateButton {
             width: 150px;
@@ -151,12 +145,24 @@
             margin-top: 20px;
             margin-bottom: 40px;
          }
+
+         #generateButton:active {
+            background-color: #3793ff;
+         }
          @media only screen and (min-width: 500px) {
             #generateButton:hover {
                background-color: #005cc8;
             }
             html {
                box-sizing: border-box;
+            }
+            h1 {
+               margin-top: 90px;
+            }
+            #area {
+               top: 42%;
+               left: 50%;
+               transform: translate(-50%, -50%);
             }
          }
 
@@ -165,9 +171,12 @@
                margin-bottom: 10px;
                margin-right: 10px;
             }
-         }
-         #generateButton:active {
-            background-color: #3793ff;
+            h1 {
+               width: 95vw;
+            }
+            #area {
+               top: 50px;
+            }
          }
       </style>
    </body>
