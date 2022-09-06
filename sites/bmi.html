@@ -44,7 +44,7 @@
     </div>
     <br />
     <button id="calculate">Calculate</button>
-    <div>
+    <div id="resDiv">
       <input id="result" type="text" disabled>
     </div>
     <script>
@@ -107,10 +107,10 @@
             condition = "Morbidly Obese";
           }
           if(isMetric && (metWeight == "" || metWeight<0 || metHeight == ""|| metHeight<0)){
-              resultBMI.value = "Please enter valid details"
+              resultBMI.value = "Enter valid details"
             }
             else if(!isMetric && (impWeight == "" || impWeight < 0 || impFeet == "" || impFeet < 0 || impInches < 0|| impInches > 12)){
-              resultBMI.value = "Please enter valid details"
+              resultBMI.value = "Enter valid details"
             }
             else{
           resultBMI.value = `${bmi} - ${condition}`;
@@ -141,7 +141,7 @@
       #imperial,
       #metric {
         border-radius: 15px 15px 0 0 !important;
-        width: 223px
+        width: calc(44.5vw)
       }
 
       #imperial:hover,
@@ -245,11 +245,17 @@
         text-align: center;
       }
 
-      @media only screen and (max-width: 800px) {
+      @media only screen and (max-width: 600px) {
 
         .wrapper,
         .header {
-          zoom: 85%
+          max-width: 90vw;
+        }
+        #metric,#imperial{
+          padding: 20px 25px !important;
+        }
+        #result{
+          margin-left:-40px
         }
 
         *:focus {
@@ -260,9 +266,12 @@
         }
       }
 
-      @media only screen and (min-width: 801px) {
+      @media only screen and (min-width: 601px) {
         #calculate:hover {
           background: rgba(234, 52, 111, .2) !important;
+        }
+        #metric,#imperial{
+          width: 223px !important
         }
       }
     </style>
