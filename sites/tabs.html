@@ -39,14 +39,14 @@
       </div>
 
       <script>
-         //TODO: Save and load high score from local storage
          //TODO: Fix width of buttons on mobile
          let randomNum,
             prevNum = 13,
             prevPrev = 14,
             guesses = 0,
             wrong = 0,
-            highScore = 0
+            highScore
+
          const titles = ['Christmas', 'Geralt of Rivia', 'Fellaini', 'Sadness and Sorrow', 'Milan', 'Easter', 'Banquet', 'Child Surprise']
          const images = ['tools/christmas.jpg', 'tools/witcher-image.jpg', 'tools/fellaini.jpg', 'tools/naruto.jpg', 'tools/milan.png', 'tools/easter.jpg', 'tools/foods.jpg', 'tools/ciri.jpg']
          const allPanels = document.querySelectorAll('.panel')
@@ -55,6 +55,7 @@
          let gamesLostVal = document.getElementById('gamesLost')
          let highScoreVal = document.getElementById('highScorePoints')
 
+         loadHighScore()
          function showPanel(panel) {
             for (i = 0; i < allPanels.length; i++) {
                allPanels[i].classList.add('hide')
@@ -84,6 +85,7 @@
             gamesWonVal.innerHTML = guesses
             highScoreVal.innerHTML = highScore
          }
+
          function Reset() {
             guesses = 0
             wrong = 0
@@ -96,9 +98,18 @@
                wrong++
                if (guesses > highScore) {
                   highScore = guesses
+                  saveHighScore()
                }
                Reset()
             }
+         }
+         function saveHighScore() {
+            localStorage.setItem('tabHighScore', highScore)
+         }
+         function loadHighScore() {
+            let hs = localStorage.getItem('tabHighScore')
+            hs == undefined ? (highScore = 0) : (highScore = hs)
+            highScoreVal.innerHTML = highScore
          }
       </script>
       <style>
