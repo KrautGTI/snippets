@@ -12,20 +12,32 @@
    </head>
 
    <body>
-      <button id="close" onclick="location.href='/snippets/index.html';" style="position: absolute; right: 0.2%; top: 0.5%"><span class="glyphicon glyphicon-remove"></span></button>
+      <button id="close" onclick="location.href='/snippets/index.html';" style="position: absolute; right: 0.2%; top: 0.5%">
+         <span class="glyphicon glyphicon-remove"></span>
+      </button>
       <div class="container">
          <h2>Avoid the Surprise</h2>
-         <div>
-            <button id="b_Home" class="btn highlight" onclick="showPanel('Home')" href="Home"><span class="glyphicon glyphicon-home"></span></button>
-            <button id="b_panelA" class="btn" onclick="showPanel('panelA')" href="#A">Tab A</button>
-            <button id="b_panelB" class="btn" onclick="showPanel('panelB')" href="#B">Tab B</button>
-            <button id="b_panelC" class="btn" onclick="showPanel('panelC')" href="#C">Tab C</button>
+         <div id="buttonBar">
+            <button id="b_Home" class="btn tabs highlight" onclick="showPanel('Home')" href="Home">
+               <span class="glyphicon glyphicon-home"></span>
+            </button>
+            <button id="b_panelA" class="btn tabs" onclick="showPanel('panelA')" href="#A">Tab A</button>
+            <button id="b_panelB" class="btn tabs" onclick="showPanel('panelB')" href="#B">Tab B</button>
+            <button id="b_panelC" class="btn tabs" onclick="showPanel('panelC')" href="#C">Tab C</button>
          </div>
          <div id="contentTitle">Click tab to View Image</div>
-         <div id="Home" class="panel"><img class="img-rounded" src="https://media.istockphoto.com/photos/question-mark-picture-id1060573244?k=20&m=1060573244&s=612x612&w=0&h=Xk_DdOodJj3VDAZfouo2364s5SFZXUW02v3sOyXlNVE=" alt="Home" /></div>
-         <div id="panelA" class="panel hide"><img id="panelAI" class="img-rounded" /></div>
-         <div id="panelB" class="panel hide"><img id="panelBI" class="img-rounded" /></div>
-         <div id="panelC" class="panel hide"><img id="panelCI" class="img-rounded" /></div>
+         <div id="Home" class="panel">
+            <img class="img-rounded" src="https://media.istockphoto.com/photos/question-mark-picture-id1060573244?k=20&m=1060573244&s=612x612&w=0&h=Xk_DdOodJj3VDAZfouo2364s5SFZXUW02v3sOyXlNVE=" alt="Home" />
+         </div>
+         <div id="panelA" class="panel hide">
+            <img id="panelAI" class="img-rounded" />
+         </div>
+         <div id="panelB" class="panel hide">
+            <img id="panelBI" class="img-rounded" />
+         </div>
+         <div id="panelC" class="panel hide">
+            <img id="panelCI" class="img-rounded" />
+         </div>
          <div id="footer">
             <div class="grid-container">
                <div class="grid-item statisticLabel">Guesses</div>
@@ -198,6 +210,12 @@
                width: 90vw;
             }
 
+            #buttonBar {
+               max-width: 100vw;
+            }
+            .tabs {
+               padding: 6px 8px;
+            }
             .container {
                padding-top: 40px;
             }
