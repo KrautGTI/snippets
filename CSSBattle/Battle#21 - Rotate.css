@@ -1,14 +1,183 @@
 /******************** Target #125 - Root Learn ********************/
 
+<div a > <div t > </div > <div s > </div > </div > <p curve > <p stick > <p skew > <p f > <p b > <body bgcolor=EFF2F1 > <style > p {
+   position: fixed;
+   background: #1c1c1c;
+}
+[stick] {
+   width: 40;
+   height: 180;
+   top: 44;
+   left: 130;
+}
+[skew] {
+   transform: skew(30deg);
+   width: 46;
+   height: 100;
+   top: 124;
+   left: 203;
+}
+[curve] {
+   background: #eff2f1;
+   border-radius: 500px;
+   width: 100;
+   height: 60;
+   top: 59;
+   left: 120;
+   box-shadow: 25px 0 0 15px#1C1C1C;
+}
+div {
+   position: absolute;
+}
+[a] {
+   top: 220;
+   left: 110;
+   height: 20;
+   width: 80;
+   overflow: hidden;
+   -webkit-box-reflect: above 148Q;
+}
+[t],
+[s],
+[f] {
+   height: 60;
+   width: 60;
+   top: -2;
+   background: #1c1c1c;
+   transform: rotate(60deg);
+}
+[s] {
+   transform: rotate(-60deg);
+   left: 13;
+   top: -6;
+}
+[f] {
+   transform: rotate(-60deg);
+   top: 197;
+   width: 20;
+   height: 40;
+   left: 259;
+}
+[b] {
+   background: #eff2f1;
+   top: 224;
+   left: 220;
+   height: 20;
+   width: 80;
+}
+
 /******************** Target #126 - Letter A ********************/
+
+<p c > <p d > <p a > <p b > <body bgcolor=62306d > < > p {
+   position: fixed;
+   width: 42;
+   height: 140;
+   left: 149;
+   bottom: 64;
+   background: #fef9ca;
+   transform: skew(-20deg);
+}
+[b],
+[d] {
+   transform: skew(-40deg);
+   height: 50;
+   width: 52;
+   left: 150;
+   background: #e38f66;
+}
+[c] {
+   background: #c5b732;
+   transform: skew(20deg);
+   left: 209;
+}
+[d] {
+   transform: skew(40deg);
+   background: #aa445f;
+   left: 198;
+}
 
 /******************** Target #127 - Letter I ********************/
 
+<p > <p c > <p m > <p r > <body bgcolor=E3516E > <style > p {
+   position: fixed;
+   color: FADE8B;
+   border-radius: 10Q;
+}
+[c] {
+   height: 30;
+   width: 30;
+   border-radius: 50%;
+   top: 184;
+   box-shadow: 108Q 0Q, 267Q -138Q, 150Q -0, 224Q 0Q, 150Q -138Q, 224Q -138Q;
+}
+[m] {
+   background: #fade8b;
+   top: 54;
+   left: 160;
+   height: 160;
+   width: 80;
+}
+[r] {
+   color: #e3516e;
+   height: 100;
+   width: 50;
+   top: 84;
+   box-shadow: 135Q 0, 220Q 0;
+}
+
 /******************** Target #128 - Letter N ********************/
+
+<p b > <p a > <p > <body bgcolor=998235 > < > p {
+   position: fixed;
+   height: 250;
+   background: #0b2429;
+   left: 135;
+   width: 40;
+   top: 54;
+}
+[a] {
+   top: 54;
+   left: 179;
+   width: 42;
+   height: 160;
+   background: #fcbe5c;
+   transform: skew(20deg);
+}
+[b] {
+   top: -36;
+   left: 225;
+}
 
 /******************** Target #129 - Letter B ********************/
 
+<style > * {
+   background: #6592cf;
+}
+* * {
+   background: #060f55;
+   width: 100;
+   height: 80;
+   margin: 80 0 0 110;
+   border-radius: 0 41Q 41Q 0;
+   color: 515DBD;
+   box-shadow: 0 64q#060F55, 42Q 0#2E3B9F, 42Q 64q#2E3B9F, 85Q 0, 85Q 64Q;
+}
+
 /******************** Target #130 - Letter O ********************/
+
+<p > <p l > <body bgcolor=926926 > <style > p {
+   position: fixed;
+   top: 54;
+   left: 140;
+   width: 60;
+   height: 120;
+   border-radius: 32Q;
+   border: solid 20px#6D480A;
+}
+[l] {
+   border-color: #fff;
+   left: 160;
+}
 
 /******************** Target #131 - Letter  ********************/
 
