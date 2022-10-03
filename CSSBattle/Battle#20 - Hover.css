@@ -102,87 +102,86 @@
 
 /******************** Target #120 - Tank ********************/
 
-<p b><p r><p h><p g><p e><p w>
-<body bgcolor=0>
-<style>
-  p{
-    position:fixed;
-    top:-16;
-    left:0;
-  }
-  [b]{
-    border:20px solid #54C144;
-    width:360;
-    height:260;
+<p b > <p r > <p h > <p g > <p e > <p w > <body bgcolor=0 > <style > p {
+   position: fixed;
+   top: -16;
+   left: 0;
+}
+[b] {
+   border: 20px solid #54c144;
+   width: 360;
+   height: 260;
+}
+[h],
+[r] {
+   top: 44;
+   left: 300;
+   background: #c74e4e;
+   height: 180;
+   width: 40;
+}
+[r] {
+   transform: rotate(90deg);
+   top: 24;
+   left: 80;
+   height: 80;
+   color: C74E4E;
+   box-shadow: 0 -120px, 80px 0, 80px -120px, 80px -80px;
+}
+[w] {
+   width: 10;
+   height: 10;
+   background: #fff;
+   top: 199;
+   left: 120;
+   box-shadow: 21Q 0 #fff;
+}
+[g],
+[e] {
+   background: #54c144;
+   color: 54C144;
+   height: 30;
+   width: 20;
+   top: 190;
+   left: 70;
+}
+[e] {
+   height: 10;
+   width: 40;
+   top: 184;
+   left: 60;
+   box-shadow: 0 30px, 10px 15px;
+}
 
-  }
-  [h],[r]{
-    top:44;
-    left:300;
-    background:#C74E4E;
-    height:180;
-    width:40;
-  }
-  [r]{
-    transform:rotate(90deg);
-    top:24;
-    left:80;
-    height:80;
-    color:C74E4E;
-    box-shadow:0 -120px,80px 0,80px -120px, 80px -80px;
-  }
-  [w]{
-    width:10;
-    height:10;
-    background:#FFF;
-    top:199;
-    left:120;
-    box-shadow:21q 0 #FFF;
-  }
-  [g],[e]{
-    background:#54C144;
-    color:54C144;
-    height:30;
-    width:20;
-    top:190;
-    left:70;
-  }
-  [e]{
-    height:10;
-    width:40;
-    top:184;
-    left:60;
-    box-shadow:0 30px,10px 15px;
-  }
-  
 </style>
 
 /******************** Target #121 - Duck Hunt ********************/
 
 <w><l>
 <style>
-  body{
-  background:linear-gradient(#1E92FF 0 191q,#69D10A 0 233q,#6F6100 0);
-  }
-  *>* {
-    position:fixed;
-    width:20;
-    height:90;
-  }
-  w{ 
-    top:90;
-    left:50;
-    background:#441A0A;
-  }
-  l{
-    top:60;
-    left:40;
-    background:#69D10A;
-    color:69D10A;
-    border-radius:50%;
-    width:40;
-    height:40;
-    box-shadow:21q 21q, -21q 21q, 0 21q, 270px 74q, 270px 90px}
+  body {
+   background: linear-gradient(#1e92ff 0 191Q, #69d10a 0 233Q, #6f6100 0);
+}
+* > * {
+   position: fixed;
+   width: 20;
+   height: 90;
+}
+w {
+   top: 90;
+   left: 50;
+   background: #441a0a;
+}
+l {
+   top: 60;
+   left: 40;
+   background: #69d10a;
+   color: 69D10A;
+   border-radius: 50%;
+   width: 40;
+   height: 40;
+   box-shadow: 21Q 21Q, -21Q 21Q, 0 21Q, 270px 74Q, 270px 90px;
+}
 </style>
 
 
@@ -191,22 +190,64 @@
 <p>
 <body bgcolor=173889>
 <style>
-  p{
-    position:fixed;
-    width: 45;
-    height: 45;
-    top:188;
-    left:0;
-    color:#EE4F63;
-    box-shadow: 269q -216q,
-215q -162q, 269q -162q,
-53q -108q #F8DA37,107q -108q #F8DA37, 215q -108q,
-53q -54q#F8DA37,107q -54q#F8DA37, 161q -54q,269q -54q#B069F7,
-53q 0,107q 0, 161q 0, 215q 0#2CE1EA, 269q 0#B069F7, 323q 0#B069F7,
-53q 54q #F8DA37,107q 54q#2CE1EA, 161q 54q#2CE1EA, 215q 54q#2CE1EA, 269q 54q#B069F7, 323q 54q#2CE1EA;
-  }
+  p {
+   position: fixed;
+   width: 45;
+   height: 45;
+   top: 188;
+   left: 0;
+   color: #ee4f63;
+   box-shadow: 269Q -216Q, 215Q -162Q, 269Q -162Q, 53Q -108Q #f8da37, 107Q -108Q #f8da37, 215Q -108Q, 53Q -54q#F8DA37, 107Q -54q#F8DA37, 161Q -54Q, 269Q -54q#B069F7, 53Q 0, 107Q 0, 161Q 0, 215Q 0#2CE1EA, 269Q 0#B069F7, 323Q 0#B069F7, 53Q 54Q #f8da37, 107Q 54q#2CE1EA, 161Q 54q#2CE1EA, 215Q 54q#2CE1EA, 269Q 54q#B069F7, 323Q 54q#2CE1EA;
+}
 </style>
 
-/******************** Target #123 -  ********************/
+/******************** Target #123 - Snake ********************/
 
-/******************** Target #124 -  ********************/
+<p c><p d>
+<body bgcolor=#C74E4E>
+<style>
+  p {
+   width: 20;
+   height: 20;
+   border-radius: 50%;
+   position: fixed;
+   left: 90;
+   top: 74;
+}
+[c] {
+   background: #fff;
+}
+[d] {
+   border-radius: 5Q;
+   color: E0E246;
+   box-shadow: 106Q 0, 132Q 0, 159Q 0, 185Q 0, 212Q 0, 212Q 27Q, 212Q 53Q, 212Q 80Q, 212Q 106Q, 106Q 106Q, 132Q 106Q, 159Q 106Q, 185Q 106Q, 80Q 106Q, 53Q 106Q, 27Q 106Q, 0 106Q;
+}
+
+/******************** Target #124 - Space Invaders ********************/
+<li > <li > <li > <li > <li y > <li o > <li y > <li y > <li s > <style > body {
+   background: #071945;
+   list-style: none;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 40px;
+   margin: 50 0 140 40;
+}
+li {
+   width: 50;
+   height: 10;
+   color: B069F7;
+   box-shadow: -11Q 0, 11Q 0, 0 -11Q;
+}
+[y] {
+   color: F8DA37;
+}
+[o] {
+   opacity: 0;
+}
+[s] {
+   background: #2ce1ea;
+   width: 42;
+   height: 90;
+   margin: 60 139;
+   clip-path: pat\68 ('m0 90L16 74V0h10v10H16v20h10v10H16v20h10v14l16 16');
+}
