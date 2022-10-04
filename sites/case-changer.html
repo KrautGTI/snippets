@@ -12,12 +12,12 @@
    </head>
 
    <body>
-      <button id="close" onclick="location.href='/snippets/index.html';" style="position: absolute; right: 0.2%; top: 0.5%">
+      <button id="close" onclick="window.history.go(-1)" style="position: absolute; right: 0.2%; top: 0.5%">
          <span class="glyphicon glyphicon-remove"></span>
       </button>
       <div class="container">
          <h2>CASE CHANGER</h2>
-         <div id="contentTitle">Enter text and click to change values into other cases.</div>
+         <div id="contentTitle">Enter text and choose option to convert to</div>
          <textarea type="text" id="input" placeholder="Enter text here"></textarea>
          <div id="buttonBar">
             <div id="layer1">
@@ -26,10 +26,10 @@
             </div>
             <div id="layer2">
                <button id="title" onclick="convert(event.target.id)" class="btn btn-primary">Title Case</button>
-               <button id="sentence" class="btn btn-primary" onclick="convert(event.target.id)">Sentence case</button>
+               <button id="sentence" onclick="convert(event.target.id)" class="btn btn-primary">Sentence case</button>
             </div>
          </div>
-         <textarea id="output" placeholder="Output is shown here"></textarea>
+         <textarea id="output" placeholder="Output is shown here" disabled></textarea>
       </div>
 
       <script>
@@ -37,8 +37,10 @@
             let input = document.getElementById('input').value
             let output = document.getElementById('output')
             if (input == '' || input == null) {
+               output.style.color = 'darkred'
                output.value = 'Please enter text to convert.'
             } else {
+               output.style.color = ''
                switch (type) {
                   case 'upper':
                      output.value = upperCase()
@@ -55,10 +57,12 @@
                }
             }
          }
+
          function upperCase() {
             let input = document.getElementById('input').value
             return input.toUpperCase()
          }
+
          function lowerCase() {
             let input = document.getElementById('input').value
             return input.toLowerCase()
@@ -71,39 +75,93 @@
             })
          }
 
-function setenceCase(){
-      let string = document.getElementById('input').value
-      let n=string.split(".");
-      let vfinal=""
-      for(i=0;i<n.length;i++)
-      {
-         let spaceput=""
-         let spaceCount=n[i].replace(/^(\s*).*$/,"$1").length;
-         n[i]=n[i].replace(/^\s+/,"");
-         let newstring=n[i].charAt(n[i]).toUpperCase() + n[i].slice(1);
-         for(j=0;j<spaceCount;j++)
-         spaceput=spaceput+" ";
-         vfinal=vfinal+spaceput+newstring+". ";
-      }
-      vfinal=vfinal.substring(0, vfinal.length - 1).trim();
-      return vfinal
-}
+         function sentenceCase() {
+            let string = document.getElementById('input').value
+            let n = string.split('.')
+            let vfinal = ''
+            for (i = 0; i < n.length; i++) {
+               let spaceput = ''
+               let spaceCount = n[i].replace(/^(\s*).*$/, '$1').length
+               n[i] = n[i].replace(/^\s+/, '')
+               let newstring = n[i].charAt(n[i]).toUpperCase() + n[i].slice(1)
+               for (j = 0; j < spaceCount; j++) spaceput = spaceput + ' '
+               vfinal = vfinal + spaceput + newstring + '. '
+            }
+            vfinal = vfinal.substring(0, vfinal.length - 1).trim()
+            return vfinal
+         }
       </script>
       <style>
          h2 {
             color: purple;
             margin-bottom: 15px;
          }
+         textarea {
+            margin-top: 10px;
+            width: 300px;
+            height: 100px;
+         }
+         #contentTitle {
+            color: whitesmoke;
+            max-width: 300px;
+            margin-bottom: 10px;
+         }
+
+         #input {
+            margin-bottom: 5px;
+         }
 
          body {
             background-image: url('tools/background-dark-mountain.png');
-            margin-left: 10px;
+            min-width: 100vw;
+            min-height: 100vh;
+            font-family: 'Source Sans Pro', sans-serif;
+         }
+         .container {
+            display: flex;
             margin-top: 10px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+         }
 
-            @media only screen and (max-width: 600px) {
+         #layer1,
+         #layer2 {
+            width: 300px;
+            margin: 7px 0 7px 0;
+         }
+
+         .btn-primary,
+         .btn-primary:active,
+         .btn-primary:focus {
+            background: purple !important;
+            outline: none !important;
+            border: none;
+            width: 148px;
+            text-decoration: none;
+         }
+         .btn-primary:active {
+            background: #671e67 !important;
+         }
+
+         @media only screen and (max-width: 600px) {
+            /* For Mobiles*/
+            textarea {
+               width: 300px;
+               height: 200px;
             }
+            #input {
+               margin-bottom: 30px;
+            }
+            #output {
+               margin-top: 30px;
+            }
+         }
 
-            @media only screen and (min-width: 601px) {
+         @media only screen and (min-width: 601px) {
+            /* For Desktop*/
+            .btn-primary:hover {
+               background: #671e67;
             }
          }
       </style>
