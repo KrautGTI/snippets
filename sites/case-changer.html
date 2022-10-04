@@ -71,9 +71,23 @@
             })
          }
 
-         function sentenceCase() {
-            //TODO: Fix this function
-         }
+function setenceCase(){
+      let string = document.getElementById('input').value
+      let n=string.split(".");
+      let vfinal=""
+      for(i=0;i<n.length;i++)
+      {
+         let spaceput=""
+         let spaceCount=n[i].replace(/^(\s*).*$/,"$1").length;
+         n[i]=n[i].replace(/^\s+/,"");
+         let newstring=n[i].charAt(n[i]).toUpperCase() + n[i].slice(1);
+         for(j=0;j<spaceCount;j++)
+         spaceput=spaceput+" ";
+         vfinal=vfinal+spaceput+newstring+". ";
+      }
+      vfinal=vfinal.substring(0, vfinal.length - 1).trim();
+      return vfinal
+}
       </script>
       <style>
          h2 {
