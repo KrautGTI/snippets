@@ -179,6 +179,32 @@ div {
    left: 160;
 }
 
-/******************** Target #131 - Letter  ********************/
+/******************** Target #131 - Letter W ********************/
 
-/******************** Target #132 - Letter  ********************/
+/******************** Target #132 - Letter S  ********************/
+<p o > <p m > <p l > <p r > <body bgcolor=4f77ff > <style > p {
+   position: fixed;
+   top: 54;
+   left: 80;
+   color: 1038BF;
+   width: 240;
+   height: 50;
+   border-radius: 10px;
+   background: #fff;
+}
+[o] {
+   box-shadow: 20px -20px, 0 110px#FFF, -20px 130px;
+}
+[m] {
+   height: 20;
+   top: 124;
+}
+[l],
+[r] {
+   top: 90;
+   width: 20;
+}
+[r] {
+   top: 130;
+   left: 300;
+}
