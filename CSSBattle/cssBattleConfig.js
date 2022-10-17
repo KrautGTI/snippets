@@ -107,7 +107,7 @@ const play = [
    { id: 80,  name: 'Piano', parentId: 14, url: `${dir}80-Piano.html` },
    { id: 81,  name: 'Odoo', parentId: 15, url: `${dir}81-Odoo.html` },
    { id: 82,  name: 'Diamond Cut', parentId: 15, url: `${dir}82-Diamond-Cut.html` },
-   { id: 83,  name: 'Superbnova', parentId: 15, url: `${dir}83-Superbnova.html` },
+   { id: 83,  name: 'Supernova', parentId: 15, url: `${dir}83-Supernova.html` },
    { id: 84,  name: 'Junction', parentId: 15, url: `${dir}84-Junction.html` },
    { id: 85,  name: 'Pythagoras', parentId: 15, url: `${dir}85-Pythagoras.html` },
    { id: 86,  name: 'Stairway', parentId: 15, url: `${dir}86-Stairway.html` },
