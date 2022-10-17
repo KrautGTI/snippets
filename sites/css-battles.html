@@ -54,9 +54,11 @@
             if (selectBattle.value == 'Select Battle') {
                selectLevel.disabled = true
                selectLevel.style.cursor = 'not-allowed'
+               selectLevel.title = 'Select Battle first'
             } else {
                selectLevel.disabled = false
                selectLevel.style.cursor = 'pointer'
+               selectLevel.title = ''
             }
 
             let playAmount = Object.keys(play).length
