@@ -8,27 +8,35 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-      <title>CSS Test</title>
+      <title>CSS Battles</title>
    </head>
 
    <body>
       <button id="close" onclick="window.history.go(-1)" style="position: absolute; right: 0.2%; top: 0.5%"><span class="glyphicon glyphicon-remove"></span></button>
-      <h1>CSS Test</h1>
+      <h1>CSS Battles</h1>
       <div>
-         <select name="battle" id="battle" onchange="window.changeLevel()"></select>
-         <select name="Level" id="play"></select>
+         <select name="battle" id="battle" onchange="changeLevel()"></select>
+         <select name="Level" id="play" onchange="changeFrame()"></select>
       </div>
-      <iframe id="iframe" name="myIframe" frameborder="5" width="400" height="300"></iframe>
+      <iframe id="iframe" name="myIframe" style="border: 2px solid #57585a" width="400" height="300"></iframe>
 
       <script type="module">
          import { battle, play } from './data.js'
-         function frame(source) {
+         let selectBattle = document.getElementById('battle')
+         let selectLevel = document.getElementById('play')
+
+         function changeFrame() {
             $(document).ready(function () {
-               $('#iframe').attr('src', source)
+               if (selectBattle.value == 'Select Battle' || selectLevel.value == 'Select Level') {
+                  //This will be the default value
+                  $('#iframe').attr('src', './tools/unknownMarks.png')
+               } else {
+                  $('#iframe').attr('src', selectLevel.value)
+               }
             })
          }
+
          //Dynamic Battle dropdown list
-         var selectBattle = document.getElementById('battle')
          var battleAmount = Object.keys(battle).length
          let el = document.createElement('option')
          el.textContent = battle[0].name
@@ -36,16 +44,22 @@
          selectBattle.add(el)
          for (let i = 1; i < battleAmount; i++) {
             let el = document.createElement('option')
-            console.log(battle[i].name)
             el.text = battle[i].id + ' - ' + battle[i].name
             el.value = battle[i].id
             selectBattle.add(el)
          }
-         function changeLevel() {
-            var selectLevel = document.getElementById('play')
-            selectBattle.value == 'Select Battle' ? (selectLevel.disabled = true) : (selectLevel.disabled = false)
 
-            var playAmount = Object.keys(play).length
+         //Dynamic Level dropdown list
+         function changeLevel() {
+            if (selectBattle.value == 'Select Battle') {
+               selectLevel.disabled = true
+               selectLevel.style.cursor = 'not-allowed'
+            } else {
+               selectLevel.disabled = false
+               selectLevel.style.cursor = 'pointer'
+            }
+
+            let playAmount = Object.keys(play).length
             while (selectLevel.options.length > 0) {
                selectLevel.remove(0)
             }
@@ -57,12 +71,16 @@
                   selectLevel.add(ele)
                } else if (play[j].parentId == selectBattle.value) {
                   ele.text = play[j].id + ' - ' + play[j].name
-                  ele.value = play[j].id
+                  ele.value = play[j].url
                   selectLevel.add(ele)
                }
             }
+            changeFrame()
          }
+
+         //To be able to call function, since this is a method script
          window.changeLevel = changeLevel
+         window.changeFrame = changeFrame
          changeLevel()
       </script>
       <style>
@@ -73,7 +91,7 @@
             flex-direction: column;
             justify-content: center;
          }
-         button:not(#close, #rstBtn) {
+         button:not(#close) {
             background-image: linear-gradient(to right, #d1643d 0%, #f56e3d 100%);
             border-radius: 20px;
             width: 100px;
@@ -88,23 +106,53 @@
 
          h1 {
             text-transform: uppercase;
-            margin-top: 50px;
+            margin-top: 40px;
             margin-bottom: 20px;
             color: burlywood;
-            font-size: 60px;
+            font-size: 50px;
          }
-         #box {
-            border: solid 1px red;
-            width: 400px;
-            height: 300px;
+         select {
+            appearance: none;
+            border: 0;
+            outline: 0;
+            width: 199px;
+            height: 3em;
+            padding: 0 4em 0 1em;
+            background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg) no-repeat right 0.8em center / 1.4em, linear-gradient(to left, rgba(255, 255, 255, 0.2) 3em, rgba(255, 255, 255, 0.3) 3em);
+            color: white;
+            border-radius: 0.25em;
+            cursor: pointer;
+            margin-bottom: 10px;
+         }
+
+         select:focus {
+            outline: none;
+         }
+         option {
+            background-color: #3f4041;
+            color: white;
          }
 
          @media only screen and (min-width: 1000px) {
-            body {
-               zoom: 120%;
-            }
+            /* Desktop CSS Only*/
             button:hover:not(#close) {
                outline: 1px solid orange;
+            }
+            #iframe {
+               zoom: 120%;
+            }
+         }
+         @media only screen and (max-width: 600px) {
+            /* Mobile CSS Only*/
+            #iframe {
+               max-width: 99vw;
+            }
+            select {
+               width: 100%;
+            }
+            #play {
+               margin-bottom: 40px;
+               margin-top: -2px;
             }
          }
       </style>
