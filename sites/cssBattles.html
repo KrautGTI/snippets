@@ -21,7 +21,7 @@
       <iframe id="iframe" name="myIframe" style="border: 2px solid #57585a" width="400" height="300"></iframe>
 
       <script type="module">
-         import { battle, play } from './data.js'
+         import { battle, play } from '/Snippets/CSSBattle/cssBattleConfig.js'
          let selectBattle = document.getElementById('battle')
          let selectLevel = document.getElementById('play')
 
@@ -137,9 +137,6 @@
             /* Desktop CSS Only*/
             button:hover:not(#close) {
                outline: 1px solid orange;
-            }
-            #iframe {
-               zoom: 120%;
             }
          }
          @media only screen and (max-width: 600px) {
