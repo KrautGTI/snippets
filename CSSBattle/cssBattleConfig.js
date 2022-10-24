@@ -145,7 +145,7 @@ const play = [
    { id: 118, name: 'Donkey Kong', parentId: 20, url: `${dir}118-Donkey-Kong.html` },
    { id: 119, name: 'Pacman', parentId: 20, url: `${dir}119-Pacman.html` },
    { id: 120, name: 'Tank ', parentId: 20, url: `${dir}120-Tank.html` },
-   { id: 121, name: 'DuckHunt', parentId: 20, url: `${dir}121-DuckHunt.html` },
+   { id: 121, name: 'Duck Hunt', parentId: 20, url: `${dir}121-Duck-Hunt.html` },
    { id: 122, name: 'Tetris', parentId: 20, url: `${dir}122-Tetris.html` },
    { id: 123, name: 'Snake', parentId: 20, url: `${dir}123-Snake.html` },
    { id: 124, name: 'Space Invaders', parentId: 20, url: `${dir}124-Space-Invaders.html` },
