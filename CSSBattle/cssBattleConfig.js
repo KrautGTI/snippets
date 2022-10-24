@@ -127,7 +127,7 @@ const play = [
    { id: 100, name: 'CssBattle', parentId: 17, url: `${dir}100-CssBattle.html` },
    { id: 101, name: 'Sharingan', parentId: 18, url: `${dir}101-Sharingan.html` },
    { id: 102, name: 'One Piece', parentId: 18, url: `${dir}102-One-Piece.html` },
-   { id: 103, name: 'SuperSaiyan', parentId: 18, url: `${dir}103-SuperSaiyan.html` },
+   { id: 103, name: 'Super-Saiyan', parentId: 18, url: `${dir}103-Super-Saiyan.html` },
    { id: 104, name: 'Amagakure', parentId: 18, url: `${dir}104-Amagakure.html` },
    { id: 105, name: 'Ryuk', parentId: 18, url: `${dir}105-Ryuk.html` },
    { id: 106, name: `Ryuk's Apple`, parentId: 18, url: `${dir}106-Ryuks-Apple.html` },
