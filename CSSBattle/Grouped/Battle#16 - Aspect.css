@@ -1,43 +1,36 @@
 /******************** Target #89 - Summit ********************/
 
-<div class="f t"></div>
-<div class=t></div>
-<div class=c>
-	<div class="t m"></div>
-</div>
-<body bgcolor=191919>
-<style>
-  div {
-    position:absolute;
-  }
-  .c{
-    top:50;
-    left:100;
-    background:#F9E492;
-    border-radius:50%;
-    width: 200;
-    height: 200;
-    overflow:hidden;
-  }
-  .t{
-    left:60;
-    border-bottom:140px solid #4F77FF;
-    border-right:140px solid transparent;
-    border-left:140px solid transparent;
-	bottom:1;
-    width:;
-    height:0;
-  }
-  .f{
-    bottom:0;
-    left:59;
-    width:2;
-  }
-    .m{
-	border-bottom:140px solid #191919;
-    bottom:-49;
-    left:-40
-  }
+<div class='f t' > </div > <div class=t > </div > <div class=c > <div class='t m' > </div > </div > <body bgcolor=191919 > <style > div {
+   position: absolute;
+}
+.c {
+   top: 50;
+   left: 100;
+   background: #f9e492;
+   border-radius: 50%;
+   width: 200;
+   height: 200;
+   overflow: hidden;
+}
+.t {
+   left: 60;
+   border-bottom: 140px solid #4f77ff;
+   border-right: 140px solid transparent;
+   border-left: 140px solid transparent;
+   bottom: 1;
+   width: ;
+   height: 0;
+}
+.f {
+   bottom: 0;
+   left: 59;
+   width: 2;
+}
+.m {
+   border-bottom: 140px solid #191919;
+   bottom: -49;
+   left: -40;
+}
 </style>
 
 /******************** Target #90 - Eclipse ********************/
@@ -45,103 +38,92 @@
 <p s1><p c><p s>
 <body bgcolor=F3AC3C>
 <style>
-  p{
-	position:absolute;
-    background:#998235;
-    width:400;
-    height:400;
-    top:134;
-    left:0;
-    border-radius: 50%
-  }
-  p[s1]{
-    top:-266
-  } 
-  p[c]{
-   background:#1A4341;
-    border:25px solid #F3AC3C;
- 	height:200;
-    width:200;
-    top:9;
-    left:75
-  }
+  p {
+   position: absolute;
+   background: #998235;
+   width: 400;
+   height: 400;
+   top: 134;
+   left: 0;
+   border-radius: 50%;
+}
+p[s1] {
+   top: -266;
+}
+p[c] {
+   background: #1a4341;
+   border: 25px solid #f3ac3c;
+   height: 200;
+   width: 200;
+   top: 9;
+   left: 75;
+}
 
 /******************** Target #91 - Reflection ********************/
-<p b>
-<p c><p><p x><p y><p z>
-<body bgcolor=D25B70>
-<style>
-  p{
-    position:absolute;
-	height:15;
-    width:400;
-   	left:0;
-	top:133;
-    background:#6CB3A9;
-  }
-  p[c]{
-    top:34;
-    left:100;
-    border-radius:50%;
-    background:#F6DF96;
-    height:200;
-    width:200;
-  }
-  p[b]{
-	height:161;
-	top:133;
-  }
-  p[x]{
-    top:158;
-  }
-  p[y]{
-    top:183;
-  }
-  p[z]{
-    top:208;
-  }
+<p b > <p c > <p > <p x > <p y > <p z > <body bgcolor=D25B70 > <style > p {
+   position: absolute;
+   height: 15;
+   width: 400;
+   left: 0;
+   top: 133;
+   background: #6cb3a9;
+}
+p[c] {
+   top: 34;
+   left: 100;
+   border-radius: 50%;
+   background: #f6df96;
+   height: 200;
+   width: 200;
+}
+p[b] {
+   height: 161;
+   top: 133;
+}
+p[x] {
+   top: 158;
+}
+p[y] {
+   top: 183;
+}
+p[z] {
+   top: 208;
+}
 /******************** Target #92 - Squeeze ********************/
 
-<div></div>
-<div l></div>
-<div r></div>
-<div b></div>
-<div c1></div>
-<div c2></div>
-<body bgcolor=6592CF>
-<style>
-  div{
-    border-radius:50%;
-    width:200;
-    height:200;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    background:#243D83
-  }
-  [l]{
-    left:-26
-  }
-  [r]{
-    left:426
-  }
-  [b]{
-    height:50;
-    width:400
-  }
-  [c1],[c2]{
-    height:30;
-    width:32;
-    top:125;
-    left:87;
-    background:#6592CF;
-    -webkit-box-reflect:right 194px
-  }
-  [c2]{
-    top:175
-  }
-  </style>
+<div > </div > <div l > </div > <div r > </div > <div b > </div > <div c1 > </div > <div c2 > </div > <body bgcolor=6592cf > <style > div {
+   border-radius: 50%;
+   width: 200;
+   height: 200;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background: #243d83;
+}
+[l] {
+   left: -26;
+}
+[r] {
+   left: 426;
+}
+[b] {
+   height: 50;
+   width: 400;
+}
+[c1],
+[c2] {
+   height: 30;
+   width: 32;
+   top: 125;
+   left: 87;
+   background: #6592cf;
+   -webkit-box-reflect: right 194px;
+}
+[c2] {
+   top: 175;
+}
+</style>
 
 /******************** Target #93 - Great Wall ********************/
 <div c2>
@@ -159,175 +141,163 @@
 <body bgcolor=4F77FF>
 <style>
   div {
-    position:absolute;
-    width:100;
-    height:16;
-    background:#F9E492;
-  }
-  [c1]{
-    border-radius:50%;
-    height:40;
-    width:40;
-    top:40;
-    left:40;
-  }
-  [c2]{
-    background:#191919;
-    top:50;
-    left:99.5;
-    height:200;
-    width:200;
-    overflow:hidden;
-    border-radius:50%;
-  }
-  [l]{
-    top:121.5;
-  }
-  [l1]{
-    top:73.5%;
-  }  
-  [l2]{
-    top:173.55;
-  }
-  [r],[r1],[r2]{
-    top:108.5;
-    left:120;
-  }
-  [r1]{
-    top:134.5;
-  }  
-  [r2]{
-    top:160.55;
-  }
-  [m],[m1],[m2]{
-    width:34;
-    height:13;
-    background:#D6B73F;
-    transform:rotate(-33deg);
-    left:93.5;
-    top:116;
-  }
-  [m1]{
-    top:142;
-  }  
-  [m2]{
-    top:167.5;
-  }
+   position: absolute;
+   width: 100;
+   height: 16;
+   background: #f9e492;
+}
+[c1] {
+   border-radius: 50%;
+   height: 40;
+   width: 40;
+   top: 40;
+   left: 40;
+}
+[c2] {
+   background: #191919;
+   top: 50;
+   left: 99.5;
+   height: 200;
+   width: 200;
+   overflow: hidden;
+   border-radius: 50%;
+}
+[l] {
+   top: 121.5;
+}
+[l1] {
+   top: 73.5%;
+}
+[l2] {
+   top: 173.55;
+}
+[r],
+[r1],
+[r2] {
+   top: 108.5;
+   left: 120;
+}
+[r1] {
+   top: 134.5;
+}
+[r2] {
+   top: 160.55;
+}
+[m],
+[m1],
+[m2] {
+   width: 34;
+   height: 13;
+   background: #d6b73f;
+   transform: rotate(-33deg);
+   left: 93.5;
+   top: 116;
+}
+[m1] {
+   top: 142;
+}
+[m2] {
+   top: 167.5;
+}
 /******************** Target #94 - Ripples ********************/
 
-<div a></div>
-<div b></div>
-<div c></div>
-<div d></div>
-<div e></div>
-<body bgcolor=0E2E2C>
-<style>
-  div {
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    border-radius:50%;
-    border:20px solid #F3AC3C;
-  }
-  [a]{
-    width:55;
-    height:55;
-    border:12px solid #F3AC3C
-  }
-  [b]{
-    width:145;
-    height:145;
-    border:8px solid #F3AC3C
-  }
-  [c]{
-    width:100;
-    height:100;
-    border:10px solid #998235
-  }
-  [d]{
-    width:187;
-    height:187;
-    border:7px solid #F3AC3C
-  }
-  
+<div a > </div > <div b > </div > <div c > </div > <div d > </div > <div e > </div > <body bgcolor=0e2e2c > <style > div {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border-radius: 50%;
+   border: 20px solid #f3ac3c;
+}
+[a] {
+   width: 55;
+   height: 55;
+   border: 12px solid #f3ac3c;
+}
+[b] {
+   width: 145;
+   height: 145;
+   border: 8px solid #f3ac3c;
+}
+[c] {
+   width: 100;
+   height: 100;
+   border: 10px solid #998235;
+}
+[d] {
+   width: 187;
+   height: 187;
+   border: 7px solid #f3ac3c;
+}
+
 /******************** Target #95 - Pokeball ********************/
 
-<div b></div>
-<div u></div>
-<div d></div>
-<div m></div>
-<div c></div>
-
-<body bgcolor=6CB3A9>
-<style>
-  div{
-    position:absolute;
-    top:50%;
-    left:50%;
-    height:90;
-    width:200;
-    transform:translate(-50%,-50%);
-    border-radius:50%;
-  }
-  [b]{
-    background:#781728;
-    height:180;
-    width:180;
-  }
-  [m]{
-    background:#F6DF96;
-    border:10px solid#781728;
-    height:50;
-    width:50;
-  }
-  [u]{
-    border-radius:99px 99px 0 0;
-    background:#D25B70;
-    top:95
-  }
-  [d]{
-    border-radius:0 0 99px 99px;
-    background:#FFF;
-    top:205
-  }
-    [c]{
-    border:10px solid#6CB3A9;
-    height:200;
-  } 
+<div b > </div > <div u > </div > <div d > </div > <div m > </div > <div c > </div > <body bgcolor=6cb3a9 > <style > div {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   height: 90;
+   width: 200;
+   transform: translate(-50%, -50%);
+   border-radius: 50%;
+}
+[b] {
+   background: #781728;
+   height: 180;
+   width: 180;
+}
+[m] {
+   background: #f6df96;
+   border: 10px solid#781728;
+   height: 50;
+   width: 50;
+}
+[u] {
+   border-radius: 99px 99px 0 0;
+   background: #d25b70;
+   top: 95;
+}
+[d] {
+   border-radius: 0 0 99px 99px;
+   background: #fff;
+   top: 205;
+}
+[c] {
+   border: 10px solid#6CB3A9;
+   height: 200;
+}
 
 /******************** Target #96 - Madala ********************/
 
-<p m><p l><p r><p u><p d>
-<body bgcolor=243D83>
-<style>
-  p {
-    position:absolute;
-    border-radius:50%;
-    top:34;
-    left:100;
-    width: 200;
-    height: 200;
-  }
-  p[m]{
-    background:#6592CF;
-  }
-  p[l],p[u],p[d],p[r]
-  {
-    height:130;
-    width:130;
-    top:49;
-    left:40;
-    border:20px solid #243D83;
-  }
-  p[u]{
-    top:-27;
-    left:115;
-  }
-    p[r]{
-    left:190;
-  }
-    p[d]{
-    top:124;
-    left:115;
-  }
+<p m > <p l > <p r > <p u > <p d > <body bgcolor=243d83 > <style > p {
+   position: absolute;
+   border-radius: 50%;
+   top: 34;
+   left: 100;
+   width: 200;
+   height: 200;
+}
+p[m] {
+   background: #6592cf;
+}
+p[l],
+p[u],
+p[d],
+p[r] {
+   height: 130;
+   width: 130;
+   top: 49;
+   left: 40;
+   border: 20px solid #243d83;
+}
+p[u] {
+   top: -27;
+   left: 115;
+}
+p[r] {
+   left: 190;
+}
+p[d] {
+   top: 124;
+   left: 115;
+}
