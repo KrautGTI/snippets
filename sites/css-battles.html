@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="icon" type="image/x-icon" href="/snippets/sites/tools/favicon.png" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <title>CSS Battles</title>
+   </head>
+
+   <body>
+      <button id="close" onclick="location.href='/snippets/index.html';" style="position: absolute; right: 0.2%; top: 0.5%"><span class="glyphicon glyphicon-remove"></span></button>
+      <h1>CSS Battles</h1>
+      <div>
+         <select name="battle" id="battle" onchange="changeLevel()"></select>
+         <select name="Level" id="play" onchange="changeFrame()"></select>
+      </div>
+      <iframe id="iframe" name="myIframe" style="border: 2px solid #57585a" width="400" height="300"></iframe>
+
+      <script type="module">
+         import { battle, play } from '/Snippets/CSSBattle/cssBattleConfig.js'
+         let selectBattle = document.getElementById('battle')
+         let selectLevel = document.getElementById('play')
+
+         function changeFrame() {
+            $(document).ready(function () {
+               if (selectBattle.value == 'Select Battle' || selectLevel.value == 'Select Level') {
+                  //This will be the default value
+                  $('#iframe').attr('src', './tools/unknownMarks.png')
+               } else {
+                  $('#iframe').attr('src', selectLevel.value)
+               }
+            })
+         }
+
+         //Dynamic Battle dropdown list
+         var battleAmount = Object.keys(battle).length
+         let el = document.createElement('option')
+         el.textContent = battle[0].name
+         el.value = battle[0].name
+         selectBattle.add(el)
+         for (let i = 1; i < battleAmount; i++) {
+            let el = document.createElement('option')
+            el.text = battle[i].id + ' - ' + battle[i].name
+            el.value = battle[i].id
+            selectBattle.add(el)
+         }
+
+         //Dynamic Level dropdown list
+         function changeLevel() {
+            if (selectBattle.value == 'Select Battle') {
+               selectLevel.disabled = true
+               selectLevel.style.cursor = 'not-allowed'
+               selectLevel.title = 'Select Battle first'
+            } else {
+               selectLevel.disabled = false
+               selectLevel.style.cursor = 'pointer'
+               selectLevel.title = ''
+            }
+
+            let playAmount = Object.keys(play).length
+            while (selectLevel.options.length > 0) {
+               selectLevel.remove(0)
+            }
+
+            for (let j = 0; j < playAmount; j++) {
+               let ele = document.createElement('option')
+               if (play[j].parentId == 0) {
+                  ele.text = play[j].name
+                  selectLevel.add(ele)
+               } else if (play[j].parentId == selectBattle.value) {
+                  ele.text = play[j].id + ' - ' + play[j].name
+                  ele.value = play[j].url
+                  selectLevel.add(ele)
+               }
+            }
+            changeFrame()
+         }
+
+         //To be able to call function, since this is a method script
+         window.changeLevel = changeLevel
+         window.changeFrame = changeFrame
+         changeLevel()
+      </script>
+      <style>
+         body {
+            background-image: url('tools/background-dark-mountain.png');
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+         }
+         button:not(#close) {
+            background-image: linear-gradient(to right, #d1643d 0%, #f56e3d 100%);
+            border-radius: 20px;
+            width: 100px;
+            font-size: large;
+            padding: 7px 12px;
+            margin-bottom: 10px;
+            color: black;
+            outline: none;
+            border: none;
+            margin-left: 5px;
+         }
+
+         h1 {
+            text-transform: uppercase;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: burlywood;
+            font-size: 50px;
+         }
+         select {
+            appearance: none;
+            border: 0;
+            outline: 0;
+            width: 199px;
+            height: 3em;
+            padding: 0 4em 0 1em;
+            background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg) no-repeat right 0.8em center / 1.4em, linear-gradient(to left, rgba(255, 255, 255, 0.2) 3em, rgba(255, 255, 255, 0.3) 3em);
+            color: white;
+            border-radius: 0.25em;
+            cursor: pointer;
+            margin-bottom: 10px;
+         }
+
+         select:focus {
+            outline: none;
+         }
+         option {
+            background-color: #3f4041;
+            color: white;
+         }
+
+         @media only screen and (min-width: 1000px) {
+            /* Desktop CSS Only*/
+            button:hover:not(#close) {
+               outline: 1px solid orange;
+            }
+         }
+         @media only screen and (max-width: 600px) {
+            /* Mobile CSS Only*/
+            #iframe {
+               max-width: 99vw;
+            }
+            select {
+               width: 100%;
+            }
+            #play {
+               margin-bottom: 40px;
+               margin-top: -2px;
+            }
+         }
+      </style>
+   </body>
+</html>
