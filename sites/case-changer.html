@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="icon" type="image/x-icon" href="/snippets/sites/tools/favicon.png" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <title>Case Changer</title>
+   </head>
+
+   <body>
+      <button id="close" onclick="window.history.go(-1)" style="position: absolute; right: 0.2%; top: 0.5%">
+         <span class="glyphicon glyphicon-remove"></span>
+      </button>
+      <div class="container">
+         <h2>CASE CHANGER</h2>
+         <div id="contentTitle">Enter text and choose option to convert to</div>
+         <textarea type="text" id="input" placeholder="Enter text here"></textarea>
+         <div id="buttonBar">
+            <div id="layer1">
+               <button id="upper" onclick="convert(event.target.id)" class="btn btn-primary">UPPER CASE</button>
+               <button id="lower" onclick="convert(event.target.id)" class="btn btn-primary">lower case</button>
+            </div>
+            <div id="layer2">
+               <button id="title" onclick="convert(event.target.id)" class="btn btn-primary">Title Case</button>
+               <button id="sentence" onclick="convert(event.target.id)" class="btn btn-primary">Sentence case</button>
+            </div>
+         </div>
+         <textarea id="output" placeholder="Output is shown here" disabled></textarea>
+      </div>
+
+      <script>
+         function convert(type) {
+            let input = document.getElementById('input').value
+            let output = document.getElementById('output')
+            if (input == '' || input == null) {
+               output.style.color = 'darkred'
+               output.value = 'Please enter text to convert.'
+            } else {
+               output.style.color = ''
+               switch (type) {
+                  case 'upper':
+                     output.value = upperCase()
+                     break
+                  case 'lower':
+                     output.value = lowerCase()
+                     break
+                  case 'title':
+                     output.value = titleCase()
+                     break
+                  case 'sentence':
+                     output.value = sentenceCase()
+                     break
+               }
+            }
+         }
+
+         function upperCase() {
+            let input = document.getElementById('input').value
+            return input.toUpperCase()
+         }
+
+         function lowerCase() {
+            let input = document.getElementById('input').value
+            return input.toLowerCase()
+         }
+
+         function titleCase() {
+            let str = document.getElementById('input').value
+            return str.replace(/\w\S*/g, function (txt) {
+               return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+            })
+         }
+
+         function sentenceCase() {
+            let string = document.getElementById('input').value
+            let n = string.split('.')
+            let vfinal = ''
+            for (i = 0; i < n.length; i++) {
+               let spaceput = ''
+               let spaceCount = n[i].replace(/^(\s*).*$/, '$1').length
+               n[i] = n[i].replace(/^\s+/, '')
+               let newstring = n[i].charAt(n[i]).toUpperCase() + n[i].slice(1)
+               for (j = 0; j < spaceCount; j++) spaceput = spaceput + ' '
+               vfinal = vfinal + spaceput + newstring + '. '
+            }
+            vfinal = vfinal.substring(0, vfinal.length - 1).trim()
+            return vfinal
+         }
+      </script>
+      <style>
+         h2 {
+            color: purple;
+            margin-bottom: 15px;
+         }
+         textarea {
+            margin-top: 10px;
+            width: 300px;
+            height: 100px;
+         }
+         #contentTitle {
+            color: whitesmoke;
+            max-width: 300px;
+            margin-bottom: 10px;
+         }
+
+         #input {
+            margin-bottom: 5px;
+         }
+
+         body {
+            background-image: url('tools/background-dark-mountain.png');
+            min-width: 100vw;
+            min-height: 100vh;
+            font-family: 'Source Sans Pro', sans-serif;
+         }
+         .container {
+            display: flex;
+            margin-top: 10px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+         }
+
+         #layer1,
+         #layer2 {
+            width: 300px;
+            margin: 7px 0 7px 0;
+         }
+
+         .btn-primary,
+         .btn-primary:active,
+         .btn-primary:focus {
+            background: purple !important;
+            outline: none !important;
+            border: none;
+            width: 148px;
+            text-decoration: none;
+         }
+         .btn-primary:active {
+            background: #671e67 !important;
+         }
+
+         @media only screen and (max-width: 600px) {
+            /* For Mobiles*/
+            textarea {
+               width: 300px;
+               height: 200px;
+            }
+            #input {
+               margin-bottom: 30px;
+            }
+            #output {
+               margin-top: 30px;
+            }
+         }
+
+         @media only screen and (min-width: 601px) {
+            /* For Desktop*/
+            .btn-primary:hover {
+               background: #671e67;
+            }
+         }
+      </style>
+   </body>
+</html>
