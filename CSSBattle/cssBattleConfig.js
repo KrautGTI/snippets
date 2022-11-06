@@ -22,7 +22,7 @@ const battle = [
    { id: 20, name: 'Hover', length: 8, startDigit: 117 },
    { id: 21, name: 'Rotate', length: 8, startDigit: 125 },
 ]
-let dir = '/Snippets/CSSBattle/Individual/'
+let dir = '/snippets/CSSBattle/Individual/'
 const play = [
    { id: 0, name: 'Select Level', parentId: 0, url: 'default.html' },
    { id: 1, name: 'Simply Square', parentId: 1, url: `${dir}01-Simply-Square.html` },
