@@ -21,6 +21,7 @@ const battle = [
    { id: 19, name: 'Spacing', length: 8, startDigit: 109 },
    { id: 20, name: 'Hover', length: 8, startDigit: 117 },
    { id: 21, name: 'Rotate', length: 8, startDigit: 125 },
+   { id: 22, name: 'Grid', length: 8, startDigit: 133 },
 ]
 let dir = '/snippets/CSSBattle/Individual/'
 const play = [
@@ -157,5 +158,6 @@ const play = [
    { id: 130, name: 'Letter O', parentId: 21, url: `${dir}130-Letter-O.html` },
    { id: 131, name: 'Letter W', parentId: 21, url: `${dir}131-Letter-W.html` },
    { id: 132, name: 'Letter S', parentId: 21, url: `${dir}132-Letter-S.html` },
+   { id: 134, name: 'Wig', parentId: 22, url: `${dir}134-Wig.html` },
 ]
 export { battle, play }
