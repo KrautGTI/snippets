@@ -158,6 +158,7 @@ const play = [
    { id: 130, name: 'Letter O', parentId: 21, url: `${dir}130-Letter-O.html` },
    { id: 131, name: 'Letter W', parentId: 21, url: `${dir}131-Letter-W.html` },
    { id: 132, name: 'Letter S', parentId: 21, url: `${dir}132-Letter-S.html` },
+   { id: 133, name: 'Spiral', parentId: 22, url: `${dir}133-Spiral.html` },
    { id: 134, name: 'Wig', parentId: 22, url: `${dir}134-Wig.html` },
 ]
 export { battle, play }
